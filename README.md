@@ -31,6 +31,8 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 **AI Integration**
 | Component | Description |
 | :--- | :--- |
+|  |  |
+|  |  |
 
 
 ## Workshop Objectives
