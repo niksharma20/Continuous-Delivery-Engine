@@ -1,2 +1,75 @@
-# Continuous-Delivery-Engine
-Continuous Delivery Engine for the Real World: RHDH + Ansible + EDA 
+= Continuous-Delivery-Engine - Technical Workshop
+
+
+== Welcome to Continuous Delivery Engine for the Real World Technical Workshop
+
+This hands-on comprehensive workshop provides **technical understanding** of Continuous Delivery Engine (CDE) components and their implementation. Designed for platform engineers, DevOps practitioners, and technical leaders, this hands-on learning experience will equip you with the expertise to deploy, configure, and optimize your production environments.
+
+It is a follow-on to the Technical Overview & Positioning enablement courses available in the https://training-lms.redhat.com/sso/saml/auth/rhlpint?RelayState=deeplinkbrowseXLR8AMPERSANDin_keyword%3DRHADS[Red Hat Learning Portal^] (login required).
+
+NOTE: This workshop consists of a number of comprehensive modules covering everything from initial setup to advanced production implementations. Each module includes hands-on exercises, real-world scenarios, and practical configuration examples. Feel free to do each module in the order presented, or skip around to the modules that interest you most.
+
+== About Red Hat Advanced Developer Suite
+
+Red Hat Advanced Developer Suite brings together an enterprise-grade developer portal, enhanced software supply chain security, and components that empower platform engineers to enhance developer productivity and streamline the software development lifecycle.
+
+=== Core Benefits
+
+* **Improved Developer Productivity**: Accelerate development with rapid onboarding into preconfigured workspaces, automated templates, and self-service capabilities
+* **Enhanced Software Supply Chain Security**: Protect your software supply chain with automated signing, cryptographic verification, and end-to-end provenance tracking
+* **Modernization and Infrastructure Adaptability**: Drive modernization with flexible tooling integration and AI-driven guidance for refactoring efforts
+
+=== Key Components Covered
+
+[cols="1,3"]
+|===
+| Component | Description
+
+| **Red Hat Developer Hub (RHDH)**
+| Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration
+
+| **Red Hat Trusted Profile Analyzer (TPA)**
+| Build trust in your application's codebase with access to vulnerability fixes and verified content
+
+| **Red Hat Trusted Artifact Signer (TAS)**
+| Enhance software supply chain security by simplifying cryptographic signing and verification of software artifacts
+
+| **AI Integration**
+| AI-driven development workflows within the RHADS ecosystem
+|===
+
+== Workshop Objectives
+
+By the end of this workshop, you will be able to:
+
+* Deploy and configure RHADS components in production environments
+* Implement trusted software supply chain (TSSC) practices across different CI/CD systems
+* Customize RHDH with third-party integrations and self-service patterns
+* Apply security best practices and compliance standards
+* Integrate AI capabilities within the RHADS ecosystem
+* Execute end-to-end RHADS implementations for production use
+
+== Prerequisites
+
+* Experience with Red Hat OpenShift and containerized applications
+* Understanding of CI/CD pipelines and DevOps practices
+* Basic knowledge of software supply chain security concepts
+* Familiarity with developer tools and workflows
+
+== Workshop Structure
+
+This workshop consists of a number of comprehensive modules covering everything from initial setup to advanced production implementations. Each module includes hands-on exercises, real-world scenarios, and practical configuration examples. Feel free to do each module in the order presented, or skip around to the modules that interest you most.
+
+* **Modules 1-4: Getting Started and Core Setup**
+    - Recap of RHADS architecture, and how to install/use individual components of RHADS (RHDH, TPA, and TAS). Understanding the foundational components of RHADS and how they work together to create a comprehensive developer platform.
+* **Modules 5-6: Customization and Orchestration**
+    - Review of customizing RHADS with RHDH configurations and the role of the Orchestrator. Learning how to tailor RHADS to your organization's needs and implement automated workflows that streamline development processes.
+* **Modules 7-9: Security Best Practices**
+    - Summary of RHADS security practices including keyless signing, attestations, SBOMs, and policy enforcement with TPA and TAS. Implementing robust security controls throughout your software supply chain using RHADS components.
+* **Modules 10-12: Trusted Software Supply Chain (TSSC)**
+    - Revisiting RHADS TSSC implementation in OpenShift, integration with RHDH, and patterns for third-party tools. Mastering how to build secure, compliant pipelines with RHADS that integrate security scanning and connect seamlessly with existing CI/CD tools.
+* **Modules 13-14: Artificial Intelligence**
+    - Overview of building AI agents with RHADS and enabling Data Scientists with a secure AI supply chain. Building and deploying AI applications responsibly using RHADS while maintaining security and governance throughout the AI/ML lifecycle.
+
+
+Ready to dive deep into RHADS? Let's begin your journey toward mastering Red Hat Advanced Developer Suite!
