@@ -5,9 +5,14 @@
 
 This hands-on comprehensive workshop provides **technical understanding** of Continuous Delivery Engine (CDE) components and their implementation. Designed for platform engineers, DevOps practitioners, and technical leaders, this hands-on learning experience will equip you with the expertise to deploy, configure, and optimize your production environments.
 
-It is a follow-on to the Technical Overview & Positioning enablement courses available in the https://training-lms.redhat.com/sso/saml/auth/rhlpint?RelayState=deeplinkbrowseXLR8AMPERSANDin_keyword%3DRHADS[Red Hat Learning Portal^] (login required).
+In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Ansible Automation Platform that delivers to containers, VMs, and other infrastructure components through a single, automated, policy-enforced pipeline — no environment left behind.
+Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform serves as the cross-platform automation engine.
+You will learn how to empower developers with a unified self-service experience while maintaining total operational control.
 
-NOTE: This workshop consists of a number of comprehensive modules covering everything from initial setup to advanced production implementations. Each module includes hands-on exercises, real-world scenarios, and practical configuration examples. Feel free to do each module in the order presented, or skip around to the modules that interest you most.
+Goal: Build, Show and Experinec integration between OCP, Ansible, EDA. user can take home this setup and explore different use cases
+You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.
+
+NOTE: 
 
 == About Red Hat Advanced Developer Suite
 
