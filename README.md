@@ -1,4 +1,4 @@
-# Continuous-Delivery-Engine - Technical Workshop
+# Continuous Delivery Engine - Technical Workshop
 
 ## Welcome to Continuous Delivery Engine for the Real World Technical Workshop
 
