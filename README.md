@@ -20,10 +20,10 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Ansible - Execution Environment** |  |
 | **Event Driven Ansible** |  |
 | **Openshift** |  |
-| **Secure Software Supply Chain** | |
+| 🔵 **Secure Software Supply Chain** | |
 | **Red Hat Trusted Profile Analyzer (TPA)** | Build trust in your application's codebase with access to vulnerability fixes and verified content |
 | **Red Hat Trusted Artifact Signer (TAS)** | Enhance software supply chain security by simplifying cryptographic signing and verification of software artifacts |
-| **Lightspeed** | |
+| 🟣 **Lightspeed** | |
 | **AI Integration** | AI-driven development workflows within the RHADS ecosystem |
 
 ## Workshop Objectives
