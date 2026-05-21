@@ -11,6 +11,15 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 >
 > Build, show, and experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases. You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.
 
+## Key Components Covered
+
+## Workshop Objectives
+
+## Prerequisites
+
+## Workshop Structure
+
+
 > [!TIP]
 >
 > shortcuts, optimization tricks will be added here
