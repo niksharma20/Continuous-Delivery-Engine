@@ -41,6 +41,8 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 ## Workshop Structure
 
+## References
+[View the Showroom Demo Event-Driven Ansible Modules](https://redhat-gpte-devopsautomation.github.io/showroom-demo-event-driven-ansible/modules/index.html)
 
 > [!TIP]
 >
