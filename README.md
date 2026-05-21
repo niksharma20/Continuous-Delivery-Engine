@@ -13,6 +13,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 ## Key Components Covered
 
+**Base**
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
@@ -20,11 +21,17 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Ansible - Execution Environment** |  |
 | **Event Driven Ansible** |  |
 | **Openshift** |  |
-| <font color="#3182ce">**Secure Software Supply Chain**</font> | |
+
+**Secure Software Supply Chain**
+| Component | Description |
+| :--- | :--- |
 | **Red Hat Trusted Profile Analyzer (TPA)** | Build trust in your application's codebase with access to vulnerability fixes and verified content |
 | **Red Hat Trusted Artifact Signer (TAS)** | Enhance software supply chain security by simplifying cryptographic signing and verification of software artifacts |
-| <font color="#805ad5">**Lightspeed**</font> | |
-| **AI Integration** | AI-driven development workflows within the RHADS ecosystem |
+
+**AI Integration**
+| Component | Description |
+| :--- | :--- |
+
 
 ## Workshop Objectives
 
