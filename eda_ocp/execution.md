@@ -75,7 +75,7 @@ a) The String (eda.filename.*): When you run a Rulebook Activation inside AAP, y
 b) AAP reads your decoded OpenShift token, dynamically writes a valid, standard kubeconfig file on-the-fly, and mounts it into the temporary runtime environment of the container.  
 c) It assigns the generated path location to the internal variable {{ eda.filename.kubeconfig }}. The Juniper plugin reads this file to learn where your OpenShift cluster lives and who it is logging in as.  
 
-## 3. The Relation to Your OpenShift Implementation Steps  
+## 3. The Relation to OpenShift Implementation Steps  
 Every field passed through that ingestion layer relies directly on the configuration objects created inside OpenShift. Any misconfigure in the steps, the ingestion layer will instantly fail to authorize or collect data.  
 **Rulebook parameters map to your OpenShift configurations**  
 ```
