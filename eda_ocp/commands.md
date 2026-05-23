@@ -48,4 +48,4 @@ oc label pod <your-pod-name> -n default type=eda
 ```  
 #
 #
-##
+## Understanding the ruleboon [openshifteda.yml](/rulebooks/openshifteda.yml) in reference to the above steps
