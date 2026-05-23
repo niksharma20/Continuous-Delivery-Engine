@@ -95,7 +95,6 @@ event.resource.kind      ---->   Step 6: Object Metadata Labels (type=eda)
                                  Ensures OpenShift filters and pushes events to the stream 
                                  rather than ignoring the traffic profile.
 ```
-**Summary**
+**Summary**  
 When your rulebook starts up, the Ingestion Layer reads the dynamic configuration file supplied by the kubeconfig block. It presents the ServiceAccount Token to the OpenShift API. OpenShift checks the ClusterRoleBinding to verify that this account holds the required ClusterRole permissions to watch those resources.  
 If everything matches up, OpenShift begins streaming lifecycle events directly into your rulebook engine.  
-
