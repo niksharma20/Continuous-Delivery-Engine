@@ -43,6 +43,10 @@ The Juniper plugin optimizes resource consumption by ignoring untagged resources
 # Label a namespace for Juniper monitoring
 oc label namespace default type=eda
 
+##
+##
+#
+
 # Label a specific target pod
 oc label pod <your-pod-name> -n default type=eda
 ```  
