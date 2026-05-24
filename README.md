@@ -19,6 +19,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
+| **Orchestrator** | Serverless Workflow |
 | **Openshift** | Target Platform |  
 
 **Phase 2 - Operational Orchestration**  
@@ -26,9 +27,10 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
+| **Orchestrator** | Serverless Workflow |
 | **Openshift** | Target Platform |
 | **Ansible Automation Platform** | Automation Controller |
-| **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
+| **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
 **Phase 3 - Reactive Intelligence**  
 
