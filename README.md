@@ -8,8 +8,9 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 > [!NOTE]
 > **Workshop Goal**
->
+> GitOps defines and EDA Reacts
 > Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases. You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.
+> 
 
 ## Workshop Structure
 
@@ -18,13 +19,27 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
-| **Openshift** |  |
+| **Openshift** | Target Platform |  
 
-**Secure Software Supply Chain**
+**Phase 2 - Operational Orchestration**  
+
 | Component | Description |
 | :--- | :--- |
-| **Red Hat Trusted Profile Analyzer (TPA)** | Build trust in your application's codebase with access to vulnerability fixes and verified content |
-| **Red Hat Trusted Artifact Signer (TAS)** | Enhance software supply chain security by simplifying cryptographic signing and verification of software artifacts |
+| **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
+| **Openshift** | Target Platform |
+| **Ansible Automation Platform** | Automation Controller |
+| **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
+
+**Phase 3 - Reactive Intelligence**  
+
+| Component | Description |
+| :--- | :--- |
+| **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
+| **Openshift** | Target Platform |
+| **Openshift** | Monitoring Stack |
+| **Ansible Automation Platform** | Automation Controller |
+| **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
+| **Ansible Automation Platform** | Automation Decisions |
 
 **AI Integration**
 | Component | Description |
