@@ -11,15 +11,13 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 >
 > Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases. You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.
 
-## Key Components Covered
+## Workshop Structure
 
-**Base**
+**Phase 1 - Declarative Infrastructure**  
+
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
-| **Orchestrator** |  |
-| **Ansible - Execution Environment** |  |
-| **Event Driven Ansible** |  |
 | **Openshift** |  |
 
 **Secure Software Supply Chain**
