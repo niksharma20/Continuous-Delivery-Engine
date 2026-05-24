@@ -40,9 +40,9 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
 | **Openshift** | Target Platform |
 | **Openshift** | Monitoring Stack |
-| **Ansible Automation Platform** | Automation Controller |
-| **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
-| **Ansible Automation Platform** | Automation Decisions |
+| **Ansible Automation Platform** | Automation Controller | 
+| **Event Driven Ansible** | Automation Decisions |  
+| **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) | 
 
 **AI Integration**
 | Component | Description |
