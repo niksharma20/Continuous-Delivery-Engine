@@ -14,7 +14,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 ## Workshop Structure
 
-**Phase 1 - Declarative Infrastructure**  
+[**Phase 1 - Declarative Infrastructure**](/content/phase1_declarative_Infra.md)  
 
 | Component | Description |
 | :--- | :--- |
@@ -23,7 +23,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Openshift** | Target Platform |  
 | **Openshift Gitops** | GitOps |
 
-**Phase 2 - Operational Orchestration**  
+[**Phase 2 - Operational Orchestration**](/content/phase2_operational orchestration.md)
 
 | Component | Description |
 | :--- | :--- |
@@ -33,7 +33,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Ansible Automation Platform** | Automation Controller |
 | **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
-**Phase 3 - Reactive Intelligence**  
+[**Phase 3 - Reactive Intelligence**](phase3_reactive_intelligence.md)
 
 | Component | Description |
 | :--- | :--- |
@@ -44,18 +44,13 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Event Driven Ansible** | Automation Decisions |  
 | **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) | 
 
-**AI Integration**
-| Component | Description |
-| :--- | :--- |
-|  |  |
-|  |  |
+## Workshop Objectives  
 
-
-## Workshop Objectives
+> [!Workshop Objectives]
+>
+> shortcuts, optimization tricks will be added here
 
 ## Prerequisites
-
-## Workshop Structure
 
 ## References
 [View the Showroom Demo Event-Driven Ansible Modules](https://redhat-gpte-devopsautomation.github.io/showroom-demo-event-driven-ansible/modules/index.html)
