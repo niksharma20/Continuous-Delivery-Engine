@@ -21,6 +21,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
 | **Orchestrator** | Serverless Workflow |
 | **Openshift** | Target Platform |  
+| **Openshift Gitops** | GitOps |
 
 **Phase 2 - Operational Orchestration**  
 
