@@ -14,7 +14,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 ## Workshop Structure
 
-[**Phase 1 - Declarative Infrastructure**](/content/modules/phase1_declarative_Infra.md)  
+[**Module 1 - Declarative Infrastructure**](/content/modules/1_declarative_Infra.md)  
 
 | Component | Description |
 | :--- | :--- |
@@ -23,7 +23,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Openshift** | Target Platform |  
 | **Openshift Gitops** | GitOps |
 
-[**Phase 2 - Operational Orchestration**](/content/modules/phase2_operational_orchestration.md)  
+[**Module 2 - Operational Orchestration**](/content/modules/2_operational_orchestration.md)  
 
 | Component | Description |
 | :--- | :--- |
@@ -33,7 +33,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Ansible Automation Platform** | Automation Controller |
 | **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
-[**Phase 3 - Reactive Intelligence**](/content/modules/phase3_reactive_intelligence.md)
+[**Module 3 - Reactive Intelligence**](/content/modules/3_reactive_intelligence.md)
 
 | Component | Description |
 | :--- | :--- |
