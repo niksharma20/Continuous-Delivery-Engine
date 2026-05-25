@@ -31,6 +31,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Orchestrator** | Serverless Workflow |
 | **Openshift** | Target Platform |
 | **Ansible Automation Platform** | Automation Controller |
+| **Event Driven Ansible** | Automation Decisions |  
 | **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
 [**Module 3 - Reactive Intelligence**](content/modules/3_reactive_intelligence)
@@ -42,7 +43,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Openshift** | Monitoring Stack |
 | **Ansible Automation Platform** | Automation Controller | 
 | **Event Driven Ansible** | Automation Decisions |  
-| **Service Now** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) | 
+
 
 ## Workshop Objectives  
 
