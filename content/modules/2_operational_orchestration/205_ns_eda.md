@@ -7,7 +7,7 @@ In this section you will extend the namespace request workflow by enabling **Eve
 When a developer requests a **medium** namespace and checks the **Enable EDA Governance** option, the workflow applies a label to the namespace:
 
 ```
-eda-governed: "true"
+type: "eda"
 ```
 
 This label acts as a signal to the EDA Decision Controller. The [juniper.eda.k8s](https://github.com/juniper/juniper.eda.k8s) collection watches the cluster for events on labelled namespaces and triggers Ansible Automation Controller (AAC) job templates in response to detected drift, policy violations, or resource lifecycle events.
