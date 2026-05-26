@@ -21,8 +21,10 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 > [!WARNING]
 > ## Prerequisites
 > We will be using two CI from Red Hat Demo to provide us the baseline Infrastrature.
-> 1)
-> 2) 
+> 1)  
+> 2)
+>
+> 
 
 ## Workshop Structure
 
