@@ -13,10 +13,10 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 > 
 
 > [!NOTE]
-> **Workshop Goal**
-> Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases.
-> Today we will explore a simple use case "Namespace as Service" with EDA Goverance to understand the concept and integrations.
-> You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.  
+> ## **Workshop Goal**
+> ### Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases.
+> ### Today we will explore a simple use case "Namespace as Service" with EDA Goverance to understand the concept and integrations.
+> ### You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.  
 
 
 ## Workshop Structure
