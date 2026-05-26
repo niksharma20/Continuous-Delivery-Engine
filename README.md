@@ -18,6 +18,11 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 > ### Today we will explore a simple use case "Namespace as Service" with EDA Goverance to understand the concept and integrations.
 > ### You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.  
 
+> [!WARNING]
+> ## Prerequisites
+> We will be using two CI from Red Hat Demo to provide us the baseline Infrastrature.
+> 1)
+> 2) 
 
 ## Workshop Structure
 
@@ -68,7 +73,3 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 > [!TIP]
 >
 > shortcuts, optimization tricks will be added here
-
-> [!WARNING]
->
-> Good for pointing out common configuration pitfalls or credentials they shouldn't expose.
