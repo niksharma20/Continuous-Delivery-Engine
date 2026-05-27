@@ -8,7 +8,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 > [!IMPORTANT]
 >
-> ## During the **Red Hat Tech Day** workshop we will complete only 2 modules.
+> ## During the **Red Hat Tech Day** workshop we will only Implement Module 1 & 2.
 >
 > 
 
