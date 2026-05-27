@@ -23,7 +23,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 > 
 > ## Prerequisites
 > We will be using two CI from Red Hat Demo to provide us the baseline Infrastrature.  
-> 1)  
+> 1)  [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&utm_source=webapp&utm_medium=share-link)
 > 2)
 >
 > 
