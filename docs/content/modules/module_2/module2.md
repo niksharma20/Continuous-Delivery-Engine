@@ -1,5 +1,5 @@
 ## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 2 - Event Drieven Ansible for Openshift
+### Module 2 - Event Driven Ansible for Openshift
 
 ## Architecture  
 
