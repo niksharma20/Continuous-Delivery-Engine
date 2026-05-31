@@ -1,5 +1,5 @@
 site_name: Red Hat Tech Day Netherlands - Continuous Delivery Engine
-site_description: Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.
+site_description: Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, Event Driven Ansible and Openshift.
 site_author: Nikhil Sharma
 repo_url: https://github.com/niksharma20/Continuous-Delivery-Engine
 repo_name: niksharma20/Continuous-Delivery-Engine

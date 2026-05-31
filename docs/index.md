@@ -1,6 +1,11 @@
 # Continuous Delivery Engine: Hands-On Technical Workshop   
 ### Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.  
-## **Use Case: Namespace Goverance**  
+
+## Architecture  
+![Architecture Diagram](docs/content/images/module/module_3/full_namespace_goverance.jpg). 
+
+## **Use Case: Namespace Goverance**
+
 
 This hands-on comprehensive workshop provides **technical understanding** of Continuous Delivery Engine (CDE) components and their implementation.  
 Designed for platform engineers, DevOps practitioners, and technical leaders.  
@@ -23,7 +28,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 
 ## Workshop Structure  
 
-[**Module 1 - Declarative Infrastructure**](content/modules/1_declarative_infra)  
+[**Module 1 - Declarative Infrastructure**](content/modules/module_1)  
 
 | Component | Description |
 | :--- | :--- |
@@ -32,28 +37,26 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Openshift** | Target Platform |  
 | **Openshift Gitops** | GitOps |
 
-[**Module 2 - Operational Orchestration**](content/modules/2_operational_orchestration)  
+[**Module 2 - Event Drieven Ansible for Openshift**](content/modules/module_2)  
+
+| Component | Description |
+| :--- | :--- |
+| **Openshift** | Target Platform |
+| **Ansible Automation Platform** | Automation Controller |
+| **Event Driven Ansible** | Automation Decisions |  
+
+
+[**Module 3 - Enforcing Governance **](content/modules/module_3)
 
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
 | **Orchestrator** | Serverless Workflow |
-| **Openshift** | Target Platform |
-| **Openshift Gitops** | GitOps |
-| **Ansible Automation Platform** | Automation Controller |
-| **Event Driven Ansible** | Automation Decisions |  
-| **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
-
-[**Module 3 - Reactive Intelligence**](content/modules/3_reactive_intelligence)
-
-| Component | Description |
-| :--- | :--- |
-| **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
-| **Openshift** | Target Platform |
-| **Openshift Gitops** | GitOps |
-| **Openshift** | Monitoring Stack - Promethues & Alert Manager |
 | **Ansible Automation Platform** | Automation Controller | 
-| **Event Driven Ansible** | Automation Decisions |  
+| **Event Driven Ansible** | Automation Decisions | 
+| **Openshift** | Target Platform |
+| **Openshift Gitops** | GitOps | 
+| **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
 >
 > ## Use Case to explore
