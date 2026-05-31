@@ -20,7 +20,7 @@
     
     
       
-        <title>Continuous Delivery Engine - Technical Workshop - Red Hat Tech Day Netherlands - Continuous Delivery Engine</title>
+        <title>Module3 - Red Hat Tech Day Netherlands - Continuous Delivery Engine</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#continuous-delivery-engine-technical-workshop" class="md-skip">
+        <a href="#continuous-delivery-engine-hands-on-technical-workshop" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Continuous Delivery Engine - Technical Workshop
+              Module3
             
           </span>
         </div>
@@ -469,26 +469,14 @@
   
 
 
-<h1 id="continuous-delivery-engine-technical-workshop">Continuous Delivery Engine - Technical Workshop</h1>
-<h2 id="welcome-to-continuous-delivery-engine-for-the-real-world-technical-workshop">Welcome to Continuous Delivery Engine for the Real World Technical Workshop</h2>
-<p>This hands-on comprehensive workshop provides <strong>technical understanding</strong> of Continuous Delivery Engine (CDE) components and their implementation. Designed for platform engineers, DevOps practitioners, and technical leaders, this hands-on learning experience will equip you with the expertise to deploy, configure, and optimize your production environments.</p>
-<p>In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Ansible Automation Platform that delivers to containers, VMs, and other infrastructure components through a single, automated, policy-enforced pipeline — no environment left behind. Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform serves as the cross-platform automation engine. You will learn how to empower developers with a unified self-service experience while maintaining total operational control.  </p>
-<blockquote>
-<p>[!IMPORTANT]</p>
-<h3 id="during-the-red-hat-tech-day-workshop-we-will-only-implement-module-1-2">During the <strong>Red Hat Tech Day</strong> workshop we will only Implement Module 1 &amp; 2.</h3>
-<p>[!NOTE]</p>
-<h3 id="workshop-goal"><strong>Workshop Goal</strong></h3>
-<h4 id="build-show-and-experience-the-integration-between-ocp-ansible-and-eda-users-can-take-home-this-setup-and-explore-different-use-cases">Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases.</h4>
-<h4 id="today-we-will-explore-a-simple-use-case-namespace-as-service-with-eda-goverance-to-understand-the-concept-and-integrations">Today we will explore a simple use case "Namespace as Service" with EDA Goverance to understand the concept and integrations.</h4>
-<h4 id="youll-walk-away-with-a-working-end-to-end-delivery-pattern-you-can-adapt-to-your-own-heterogeneous-environment">You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.</h4>
-<p>[!WARNING]</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>We will be using two CI from Red Hat Demo to provide us the baseline Infrastrature.<br />
-1)  <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&amp;utm_source=webapp&amp;utm_medium=share-link">Ansible 2.6 with EDA</a>
-2)  <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&amp;utm_source=webapp&amp;utm_medium=share-link">Openshift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator</a></p>
-</blockquote>
-<h2 id="workshop-structure">Workshop Structure</h2>
-<p><a href="content/modules/1_declarative_infra"><strong>Module 1 - Declarative Infrastructure</strong></a>  </p>
+  <h1>Module3</h1>
+
+<h2 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h2>
+<h3 id="module-3-enforcing-governance">Module 3 - Enforcing Governance**</h3>
+<h2 id="architecture">Architecture</h2>
+<p><img alt="Architecture Diagram" src="content/images/module/module_3/full_namespace_goverance.jpg" /></p>
+<blockquote></blockquote>
+<h2 id="component">Component</h2>
 <table>
 <thead>
 <tr>
@@ -504,41 +492,6 @@
 <tr>
 <td style="text-align: left;"><strong>Orchestrator</strong></td>
 <td style="text-align: left;">Serverless Workflow</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
-<td style="text-align: left;">GitOps</td>
-</tr>
-</tbody>
-</table>
-<p><a href="content/modules/2_operational_orchestration"><strong>Module 2 - Operational Orchestration</strong></a>  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Red Hat Developer Hub (RHDH)</strong></td>
-<td style="text-align: left;">Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Orchestrator</strong></td>
-<td style="text-align: left;">Serverless Workflow</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
-<td style="text-align: left;">GitOps</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Ansible Automation Platform</strong></td>
@@ -547,6 +500,14 @@
 <tr>
 <td style="text-align: left;"><strong>Event Driven Ansible</strong></td>
 <td style="text-align: left;">Automation Decisions</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Openshift</strong></td>
+<td style="text-align: left;">Target Platform</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
+<td style="text-align: left;">GitOps</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>GitHub</strong></td>
@@ -554,48 +515,14 @@
 </tr>
 </tbody>
 </table>
-<p><a href="content/modules/3_reactive_intelligence"><strong>Module 3 - Reactive Intelligence</strong></a></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Red Hat Developer Hub (RHDH)</strong></td>
-<td style="text-align: left;">Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
-<td style="text-align: left;">GitOps</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Monitoring Stack - Promethues &amp; Alert Manager</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Ansible Automation Platform</strong></td>
-<td style="text-align: left;">Automation Controller</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Event Driven Ansible</strong></td>
-<td style="text-align: left;">Automation Decisions</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>[!TIP]</p>
 <h2 id="use-case-to-explore">Use Case to explore</h2>
-</blockquote>
-<h2 id="prerequisites_1">Prerequisites</h2>
+<blockquote></blockquote>
+<h2 id="prerequisites">Prerequisites</h2>
+<blockquote></blockquote>
 <h2 id="references">References</h2>
-<p><a href="https://redhat-gpte-devopsautomation.github.io/showroom-demo-event-driven-ansible/modules/index.html">View the Showroom Demo Event-Driven Ansible Modules</a>  </p>
+<p><a href="https://github.com/redhat-ads-tech/rhads-enablement-l3-st-self-service">Event Driven Ansible for Openshift</a><br />
+<a href="https://github.com/redhat-ads-tech/rhads-enablement-l3/tree/main/content/modules/ROOT/pages/rhdh-orchestrator">RHDH Advanced Workflows</a>
+<a href="https://github.com/rhdhorchestrator/serverless-workflows">RHDH Serverless Workflow</a></p>
 
 
 
