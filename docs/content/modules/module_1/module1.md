@@ -1,5 +1,4 @@
-## Continuous Delivery Engine: Hands-On Technical Workshop | Declarative Infrastructure  
-## Architecture  
+# Architecture  
 ```mermaid
 graph LR
     %% Color Palette Configurations

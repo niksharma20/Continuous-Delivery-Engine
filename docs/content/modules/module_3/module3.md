@@ -1,5 +1,4 @@
-## Continuous Delivery Engine: Hands-On Technical Workshop | Enforcing Governance  
-## Architecture  
+# Architecture  
 ```mermaid
 graph LR
     %% Color Palette Configurations

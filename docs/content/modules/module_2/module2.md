@@ -1,5 +1,4 @@
-## Continuous Delivery Engine: Hands-On Technical Workshop | EDA for Openshift  
-## Architecture  
+# Architecture  
 ```mermaid
 graph TD
     %% Define Styles and Colors

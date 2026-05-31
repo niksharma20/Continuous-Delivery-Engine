@@ -37,7 +37,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Setup: content/setup/setup.md
-  - Module 1: content/modules/module_1/module1.md
-  - Module 2: content/modules/module_2/module2.md
-  - Module 3: content/modules/module_3/module3.md
+  - Declarative Infrastructure: content/modules/module_1/module1.md
+  - EDA for Openshift: content/modules/module_2/module2.md
+  - Enforcing Governance via IDP: content/modules/module_3/module3.md
   - Conclusion: content/conclusion/conclusion.md
