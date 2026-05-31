@@ -7,7 +7,6 @@ repo_name: niksharma20/Continuous-Delivery-Engine
 extra:
   collaborator: Ismail Dhaoui
   collaborator_url: https://github.com/idhaoui
-  site_usecase: "Use Case: Namespace Goverance"
 
 theme:
   name: material
