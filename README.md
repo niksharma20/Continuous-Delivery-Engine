@@ -1,4 +1,4 @@
-# Technical Workshop  
+# Hands-On Technical Workshop  
 ## Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.
 ### Use Case: Namespace Goverance
 
