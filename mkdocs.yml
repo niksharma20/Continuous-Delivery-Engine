@@ -9,6 +9,9 @@ extra:
   collaborator: Ismail Dhaoui
   collaborator_url: https://github.com/idhaoui
 
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
 theme:
   name: material
   palette:
@@ -25,7 +28,11 @@ plugins:
   - include-markdown
   
 markdown_extensions:
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 nav:
   - Home: index.md
