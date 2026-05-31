@@ -1,5 +1,5 @@
 # Continuous Delivery Engine: Hands-On Technical Workshop   
-### Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.  
+### Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and Event Driven Ansible.  
 
 ## Architecture  
 ![Architecture Diagram](content/images/module/module_3/fulll_namespace_goverance.jpg)
