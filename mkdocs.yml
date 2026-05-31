@@ -11,7 +11,6 @@ extra:
 
 theme:
   name: material
-  custom_dir: theme
   palette:
     - primary: red
       accent: red
@@ -27,3 +26,8 @@ plugins:
   
 nav:
   - Home: index.md
+  - Setup:
+  - Module 1:
+  - Module 2:
+  - Module 3:
+  - Conclusion:
