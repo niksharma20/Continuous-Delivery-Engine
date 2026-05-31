@@ -26,8 +26,8 @@ plugins:
   
 nav:
   - Home: index.md
-  - Setup:
-  - Module 1:
-  - Module 2:
-  - Module 3:
-  - Conclusion:
+  - Setup: docs/content/setup/index.md
+  - Module 1: docs/content/modules/module_1/index.md
+  - Module 2: docs/content/modules/module_2/index.md
+  - Module 3: docs/content/modules/module_3/index.md
+  - Conclusion: docs/content/conclusion/conclusion.md
