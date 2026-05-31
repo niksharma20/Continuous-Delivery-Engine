@@ -1,0 +1,706 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.">
+      
+      
+        <meta name="author" content="Nikhil Sharma">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Orchestrator Installation and Setup - CDE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#orchestrator-installation-and-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="CDE" class="md-header__button md-logo" aria-label="CDE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CDE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Orchestrator Installation and Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/niksharma20/Continuous-Delivery-Engine" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    niksharma20/Continuous-Delivery-Engine
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/setup/setup.md" class="md-tabs__link">
+        
+  
+    
+  
+  Setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/modules/module_1/module1.md" class="md-tabs__link">
+        
+  
+    
+  
+  Module 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/modules/module_2/module2.md" class="md-tabs__link">
+        
+  
+    
+  
+  Module 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/modules/module_3/module3.md" class="md-tabs__link">
+        
+  
+    
+  
+  Module 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/conclusion/conclusion.md" class="md-tabs__link">
+        
+  
+    
+  
+  Conclusion
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="CDE" class="md-nav__button md-logo" aria-label="CDE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CDE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/niksharma20/Continuous-Delivery-Engine" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    niksharma20/Continuous-Delivery-Engine
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/setup/setup.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/modules/module_1/module1.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/modules/module_2/module2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/modules/module_3/module3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/conclusion/conclusion.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="orchestrator-installation-and-setup">Orchestrator Installation and Setup</h1>
+<h2 id="overview">Overview</h2>
+<p>Since the Orchestrator plugin for your Developer Portal relies on Serverless Workflow, it requires the <strong>OpenShift Serverless Logic Operator</strong> to provide the underlying primitives.</p>
+<p>This Operator provides the necessary <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">Custom Resources</a> for <strong>SonataFlow</strong>, which the Orchestrator uses to facilitate the execution of custom workflows.</p>
+<hr />
+<h2 id="step-1-install-the-openshift-serverless-logic-operator">Step 1: Install the OpenShift Serverless Logic Operator</h2>
+<p>Confirm whether the Operator is already installed by visiting the <strong>Installed Operators</strong> section of the OpenShift Web Console.</p>
+<blockquote>
+<p><strong>ℹ️ Note</strong>
+You must be logged in as a cluster administrator to manage Operators. Ensure you have the appropriate credentials before proceeding.</p>
+</blockquote>
+<p>If the Operator is <strong>not</strong> installed, install it via OperatorHub:</p>
+<ol>
+<li>Navigate to <strong>OperatorHub</strong> in the OpenShift Web Console.</li>
+<li>Search for <strong>OpenShift Serverless Logic</strong> and select the <strong>OpenShift Serverless Logic Operator</strong> from the Red Hat catalog.</li>
+<li>Select the appropriate version (e.g. <code>1.36.0</code> or the latest stable release available in your environment).</li>
+<li>On the install form:</li>
+<li>Keep the default namespace (<code>openshift-serverless-logic</code> or as recommended)</li>
+<li>Set <strong>Update Approval</strong> to <code>Automatic</code></li>
+<li>Click <strong>Install</strong> and wait for the installation to complete.</li>
+<li>Confirm the Operator status shows <strong>Succeeded</strong> in the Installed Operators list.</li>
+</ol>
+<hr />
+<h2 id="step-2-enable-the-orchestrator-plugins-in-your-developer-portal">Step 2: Enable the Orchestrator Plugins in Your Developer Portal</h2>
+<p>The Orchestrator requires the following dynamic plugins to be enabled in your Developer Portal configuration:</p>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@redhat/backstage-plugin-orchestrator</code></td>
+<td>Frontend UI — workflow listing and execution</td>
+</tr>
+<tr>
+<td><code>@redhat/backstage-plugin-orchestrator-backend-dynamic</code></td>
+<td>Backend — connects to SonataFlow; manages workflow state</td>
+</tr>
+<tr>
+<td><code>@redhat/backstage-plugin-scaffolder-backend-module-orchestrator-dynamic</code></td>
+<td>Scaffolder integration — allows Software Templates to trigger workflows</td>
+</tr>
+<tr>
+<td><code>@redhat/backstage-plugin-orchestrator-form-widgets</code></td>
+<td>UI form components for workflow input rendering</td>
+</tr>
+</tbody>
+</table>
+<h3 id="locate-the-dynamic-plugins-configmap">Locate the Dynamic Plugins ConfigMap</h3>
+<ol>
+<li>Open the OpenShift Web Console and navigate to <strong>Workloads → ConfigMaps</strong>.</li>
+<li>Select the namespace where your Developer Portal is deployed.</li>
+<li>Find and open the dynamic plugins ConfigMap (typically named <code>&lt;your-rhdh-instance&gt;-dynamic-plugins</code> or similar).</li>
+</ol>
+<h3 id="verify-plugin-configuration">Verify Plugin Configuration</h3>
+<ol>
+<li>Review the <code>plugins</code> array in the ConfigMap YAML and confirm all four Orchestrator plugins listed above are present.</li>
+<li>Inspect the <code>@redhat/backstage-plugin-orchestrator-backend-dynamic</code> entry. It should include a <code>dependencies</code> property pointing to SonataFlow:</li>
+</ol>
+<p><code>yaml
+   - package: '@redhat/backstage-plugin-orchestrator-backend-dynamic'
+     disabled: false
+     dependencies:
+       - ref: sonataflow</code></p>
+<blockquote>
+<p><strong>ℹ️ Note</strong>
+The <code>dependencies.ref: sonataflow</code> key instructs the Developer Portal Operator to automatically provision a <strong>SonataFlowPlatform</strong> Custom Resource in the same namespace. This is what connects your portal to the workflow engine.
+1. Inspect the <code>@redhat/backstage-plugin-scaffolder-backend-module-orchestrator-dynamic</code> entry. It should include a <code>pluginConfig</code> section specifying the Data Index Service URL:</p>
+</blockquote>
+<p><code>yaml
+   - package: '@redhat/backstage-plugin-scaffolder-backend-module-orchestrator-dynamic'
+     disabled: false
+     pluginConfig:
+       orchestrator:
+         dataIndexService:
+           url: http://sonataflow-platform-data-index-service</code></p>
+<blockquote>
+<p><strong>ℹ️ Note</strong>
+The <code>dataIndexService.url</code> tells the plugin where to fetch available workflows from. The default URL assumes SonataFlow is deployed in the same namespace as the Developer Portal. If you deploy SonataFlow in a separate namespace or cluster, update this URL accordingly.</p>
+</blockquote>
+<h3 id="enable-the-plugins">Enable the Plugins</h3>
+<ol>
+<li>If any of the Orchestrator plugins are set to <code>disabled: true</code>, change them to <code>disabled: false</code>.</li>
+<li>Save the ConfigMap.</li>
+<li>The Developer Portal Operator will detect the change and reconcile — expect the pods to restart. Wait for all pods to return to a healthy (Running) state before proceeding.</li>
+</ol>
+<hr />
+<h2 id="step-3-verify-the-sonataflowplatform">Step 3: Verify the SonataFlowPlatform</h2>
+<p>Once the plugins are enabled and the pods have stabilised, confirm that the <strong>SonataFlowPlatform</strong> Custom Resource was created and is healthy.</p>
+<h3 id="check-the-topology-view">Check the Topology View</h3>
+<ol>
+<li>In the OpenShift Web Console, navigate to the <strong>Topology</strong> view for your Developer Portal namespace.</li>
+<li>Wait for the SonataFlow pods to show a dark blue ring (Running/Ready). This may take a few minutes as the SonataFlow components depend on the portal being fully initialised with the newly enabled plugins.</li>
+<li>You should see a <strong>SonataFlowPlatform</strong> (abbreviated <strong>SFP</strong>) deployment in the topology.</li>
+</ol>
+<h3 id="inspect-the-sonataflowplatform-cr">Inspect the SonataFlowPlatform CR</h3>
+<ol>
+<li>Click the three-dot menu next to the <code>sonataflow-platform</code> resource and select <strong>Edit SonataFlowPlatform</strong>.</li>
+<li>In the YAML view, confirm the following:</li>
+</ol>
+<p><strong><code>ownerReferences</code></strong> — Should reference your Developer Portal instance. This confirms the portal is managing the SonataFlowPlatform lifecycle.</p>
+<p><strong><code>spec.services</code></strong> — Should show a database connection configuration. SonataFlow uses your Developer Portal’s PostgreSQL database to manage and persist workflow state across executions.</p>
+<p><code>yaml
+   spec:
+     services:
+       dataIndex:
+         persistence:
+           postgresql:
+             secretRef:
+               name: &lt;your-db-secret&gt;
+               userKey: POSTGRESQL_USER
+               passwordKey: POSTGRESQL_PASSWORD
+             serviceRef:
+               name: &lt;your-postgresql-service&gt;
+               port: 5432
+               databaseName: sonataflow</code></p>
+<blockquote>
+<p><strong>💡 Tip</strong>
+Adjust the <code>secretRef</code> and <code>serviceRef</code> values to match your environment’s PostgreSQL deployment. If your Developer Portal was installed via the RHDH Operator, the PostgreSQL instance and secret are typically provisioned automatically.</p>
+</blockquote>
+<h3 id="verify-data-index-service">Verify Data Index Service</h3>
+<ol>
+<li>Navigate to <strong>Workloads → Pods</strong> in the Developer Portal namespace.</li>
+<li>Confirm the following pods are Running:</li>
+<li><code>sonataflow-platform-data-index-service-*</code></li>
+<li><code>sonataflow-platform-jobs-service-*</code></li>
+<li>If pods are in a <code>CrashLoopBackOff</code> or <code>Pending</code> state, check Events and Logs for database connectivity issues.</li>
+</ol>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely Cause / Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orchestrator menu not visible in portal</td>
+<td>Plugins still disabled in ConfigMap — re-check <code>disabled: false</code> for all four plugins</td>
+</tr>
+<tr>
+<td>SonataFlowPlatform pods not starting</td>
+<td>Operator not installed or database secret missing — verify Operator status and PostgreSQL connectivity</td>
+</tr>
+<tr>
+<td>Workflows not appearing in portal UI</td>
+<td><code>dataIndexService.url</code> misconfigured — confirm the Data Index pod is running and the URL is reachable from the backend plugin</td>
+</tr>
+<tr>
+<td>Portal pods restarting after enabling plugins</td>
+<td>Normal during reconciliation — wait 3–5 minutes for stabilisation</td>
+</tr>
+<tr>
+<td><code>ownerReferences</code> missing on SonataFlowPlatform</td>
+<td><code>dependencies.ref: sonataflow</code> not present in backend plugin config — re-check ConfigMap</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>You have now:</p>
+<ul>
+<li>Installed the <strong>OpenShift Serverless Logic Operator</strong> to provide SonataFlow Custom Resources</li>
+<li>Enabled and configured the <strong>four Orchestrator dynamic plugins</strong> in your Developer Portal</li>
+<li>Verified that the <strong>SonataFlowPlatform</strong> is healthy and connected to your portal’s database</li>
+</ul>
+<p>With the Orchestrator installed, your Developer Portal is now capable of hosting, managing, and executing stateful, long-running workflows. The next step is to build and deploy your first workflow.</p>
+<hr />
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://www.rhdhorchestrator.io/">Orchestrator project documentation</a></li>
+<li><a href="https://sonataflow.org/">SonataFlow documentation</a></li>
+<li><a href="https://serverlessworkflow.io/">Serverless Workflow specification</a></li>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_developer_hub">Red Hat Developer Hub documentation</a></li>
+<li><a href="https://docs.redhat.com/en/documentation/openshift_serverless">OpenShift Serverless documentation</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

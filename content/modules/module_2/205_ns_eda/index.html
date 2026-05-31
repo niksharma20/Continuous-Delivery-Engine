@@ -1,0 +1,848 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.">
+      
+      
+        <meta name="author" content="Nikhil Sharma">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Part 7: EDA-Enabled Namespace Provisioning - CDE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-7-eda-enabled-namespace-provisioning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="CDE" class="md-header__button md-logo" aria-label="CDE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CDE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part 7: EDA-Enabled Namespace Provisioning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/niksharma20/Continuous-Delivery-Engine" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    niksharma20/Continuous-Delivery-Engine
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/setup/setup.md" class="md-tabs__link">
+        
+  
+    
+  
+  Setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/modules/module_1/module1.md" class="md-tabs__link">
+        
+  
+    
+  
+  Module 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/modules/module_2/module2.md" class="md-tabs__link">
+        
+  
+    
+  
+  Module 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/modules/module_3/module3.md" class="md-tabs__link">
+        
+  
+    
+  
+  Module 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docs/content/conclusion/conclusion.md" class="md-tabs__link">
+        
+  
+    
+  
+  Conclusion
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="CDE" class="md-nav__button md-logo" aria-label="CDE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CDE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/niksharma20/Continuous-Delivery-Engine" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    niksharma20/Continuous-Delivery-Engine
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/setup/setup.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/modules/module_1/module1.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/modules/module_2/module2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/modules/module_3/module3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/content/conclusion/conclusion.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="part-7-eda-enabled-namespace-provisioning">Part 7: EDA-Enabled Namespace Provisioning</h1>
+<h2 id="overview">Overview</h2>
+<p>In this section you will extend the namespace request workflow by enabling <strong>Event-Driven Ansible (EDA)</strong> governance on a namespace at provisioning time.</p>
+<p>When a developer requests a <strong>medium</strong> namespace and checks the <strong>Enable EDA Governance</strong> option, the workflow applies a label to the namespace:</p>
+<pre><code>type: &quot;eda&quot;
+</code></pre>
+<p>This label acts as a signal to the EDA Decision Controller. The <a href="https://github.com/juniper/juniper.eda.k8s">juniper.eda.k8s</a> collection watches the cluster for events on labelled namespaces and triggers Ansible Automation Controller (AAC) job templates in response to detected drift, policy violations, or resource lifecycle events.</p>
+<p>By the end of this section you will have:</p>
+<ul>
+<li>Provisioned an EDA-governed medium namespace via the Orchestrator workflow</li>
+<li>Observed how the EDA label activates namespace-scoped event polling</li>
+<li>Triggered and verified EDA-driven remediation for three real-world scenarios:</li>
+<li>A PersistentVolumeClaim created without a storage class label</li>
+<li>A TLS certificate Secret missing a required annotation</li>
+<li>A NetworkPolicy deleted from the namespace</li>
+</ul>
+<hr />
+<h2 id="architecture-how-the-eda-label-connects-the-layers">Architecture: How the EDA Label Connects the Layers</h2>
+<pre><code>Developer checks &quot;Enable EDA Governance&quot; in workflow form
+          ↓
+Orchestrator workflow provisions namespace via Software Template
+          ↓
+Software Template applies label: eda-governed=true to Namespace CR
+          ↓
+EDA Decision Controller (juniper.eda.k8s) detects labelled namespace
+          ↓
+EDA begins polling events scoped to that namespace
+          ↓
+Event detected (PVC / Certificate / NetworkPolicy change)
+          ↓
+EDA rulebook fires matching rule
+          ↓
+Ansible Automation Controller runs remediation Job Template
+          ↓
+Namespace returns to desired state — Git is the audit trail
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Self-service UI</td>
+<td>Developer Portal (Orchestrator workflow form)</td>
+</tr>
+<tr>
+<td>Provisioning</td>
+<td>SonataFlow workflow → Software Template → GitOps (ArgoCD)</td>
+</tr>
+<tr>
+<td>Label application</td>
+<td>Namespace CR annotation applied by Helm chart at sync time</td>
+</tr>
+<tr>
+<td>Event source</td>
+<td><code>juniper.eda.k8s</code> collection watching labelled namespaces</td>
+</tr>
+<tr>
+<td>Decision engine</td>
+<td>Ansible EDA Decision Controller (rulebooks)</td>
+</tr>
+<tr>
+<td>Remediation</td>
+<td>Ansible Automation Controller job templates (playbooks)</td>
+</tr>
+<tr>
+<td>Audit</td>
+<td>AAC job logs + Git history of namespace manifests</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="step-1-update-the-software-template-to-support-the-eda-label">Step 1: Update the Software Template to Support the EDA Label</h2>
+<h3 id="1a-add-the-eda-checkbox-to-the-template-form">1a: Add the EDA Checkbox to the Template Form</h3>
+<p>In your namespace Software Template (<code>template.yaml</code>), add the following parameter to the <code>spec.parameters</code> section:</p>
+<pre><code class="language-yaml">- title: Governance Options
+  properties:
+    edaGovernance:
+      title: Enable EDA Governance
+      type: boolean
+      default: false
+      description: &gt;
+        When enabled, applies the eda-governed=true label to the namespace.
+        The EDA Decision Controller will begin polling events on this namespace
+        and trigger remediation playbooks for detected drift or policy violations.
+  dependencies: {}
+</code></pre>
+<h3 id="1b-pass-the-value-through-the-workflow-step">1b: Pass the Value Through the Workflow Step</h3>
+<p>In the <code>steps</code> section of <code>template.yaml</code>, pass <code>edaGovernance</code> as a value to the Helm chart action:</p>
+<pre><code class="language-yaml">- id: create-namespace-manifests
+  name: Create Namespace Manifests
+  action: fetch:template
+  input:
+    url: ./skeleton
+    values:
+      namespace: ${{ parameters.namespaceName }}
+      size: ${{ parameters.size }}
+      edaGovernance: ${{ parameters.edaGovernance }}
+</code></pre>
+<h3 id="1c-apply-the-label-conditionally-in-the-helm-chart">1c: Apply the Label Conditionally in the Helm Chart</h3>
+<p>In <code>manifests/helm/app/templates/namespace.yaml</code>, add the EDA label conditionally:</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.namespace }}
+  labels:
+    environment: {{ .Values.environment | default &quot;dev&quot; }}
+    managed-by: gitops
+    {{- if .Values.edaGovernance }}
+    eda-governed: &quot;true&quot;
+    {{- end }}
+  annotations:
+    provisioned-by: orchestrator
+    {{- if .Values.edaGovernance }}
+    eda.ansible.com/watch-events: &quot;PersistentVolumeClaim,Secret,NetworkPolicy&quot;
+    {{- end }}
+</code></pre>
+<blockquote>
+<p><strong>ℹ️ Note</strong>
+The <code>eda.ansible.com/watch-events</code> annotation is optional but useful — it documents which resource types the EDA rulebook monitors for this namespace and can be read by tooling to auto-generate rulebook scope.</p>
+</blockquote>
+<p>Commit these changes to your template repository. ArgoCD will sync the updated template on next reconciliation.</p>
+<h2 id="-">---</h2>
+<h2 id="step-4-provision-an-eda-governed-medium-namespace">Step 4: Provision an EDA-Governed Medium Namespace</h2>
+<ol>
+<li>
+<p>Log in to your Developer Portal as a developer user.</p>
+</li>
+<li>
+<p>Select <strong>Orchestrator</strong> from the left-hand navigation menu.</p>
+</li>
+<li>
+<p>Click <strong>Run</strong> on the <strong>Create OpenShift Namespace</strong> workflow.</p>
+</li>
+<li>
+<p>Fill in the form as follows:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Namespace name</td>
+<td><code>&lt;your-username&gt;-medium</code></td>
+</tr>
+<tr>
+<td>Issue Tracker Host</td>
+<td><code>&lt;your-issue-tracker-hostname&gt;</code></td>
+</tr>
+<tr>
+<td>Requester</td>
+<td><code>&lt;your-username&gt;</code></td>
+</tr>
+<tr>
+<td>Size</td>
+<td><code>medium</code></td>
+</tr>
+<tr>
+<td>Reason</td>
+<td><code>EDA governance lab</code></td>
+</tr>
+<tr>
+<td>Recipients</td>
+<td><code>user:default/&lt;your-username&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Enable EDA Governance</strong></td>
+<td>✅ <strong>checked</strong></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Click <strong>Next</strong> — confirm <strong>Enable EDA Governance</strong> shows <code>true</code> in the review screen — then click <strong>Run</strong>.</p>
+</li>
+<li>
+<p>Once the workflow completes, select <strong>Notifications</strong> and confirm the success notification was received.</p>
+</li>
+</ol>
+<h3 id="verify-the-eda-label-was-applied">Verify the EDA Label Was Applied</h3>
+<ol>
+<li>
+<p>Navigate to <strong>Home → Projects</strong> in the OpenShift Web Console and find your <code>&lt;your-username&gt;-medium</code> namespace.</p>
+</li>
+<li>
+<p>Click the namespace and select the <strong>YAML</strong> tab.</p>
+</li>
+<li>
+<p>Confirm the following label and annotation are present:</p>
+</li>
+</ol>
+<p><code>yaml
+   metadata:
+     labels:
+       eda-governed: "true"
+     annotations:
+       eda.ansible.com/watch-events: "PersistentVolumeClaim,Secret,NetworkPolicy"</code></p>
+<hr />
+<h2 id="step-5-trigger-and-verify-eda-remediation">Step 5: Trigger and Verify EDA Remediation</h2>
+<h3 id="scenario-a-pvc-missing-storage-class-label">Scenario A: PVC Missing Storage Class Label</h3>
+<h3 id="scenario-b-tls-secret-missing-certificate-annotation">Scenario B: TLS Secret Missing Certificate Annotation</h3>
+<h3 id="scenario-c-networkpolicy-deleted">Scenario C: NetworkPolicy Deleted</h3>
+<hr />
+<h2 id="what-you-have-built-the-complete-governance-loop">What You Have Built: The Complete Governance Loop</h2>
+<pre><code>Git PR merged
+      ↓
+ArgoCD syncs → Namespace + ResourceQuota + NetworkPolicy + RBAC
+      ↓
+EDA label present → juniper.eda.k8s begins event polling
+      ↓
+Developer adds PVC without label
+      ↓
+EDA rule fires → AAC job patches PVC with required label
+      ↓
+Developer deletes NetworkPolicy
+      ↓
+EDA rule fires → AAC job restores policy from Git
+      ↓
+TLS Secret created without annotation
+      ↓
+EDA rule fires → AAC job applies cert-manager annotation
+      ↓
+Every remediation annotated on the resource → full audit trail in cluster + AAC
+</code></pre>
+<p>This is a <strong>self-governing namespace</strong> — it continuously enforces its own desired state without human intervention.</p>
+<hr />
+<h2 id="eda-rule-reference">EDA Rule Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Trigger</th>
+<th>AAC Job Template</th>
+<th>Collection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PVC missing storage class label</td>
+<td><code>ADDED</code> PVC without <code>storage-class-approved</code> label</td>
+<td>NaaS - Remediate PVC Labels</td>
+<td><code>kubernetes.core</code></td>
+</tr>
+<tr>
+<td>TLS Secret missing annotation</td>
+<td><code>ADDED</code> TLS Secret without <code>cert-manager.io/certificate-name</code></td>
+<td>NaaS - Remediate TLS Certificate Annotation</td>
+<td><code>kubernetes.core</code></td>
+</tr>
+<tr>
+<td>NetworkPolicy deleted</td>
+<td><code>DELETED</code> NetworkPolicy in governed namespace</td>
+<td>NaaS - Restore NetworkPolicy</td>
+<td><code>kubernetes.core</code></td>
+</tr>
+<tr>
+<td><em>(extendable)</em> ResourceQuota deleted</td>
+<td><code>DELETED</code> ResourceQuota</td>
+<td>NaaS - Restore ResourceQuota</td>
+<td><code>kubernetes.core</code></td>
+</tr>
+<tr>
+<td><em>(extendable)</em> Namespace idle &gt;30d</td>
+<td>TTL annotation expiry</td>
+<td>NaaS - Open TTL Extension PR</td>
+<td><code>ansible.builtin</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>In this section you provisioned a medium namespace with the <strong>EDA Governance</strong> option enabled and observed the full self-governing loop in action.</p>
+<p>The EDA checkbox at provisioning time is a simple mechanism with powerful downstream effects:</p>
+<ul>
+<li>It applies a label that scopes EDA event polling to that specific namespace</li>
+<li>It activates a set of pre-defined remediation rules without any additional configuration</li>
+<li>Every remediation is traceable — annotated on the resource and logged in AAC</li>
+</ul>
+<p>Combined with Phase 1 (GitOps provisioning) and Phase 2 (Orchestrator approval workflows), this completes the <strong>Continuous Delivery Engine for the Real World</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Capability</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1</td>
+<td>Self-service provisioning via GitOps</td>
+<td>Developer Portal + ArgoCD</td>
+</tr>
+<tr>
+<td>Phase 2</td>
+<td>Stateful workflows and approval gates</td>
+<td>Orchestrator + SonataFlow</td>
+</tr>
+<tr>
+<td>Phase 3</td>
+<td>Continuous event-driven governance</td>
+<td>EDA + AAC + juniper.eda.k8s</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://github.com/juniper/juniper.eda.k8s">juniper.eda.k8s collection</a></li>
+<li><a href="https://www.ansible.com/products/event-driven-ansible">Event-Driven Ansible documentation</a></li>
+<li><a href="https://docs.ansible.com/automation-controller/latest/html/userguide/job_templates.html">Ansible Automation Controller Job Templates</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Kubernetes ResourceQuotas</a></li>
+<li><a href="https://cert-manager.io/docs/">cert-manager documentation</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Kubernetes NetworkPolicy</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>
