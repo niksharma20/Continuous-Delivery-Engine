@@ -1,4 +1,4 @@
-site_name: Continuous Delivery Engine
+site_name: CDE
 site_description: Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.
 site_author: Nikhil Sharma
 repo_url: https://github.com/niksharma20/Continuous-Delivery-Engine
@@ -18,15 +18,11 @@ theme:
     - navigation.sections
     - toc.integrate
     - search.suggest
-    
-plugins:
-  - search
-  - include-markdown
-  
+
 nav:
   - Home: index.md
-  - Setup: content/setup/index.md
-  - Module 1: content/modules/module_1/index.md
-  - Module 2: content/modules/module_2/index.md
-  - Module 3: content/modules/module_3/index.md
-  - Conclusion: content/conclusion/conclusion.md
+  - Setup: docs/content/setup/setup.md
+  - Module 1: docs/content/modules/module_1/module1.md
+  - Module 2: docs/content/modules/module_2/module2.md
+  - Module 3: docs/content/modules/module_3/module3.md
+  - Conclusion: docs/content/conclusion/conclusion.md
