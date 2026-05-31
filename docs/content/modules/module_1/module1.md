@@ -2,7 +2,7 @@
 ### Module 1 - Declarative Infrastructure  
 
 ## Architecture  
-![Architecture Diagram](content/images/module/module_1/ocp_rhdh_gitops.jpg)  
+![Architecture Diagram](/docs/content/images/module/module_1/ocp_rhdh_gitops.jpg)  
 
 ## Component
 
