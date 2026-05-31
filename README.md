@@ -1,6 +1,6 @@
 # Hands-On Technical Workshop  
-## Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.
-### Use Case: Namespace Goverance
+## Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.  
+## **Use Case: Namespace Goverance**  
 
 This hands-on comprehensive workshop provides **technical understanding** of Continuous Delivery Engine (CDE) components and their implementation. Designed for platform engineers, DevOps practitioners, and technical leaders, this hands-on learning experience will equip you with the expertise to deploy, configure, and optimize your production environments.
 
