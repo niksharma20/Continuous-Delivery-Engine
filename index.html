@@ -536,7 +536,7 @@
 <h1 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h1>
 <h3 id="building-continuous-delivery-pattern-using-developer-hub-serverless-workflows-openshift-and-event-driven-ansible">Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and Event Driven Ansible.</h3>
 <h2 id="architecture">Architecture</h2>
-<div class="highlight"><pre><span></span><code>graph LR
+<pre class="mermaid"><code>graph LR
     %% Color Palette Configurations
     classDef rhdh fill:#151515,stroke:#326ce5,stroke-width:2px,color:#fff;
     classDef aap fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
@@ -546,20 +546,20 @@
 
     %% --- LEFT COLUMN: REQUEST &amp; ORCHESTRATION ---
     subgraph Portal_Layer [Internal Developer Portal]
-        RHDH[&quot;Red Hat Developer Hub&lt;br&gt;&lt;small&gt;Self-service portal&lt;br&gt;&lt;/small&gt;&quot;]
+        RHDH["Red Hat Developer Hub&lt;br&gt;&lt;small&gt;Self-service portal&lt;br&gt;&lt;/small&gt;"]
     end
     class Portal_Layer,RHDH rhdh;
 
-    Orchestrator((&quot;Orchestrator&lt;br&gt;&lt;small&gt;Serverless&lt;br&gt;workflows&lt;/small&gt;&quot;))
-    Tracker[&quot;Approval / Issues&lt;br&gt;Tracker&quot;]
+    Orchestrator(("Orchestrator&lt;br&gt;&lt;small&gt;Serverless&lt;br&gt;workflows&lt;/small&gt;"))
+    Tracker["Approval / Issues&lt;br&gt;Tracker"]
     class Orchestrator workflow;
     class Tracker external;
 
     %% --- MIDDLE COLUMN: AUTOMATION PLATFORM ---
     subgraph AAP [Red Hat Ansible Automation Platform]
-        subgraph AAP_Core [&quot;AAC and EDA&quot;]
-            Controller[&quot;Job Templates &amp; Playbooks&quot;]
-            EDA[&quot;Evaluates Rulebooks&quot;]
+        subgraph AAP_Core ["AAC and EDA"]
+            Controller["Job Templates &amp; Playbooks"]
+            EDA["Evaluates Rulebooks"]
         end
     end
     class AAP_Core,Controller,EDA aap;
@@ -567,11 +567,11 @@
     %% --- RIGHT COLUMN: INFRASTRUCTURE &amp; MANAGED ENVIRONMENT ---
     subgraph OCP_Layer [Red Hat OpenShift]
         subgraph Target_Clusters [Target Cluster]
-            Na[&quot;Namespace a&lt;br&gt;(type=eda)&quot;]
-            Nb[&quot;Namespace b&lt;br&gt;(type=eda)&quot;]
-            Nc[&quot;Namespace C...&quot;]
+            Na["Namespace a&lt;br&gt;(type=eda)"]
+            Nb["Namespace b&lt;br&gt;(type=eda)"]
+            Nc["Namespace C..."]
         end
-        MCM[&quot;Multi-cluster management&quot;]
+        MCM["Multi-cluster management"]
     end
     class OCP_Layer,Target_Clusters,Na,Nb,Nc,MCM ocp;
 
@@ -588,8 +588,7 @@
     %% Event Stream Loop
     Target_Clusters -.-&gt;|Cluster events&lt;br&gt;type=eda| EDA
     EDA --&gt;|Automatically triggers next step| Controller
-    Controller --&gt;|Remediation playbooks| Target_Clusters
-</code></pre></div>
+    Controller --&gt;|Remediation playbooks| Target_Clusters</code></pre>
 <p>This hands-on comprehensive workshop provides <strong>technical understanding</strong> of Continuous Delivery Engine (CDE) components and their implementation.<br />
 Designed for platform engineers, DevOps practitioners, and technical leaders.  </p>
 <p>In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Ansible Automation Platform that delivers to containers, VMs, and other infrastructure components through a single, automated, policy-enforced pipeline — no environment left behind. Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform serves as the cross-platform automation engine. You will learn how to empower developers with a unified self-service experience while maintaining total operational control.  </p>
@@ -749,6 +748,8 @@ Designed for platform engineers, DevOps practitioners, and technical leaders.  <
     
     
       <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
     
   </body>

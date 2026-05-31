@@ -587,7 +587,7 @@
 <h2 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h2>
 <h3 id="module-2-event-driven-ansible-for-openshift">Module 2 - Event Driven Ansible for Openshift</h3>
 <h2 id="architecture">Architecture</h2>
-<div class="highlight"><pre><span></span><code>graph TD
+<pre class="mermaid"><code>graph TD
     %% Define Styles and Colors
     classDef ocp fill:#326ce5,stroke:#fff,stroke-width:2px,color:#fff;
     classDef aap fill:#ee0000,stroke:#fff,stroke-width:2px,color:#fff;
@@ -597,7 +597,7 @@
         API[OpenShift API Server]
 
         subgraph NS [Governed Namespace]
-            STATE[&quot;Certs, PV, Quota, NetworkPolicy&quot;]
+            STATE["Certs, PV, Quota, NetworkPolicy"]
         end
     end
     class API ocp;
@@ -612,13 +612,12 @@
 
     %% Workflow Flows
     API --&gt;|Async event stream| DE
-    DE --&gt;|&quot;Event payload evaluated against rulebook&quot;| AC
-    AC --&gt;|&quot;Matched rule fires run_job_template&quot;| PB
-    PB --&gt;|&quot; &quot;| STATE
+    DE --&gt;|"Event payload evaluated against rulebook"| AC
+    AC --&gt;|"Matched rule fires run_job_template"| PB
+    PB --&gt;|" "| STATE
 
     %% The Loop Back
-    STATE -.-&gt;|New event| API
-</code></pre></div>
+    STATE -.-&gt;|New event| API</code></pre>
 <h2 id="component">Component</h2>
 <table>
 <thead>
@@ -703,6 +702,8 @@
     
     
       <script src="../../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
     
   </body>
