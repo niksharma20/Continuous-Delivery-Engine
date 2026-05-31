@@ -54,11 +54,10 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 | **Event Driven Ansible** | Automation Decisions |  
 
 >
-> ## Use Case to explore  
-> 
+> ## Use Case to explore
+>
+>
 
-
-## Prerequisites
 
 ## References
 [View the Showroom Demo Event-Driven Ansible Modules](https://redhat-gpte-devopsautomation.github.io/showroom-demo-event-driven-ansible/modules/index.html)  
