@@ -20,6 +20,10 @@ theme:
     - navigation.sections
     - toc.integrate
     - search.suggest
-
+    
+plugins:
+  - search
+  - include-markdown
+  
 nav:
   - Home: index.md
