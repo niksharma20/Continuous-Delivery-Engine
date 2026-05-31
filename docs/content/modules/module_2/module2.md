@@ -1,8 +1,5 @@
-## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 2 - Event Driven Ansible for Openshift
-
+## Continuous Delivery Engine: Hands-On Technical Workshop | EDA for Openshift  
 ## Architecture  
-
 ```mermaid
 graph TD
     %% Define Styles and Colors

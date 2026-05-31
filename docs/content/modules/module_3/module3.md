@@ -1,8 +1,5 @@
-## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 3 - Enforcing Governance
-
+## Continuous Delivery Engine: Hands-On Technical Workshop | Enforcing Governance  
 ## Architecture  
-
 ```mermaid
 graph LR
     %% Color Palette Configurations

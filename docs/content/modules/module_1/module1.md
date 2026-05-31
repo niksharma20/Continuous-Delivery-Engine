@@ -1,6 +1,4 @@
-## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 1 - Declarative Infrastructure  
-
+## Continuous Delivery Engine: Hands-On Technical Workshop | Declarative Infrastructure  
 ## Architecture  
 ```mermaid
 graph LR
@@ -43,7 +41,7 @@ graph LR
     RHDH -->|1. Triggers Software Template| GitRepo
     Argo -->|2. Pulls & Monitors Code Changes| GitRepo
     Argo -->|3. Reconciles & Auto-Deploys| Target_Clusters
-``` 
+```
 
 ## Component
 
