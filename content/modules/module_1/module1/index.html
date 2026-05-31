@@ -474,7 +474,47 @@
 <h2 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h2>
 <h3 id="module-1-declarative-infrastructure">Module 1 - Declarative Infrastructure</h3>
 <h2 id="architecture">Architecture</h2>
-<p><img alt="Architecture Diagram" src="/docs/content/images/module/module_1/ocp_rhdh_gitops.jpg" />  </p>
+<pre><code class="language-mermaid">graph LR
+    %% Color Palette Configurations
+    classDef rhdh fill:#151515,stroke:#326ce5,stroke-width:2px,color:#fff;
+    classDef repo fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
+    classDef gitops fill:#151515,stroke:#ff4500,stroke-width:2px,color:#fff;
+    classDef ocp fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
+
+    %% --- COLUMN 1: DEVELOPER PORTAL ---
+    subgraph Portal_Layer [Internal Developer Portal]
+        RHDH[&quot;Red Hat Developer Hub (RHDH)&lt;br&gt;&lt;small&gt;Self-service portal&lt;/small&gt;&quot;]
+    end
+    class Portal_Layer,RHDH rhdh;
+
+    %% --- COLUMN 2: VERSION CONTROL ---
+    subgraph Source_Layer [Version Control]
+        GitRepo[&quot;Git Repository&lt;br&gt;&lt;small&gt;Declarative&lt;br&gt;Manifests&lt;/small&gt;&quot;]
+    end
+    class Source_Layer,GitRepo repo;
+
+    %% --- COLUMN 3: GITOPS ENGINE ---
+    subgraph GitOps_Layer [GitOps]
+        Argo[&quot;Argo CD&lt;br&gt;&lt;small&gt;Monitors&lt;br&gt;Git&lt;br&gt;for&lt;br&gt;changes&lt;/small&gt;&quot;]
+    end
+    class GitOps_Layer,Argo gitops;
+
+    %% --- COLUMN 4: INFRASTRUCTURE ---
+    subgraph OCP_Layer [Red Hat OpenShift Platform]
+        subgraph Target_Clusters [Target Cluster]
+            Na[&quot;Namespace a&quot;]
+            Nb[&quot;Namespace b&quot;]
+            Nc[&quot;Namespace c...&quot;]
+        end
+        MCM[&quot;Multi-cluster management&quot;]
+    end
+    class OCP_Layer,Target_Clusters,Na,Nb,Nc,MCM ocp;
+
+    %% --- RELATIONSHIPS &amp; FLOW LINES ---
+    RHDH --&gt;|1. Triggers Software Template| GitRepo
+    Argo --&gt;|2. Pulls &amp; Monitors Code Changes| GitRepo
+    Argo --&gt;|3. Reconciles &amp; Auto-Deploys| Target_Clusters
+</code></pre>
 <h2 id="component">Component</h2>
 <table>
 <thead>
