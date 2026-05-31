@@ -1,10 +1,8 @@
 ## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 2 - Event Drieven Ansible for Openshift**
+### Module 2 - Event Drieven Ansible for Openshift
 
 ## Architecture  
-![Architecture Diagram](content/images/module/module_2/eda_ocp.jpg)
->
->
+![Architecture Diagram](/docs/content/images/module/module_2/eda_ocp.jpg)  
 
 ## Component
 
