@@ -1,10 +1,8 @@
 ## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 1 - Declarative Infrastructure**
+### Module 1 - Declarative Infrastructure  
 
 ## Architecture  
-![Architecture Diagram](content/images/module/module_1/ocp_rhdh_gitops.jpg)
->
->
+![Architecture Diagram](content/images/module/module_1/ocp_rhdh_gitops.jpg)  
 
 ## Component
 
