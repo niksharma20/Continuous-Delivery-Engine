@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.">
+        <meta name="description" content="Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, Event Driven Ansible and Openshift.">
       
       
         <meta name="author" content="Nikhil Sharma">
@@ -395,6 +395,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#use-case-namespace-goverance" class="md-nav__link">
     <span class="md-ellipsis">
       Use Case: Namespace Goverance
@@ -531,6 +540,8 @@
 
 <h1 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h1>
 <h3 id="building-continuous-delivery-pattern-using-developer-hub-serverless-workflows-openshift-and-eda">Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.</h3>
+<h2 id="architecture">Architecture</h2>
+<p><img alt="Architecture Diagram" src="docs/content/images/module/module_3/full_namespace_goverance.jpg" />. </p>
 <h2 id="use-case-namespace-goverance"><strong>Use Case: Namespace Goverance</strong></h2>
 <p>This hands-on comprehensive workshop provides <strong>technical understanding</strong> of Continuous Delivery Engine (CDE) components and their implementation.<br />
 Designed for platform engineers, DevOps practitioners, and technical leaders.  </p>
@@ -546,7 +557,7 @@ Designed for platform engineers, DevOps practitioners, and technical leaders.  <
 2)  <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&amp;utm_source=webapp&amp;utm_medium=share-link">Openshift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator</a>  </p>
 </blockquote>
 <h2 id="workshop-structure">Workshop Structure</h2>
-<p><a href="content/modules/1_declarative_infra"><strong>Module 1 - Declarative Infrastructure</strong></a>  </p>
+<p><a href="content/modules/module_1"><strong>Module 1 - Declarative Infrastructure</strong></a>  </p>
 <table>
 <thead>
 <tr>
@@ -573,7 +584,30 @@ Designed for platform engineers, DevOps practitioners, and technical leaders.  <
 </tr>
 </tbody>
 </table>
-<p><a href="content/modules/2_operational_orchestration"><strong>Module 2 - Operational Orchestration</strong></a>  </p>
+<p><a href="content/modules/module_2"><strong>Module 2 - Event Drieven Ansible for Openshift</strong></a>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Openshift</strong></td>
+<td style="text-align: left;">Target Platform</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ansible Automation Platform</strong></td>
+<td style="text-align: left;">Automation Controller</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Event Driven Ansible</strong></td>
+<td style="text-align: left;">Automation Decisions</td>
+</tr>
+</tbody>
+</table>
+<p><a href="content/modules/module_3">**Module 3 - Enforcing Governance **</a></p>
 <table>
 <thead>
 <tr>
@@ -591,59 +625,24 @@ Designed for platform engineers, DevOps practitioners, and technical leaders.  <
 <td style="text-align: left;">Serverless Workflow</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
-<td style="text-align: left;">GitOps</td>
-</tr>
-<tr>
 <td style="text-align: left;"><strong>Ansible Automation Platform</strong></td>
 <td style="text-align: left;">Automation Controller</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Event Driven Ansible</strong></td>
 <td style="text-align: left;">Automation Decisions</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Openshift</strong></td>
+<td style="text-align: left;">Target Platform</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
+<td style="text-align: left;">GitOps</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>GitHub</strong></td>
 <td style="text-align: left;">Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now)</td>
-</tr>
-</tbody>
-</table>
-<p><a href="content/modules/3_reactive_intelligence"><strong>Module 3 - Reactive Intelligence</strong></a></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Red Hat Developer Hub (RHDH)</strong></td>
-<td style="text-align: left;">Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
-<td style="text-align: left;">GitOps</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Monitoring Stack - Promethues &amp; Alert Manager</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Ansible Automation Platform</strong></td>
-<td style="text-align: left;">Automation Controller</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Event Driven Ansible</strong></td>
-<td style="text-align: left;">Automation Decisions</td>
 </tr>
 </tbody>
 </table>
