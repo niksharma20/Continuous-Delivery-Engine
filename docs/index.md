@@ -4,8 +4,6 @@
 ## Architecture  
 ![Architecture Diagram](content/images/module/module_3/fulll_namespace_goverance.jpg)
 
-## **Use Case: Namespace Goverance**
-
 
 This hands-on comprehensive workshop provides **technical understanding** of Continuous Delivery Engine (CDE) components and their implementation.  
 Designed for platform engineers, DevOps practitioners, and technical leaders.  
@@ -26,6 +24,7 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 >
 > 
 
+## **Use Case: Namespace Goverance**  
 ## Workshop Structure  
 
 [**Module 1 - Declarative Infrastructure**](content/modules/module_1)  
