@@ -2,7 +2,7 @@
 ### Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and EDA.  
 
 ## Architecture  
-![Architecture Diagram](docs/content/images/module/module_3/fulll_namespace_goverance.jpg)
+![Architecture Diagram](content/images/module/module_3/fulll_namespace_goverance.jpg)
 
 ## **Use Case: Namespace Goverance**
 
