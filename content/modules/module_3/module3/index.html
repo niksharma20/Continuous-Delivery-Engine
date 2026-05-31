@@ -474,7 +474,60 @@
 <h2 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h2>
 <h3 id="module-3-enforcing-governance">Module 3 - Enforcing Governance</h3>
 <h2 id="architecture">Architecture</h2>
-<p><img alt="Architecture Diagram" src="/docs/content/images/module/module_3/full_namespace_goverance.jpg" />  </p>
+<pre><code class="language-mermaid">graph LR
+    %% Color Palette Configurations
+    classDef rhdh fill:#151515,stroke:#326ce5,stroke-width:2px,color:#fff;
+    classDef aap fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
+    classDef ocp fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
+    classDef external fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
+    classDef workflow fill:#151515,stroke:#718096,stroke-width:2px,color:#fff;
+
+    %% --- LEFT COLUMN: REQUEST &amp; ORCHESTRATION ---
+    subgraph Portal_Layer [Internal Developer Portal]
+        RHDH[&quot;Red Hat Developer Hub&lt;br&gt;&lt;small&gt;Self-service portal&lt;br&gt;&lt;/small&gt;&quot;]
+    end
+    class Portal_Layer,RHDH rhdh;
+
+    Orchestrator((&quot;Orchestrator&lt;br&gt;&lt;small&gt;Serverless&lt;br&gt;workflows&lt;/small&gt;&quot;))
+    Tracker[&quot;Approval / Issues&lt;br&gt;Tracker&quot;]
+    class Orchestrator workflow;
+    class Tracker external;
+
+    %% --- MIDDLE COLUMN: AUTOMATION PLATFORM ---
+    subgraph AAP [Red Hat Ansible Automation Platform]
+        subgraph AAP_Core [&quot;AAC and EDA&quot;]
+            Controller[&quot;Job Templates &amp; Playbooks&quot;]
+            EDA[&quot;Evaluates Rulebooks&quot;]
+        end
+    end
+    class AAP_Core,Controller,EDA aap;
+
+    %% --- RIGHT COLUMN: INFRASTRUCTURE &amp; MANAGED ENVIRONMENT ---
+    subgraph OCP_Layer [Red Hat OpenShift]
+        subgraph Target_Clusters [Target Cluster]
+            Na[&quot;Namespace a&lt;br&gt;(type=eda)&quot;]
+            Nb[&quot;Namespace b&lt;br&gt;(type=eda)&quot;]
+            Nc[&quot;Namespace C...&quot;]
+        end
+        MCM[&quot;Multi-cluster management&quot;]
+    end
+    class OCP_Layer,Target_Clusters,Na,Nb,Nc,MCM ocp;
+
+    %% --- RELATIONSHIPS &amp; FLOW LINES ---
+    RHDH --&gt;|Provision namespace request&lt;br&gt;GitOps| Orchestrator
+    Orchestrator -.-&gt;|Human-in-the-loop / Async Check| Tracker
+    Tracker -.-&gt;|Approval Event| Orchestrator
+
+    Orchestrator --&gt;|Invoke Centralised Automation| Controller
+
+    %% Added direct orchestration to cluster line
+    Orchestrator --&gt;|Direct Provisioning / GitOps Sync| Target_Clusters
+
+    %% Event Stream Loop
+    Target_Clusters -.-&gt;|Cluster events&lt;br&gt;type=eda| EDA
+    EDA --&gt;|Automatically triggers next step| Controller
+    Controller --&gt;|Remediation playbooks| Target_Clusters
+</code></pre>
 <h2 id="component">Component</h2>
 <table>
 <thead>
