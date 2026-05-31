@@ -473,7 +473,7 @@
 <h2 id="what-you-have-built">What You Have Built</h2>
 <p>By working through this repository, you have assembled the complete <strong>event-driven governance layer</strong> of the Namespace as a Service platform — the component that turns a provisioned namespace into a self-governing, self-healing unit.</p>
 <p>The full stack now looks like this:</p>
-<pre><code>┌─────────────────────────────────────────────────────────────────┐
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────────┐
 │                   DEVELOPER PORTAL (RHDH)                       │
 │         Self-service UI · Software Templates · Catalog          │
 └─────────────────────────────┬───────────────────────────────────┘
@@ -500,7 +500,7 @@
 │  kubernetes.core  ──→ Patch resources back to desired state     │
 │  Audit annotations → In-cluster + AAC job history               │
 └─────────────────────────────────────────────────────────────────┘
-</code></pre>
+</code></pre></div>
 <hr />
 <h2 id="goals-achieved">Goals: Achieved</h2>
 <table>
@@ -582,8 +582,8 @@
 <hr />
 <h2 id="what-makes-this-different-from-just-gitops">What Makes This Different from Just GitOps</h2>
 <p>GitOps alone is a one-way pipe:</p>
-<pre><code>Desired state in Git → ArgoCD syncs → Cluster reflects desired state
-</code></pre>
+<div class="highlight"><pre><span></span><code>Desired state in Git → ArgoCD syncs → Cluster reflects desired state
+</code></pre></div>
 <p>It is excellent at detecting drift and resyncing on a schedule, but it does not:</p>
 <ul>
 <li>React to events in real time</li>
@@ -592,7 +592,7 @@
 <li>Notify stakeholders at decision points</li>
 </ul>
 <p>The EDA layer closes the feedback loop:</p>
-<pre><code>Something happens in the cluster
+<div class="highlight"><pre><span></span><code>Something happens in the cluster
           ↓
 EDA detects it immediately (not on the next ArgoCD sync cycle)
           ↓
@@ -603,7 +603,7 @@ AAC executes the appropriate response
 Cluster returns to desired state
           ↓
 Every action annotated in the cluster + logged in AAC
-</code></pre>
+</code></pre></div>
 <p>This is <strong>reactive governance</strong> layered on top of <strong>declarative provisioning</strong> — and together they form a genuinely self-governing platform.</p>
 <hr />
 <h2 id="extending-this-platform">Extending This Platform</h2>

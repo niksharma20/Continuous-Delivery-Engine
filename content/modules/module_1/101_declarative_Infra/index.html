@@ -529,23 +529,25 @@ You now have a new Software Template available in your Developer Portal. End use
 <ol>
 <li>In your SCM, navigate to the template repository and open:</li>
 </ol>
-<p><code>manifests/helm/app/templates/quota.yaml</code>
+<p><div class="highlight"><pre><span></span><code>manifests/helm/app/templates/quota.yaml
+</code></pre></div>
 1. Edit the file and update the <code>ResourceQuota</code> limits. For example:</p>
-<p><code>yaml
-   apiVersion: v1
-   kind: ResourceQuota
-   metadata:
-     name: {{ .Values.namespace }}-quota
-   spec:
-     hard:
-       limits.cpu: "2"
-       limits.memory: 2Gi
-       requests.cpu: "1"
-       requests.memory: 1Gi
-       pods: "10"</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ResourceQuota</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">.Values.namespace</span><span class="w"> </span><span class="p p-Indicator">}}</span><span class="l l-Scalar l-Scalar-Plain">-quota</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hard</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">limits.cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2&quot;</span>
+<span class="w">    </span><span class="nt">limits.memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
+<span class="w">    </span><span class="nt">requests.cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">    </span><span class="nt">requests.memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+<span class="w">    </span><span class="nt">pods</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10&quot;</span>
+</code></pre></div>
 <p>Adjust values to match your organization’s sizing standards for the tier (small / medium / large).
 1. Commit your changes with a meaningful message, e.g.:</p>
-<p><code>chore: enforce resource quota limits for medium namespace tier</code>
+<p><div class="highlight"><pre><span></span><code>chore: enforce resource quota limits for medium namespace tier
+</code></pre></div>
 1. Return to the Developer Portal and trigger a <strong>Schedule entity refresh</strong> on the template to sync the catalog with your latest changes.</p>
 <hr />
 <h2 id="test-your-changes-provision-a-namespace-as-a-developer">Test Your Changes: Provision a Namespace as a Developer</h2>
@@ -604,7 +606,7 @@ If the quota values do not reflect your changes, confirm that ArgoCD has complet
 <hr />
 <h2 id="architecture-overview">Architecture Overview</h2>
 <p>The following describes how each layer contributes to the self-service flow:</p>
-<pre><code>Developer submits form in Developer Portal
+<div class="highlight"><pre><span></span><code>Developer submits form in Developer Portal
           ↓
 Software Template creates Git repository with manifests
           ↓
@@ -613,7 +615,7 @@ ArgoCD detects new Argo Application → syncs Helm chart
 OpenShift creates Namespace + ResourceQuota + NetworkPolicy + RBAC
           ↓
 Namespace is registered in the Developer Portal catalog
-</code></pre>
+</code></pre></div>
 <h3 id="key-components">Key Components</h3>
 <table>
 <thead>

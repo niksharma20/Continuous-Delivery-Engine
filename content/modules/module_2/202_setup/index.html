@@ -531,23 +531,23 @@ You must be logged in as a cluster administrator to manage Operators. Ensure you
 <li>Review the <code>plugins</code> array in the ConfigMap YAML and confirm all four Orchestrator plugins listed above are present.</li>
 <li>Inspect the <code>@redhat/backstage-plugin-orchestrator-backend-dynamic</code> entry. It should include a <code>dependencies</code> property pointing to SonataFlow:</li>
 </ol>
-<p><code>yaml
-   - package: '@redhat/backstage-plugin-orchestrator-backend-dynamic'
-     disabled: false
-     dependencies:
-       - ref: sonataflow</code></p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;@redhat/backstage-plugin-orchestrator-backend-dynamic&#39;</span>
+<span class="w">  </span><span class="nt">disabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonataflow</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 The <code>dependencies.ref: sonataflow</code> key instructs the Developer Portal Operator to automatically provision a <strong>SonataFlowPlatform</strong> Custom Resource in the same namespace. This is what connects your portal to the workflow engine.
 1. Inspect the <code>@redhat/backstage-plugin-scaffolder-backend-module-orchestrator-dynamic</code> entry. It should include a <code>pluginConfig</code> section specifying the Data Index Service URL:</p>
 </blockquote>
-<p><code>yaml
-   - package: '@redhat/backstage-plugin-scaffolder-backend-module-orchestrator-dynamic'
-     disabled: false
-     pluginConfig:
-       orchestrator:
-         dataIndexService:
-           url: http://sonataflow-platform-data-index-service</code></p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;@redhat/backstage-plugin-scaffolder-backend-module-orchestrator-dynamic&#39;</span>
+<span class="w">  </span><span class="nt">disabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">pluginConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">orchestrator</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dataIndexService</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://sonataflow-platform-data-index-service</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 The <code>dataIndexService.url</code> tells the plugin where to fetch available workflows from. The default URL assumes SonataFlow is deployed in the same namespace as the Developer Portal. If you deploy SonataFlow in a separate namespace or cluster, update this URL accordingly.</p>
@@ -574,20 +574,20 @@ The <code>dataIndexService.url</code> tells the plugin where to fetch available 
 </ol>
 <p><strong><code>ownerReferences</code></strong> — Should reference your Developer Portal instance. This confirms the portal is managing the SonataFlowPlatform lifecycle.</p>
 <p><strong><code>spec.services</code></strong> — Should show a database connection configuration. SonataFlow uses your Developer Portal’s PostgreSQL database to manage and persist workflow state across executions.</p>
-<p><code>yaml
-   spec:
-     services:
-       dataIndex:
-         persistence:
-           postgresql:
-             secretRef:
-               name: &lt;your-db-secret&gt;
-               userKey: POSTGRESQL_USER
-               passwordKey: POSTGRESQL_PASSWORD
-             serviceRef:
-               name: &lt;your-postgresql-service&gt;
-               port: 5432
-               databaseName: sonataflow</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">services</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dataIndex</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">persistence</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">postgresql</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">secretRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;your-db-secret&gt;</span>
+<span class="w">            </span><span class="nt">userKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRESQL_USER</span>
+<span class="w">            </span><span class="nt">passwordKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRESQL_PASSWORD</span>
+<span class="w">          </span><span class="nt">serviceRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;your-postgresql-service&gt;</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">            </span><span class="nt">databaseName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonataflow</span>
+</code></pre></div>
 <blockquote>
 <p><strong>💡 Tip</strong>
 Adjust the <code>secretRef</code> and <code>serviceRef</code> values to match your environment’s PostgreSQL deployment. If your Developer Portal was installed via the RHDH Operator, the PostgreSQL instance and secret are typically provisioned automatically.</p>

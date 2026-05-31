@@ -473,8 +473,8 @@
 <h2 id="overview">Overview</h2>
 <p>In this section you will extend the namespace request workflow by enabling <strong>Event-Driven Ansible (EDA)</strong> governance on a namespace at provisioning time.</p>
 <p>When a developer requests a <strong>medium</strong> namespace and checks the <strong>Enable EDA Governance</strong> option, the workflow applies a label to the namespace:</p>
-<pre><code>type: &quot;eda&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>type: &quot;eda&quot;
+</code></pre></div>
 <p>This label acts as a signal to the EDA Decision Controller. The <a href="https://github.com/juniper/juniper.eda.k8s">juniper.eda.k8s</a> collection watches the cluster for events on labelled namespaces and triggers Ansible Automation Controller (AAC) job templates in response to detected drift, policy violations, or resource lifecycle events.</p>
 <p>By the end of this section you will have:</p>
 <ul>
@@ -487,7 +487,7 @@
 </ul>
 <hr />
 <h2 id="architecture-how-the-eda-label-connects-the-layers">Architecture: How the EDA Label Connects the Layers</h2>
-<pre><code>Developer checks &quot;Enable EDA Governance&quot; in workflow form
+<div class="highlight"><pre><span></span><code>Developer checks &quot;Enable EDA Governance&quot; in workflow form
           ↓
 Orchestrator workflow provisions namespace via Software Template
           ↓
@@ -504,7 +504,7 @@ EDA rulebook fires matching rule
 Ansible Automation Controller runs remediation Job Template
           ↓
 Namespace returns to desired state — Git is the audit trail
-</code></pre>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -547,48 +547,48 @@ Namespace returns to desired state — Git is the audit trail
 <h2 id="step-1-update-the-software-template-to-support-the-eda-label">Step 1: Update the Software Template to Support the EDA Label</h2>
 <h3 id="1a-add-the-eda-checkbox-to-the-template-form">1a: Add the EDA Checkbox to the Template Form</h3>
 <p>In your namespace Software Template (<code>template.yaml</code>), add the following parameter to the <code>spec.parameters</code> section:</p>
-<pre><code class="language-yaml">- title: Governance Options
-  properties:
-    edaGovernance:
-      title: Enable EDA Governance
-      type: boolean
-      default: false
-      description: &gt;
-        When enabled, applies the eda-governed=true label to the namespace.
-        The EDA Decision Controller will begin polling events on this namespace
-        and trigger remediation playbooks for detected drift or policy violations.
-  dependencies: {}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Governance Options</span>
+<span class="w">  </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">edaGovernance</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enable EDA Governance</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boolean</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">        </span><span class="no">When enabled, applies the eda-governed=true label to the namespace.</span>
+<span class="w">        </span><span class="no">The EDA Decision Controller will begin polling events on this namespace</span>
+<span class="w">        </span><span class="no">and trigger remediation playbooks for detected drift or policy violations.</span>
+<span class="w">  </span><span class="nt">dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</code></pre></div>
 <h3 id="1b-pass-the-value-through-the-workflow-step">1b: Pass the Value Through the Workflow Step</h3>
 <p>In the <code>steps</code> section of <code>template.yaml</code>, pass <code>edaGovernance</code> as a value to the Helm chart action:</p>
-<pre><code class="language-yaml">- id: create-namespace-manifests
-  name: Create Namespace Manifests
-  action: fetch:template
-  input:
-    url: ./skeleton
-    values:
-      namespace: ${{ parameters.namespaceName }}
-      size: ${{ parameters.size }}
-      edaGovernance: ${{ parameters.edaGovernance }}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create-namespace-manifests</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create Namespace Manifests</span>
+<span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fetch:template</span>
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./skeleton</span>
+<span class="w">    </span><span class="nt">values</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ parameters.namespaceName }}</span>
+<span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ parameters.size }}</span>
+<span class="w">      </span><span class="nt">edaGovernance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ parameters.edaGovernance }}</span>
+</code></pre></div>
 <h3 id="1c-apply-the-label-conditionally-in-the-helm-chart">1c: Apply the Label Conditionally in the Helm Chart</h3>
 <p>In <code>manifests/helm/app/templates/namespace.yaml</code>, add the EDA label conditionally:</p>
-<pre><code class="language-yaml">apiVersion: v1
-kind: Namespace
-metadata:
-  name: {{ .Values.namespace }}
-  labels:
-    environment: {{ .Values.environment | default &quot;dev&quot; }}
-    managed-by: gitops
-    {{- if .Values.edaGovernance }}
-    eda-governed: &quot;true&quot;
-    {{- end }}
-  annotations:
-    provisioned-by: orchestrator
-    {{- if .Values.edaGovernance }}
-    eda.ansible.com/watch-events: &quot;PersistentVolumeClaim,Secret,NetworkPolicy&quot;
-    {{- end }}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Namespace</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">.Values.namespace</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">.Values.environment | default &quot;dev&quot;</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">    </span><span class="nt">managed-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitops</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- if .Values.edaGovernance</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">    </span><span class="nt">eda-governed</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">provisioned-by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orchestrator</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- if .Values.edaGovernance</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">    </span><span class="nt">eda.ansible.com/watch-events</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PersistentVolumeClaim,Secret,NetworkPolicy&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 The <code>eda.ansible.com/watch-events</code> annotation is optional but useful — it documents which resource types the EDA rulebook monitors for this namespace and can be read by tooling to auto-generate rulebook scope.</p>
@@ -668,12 +668,12 @@ The <code>eda.ansible.com/watch-events</code> annotation is optional but useful 
 <p>Confirm the following label and annotation are present:</p>
 </li>
 </ol>
-<p><code>yaml
-   metadata:
-     labels:
-       eda-governed: "true"
-     annotations:
-       eda.ansible.com/watch-events: "PersistentVolumeClaim,Secret,NetworkPolicy"</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eda-governed</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eda.ansible.com/watch-events</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PersistentVolumeClaim,Secret,NetworkPolicy&quot;</span>
+</code></pre></div>
 <hr />
 <h2 id="step-5-trigger-and-verify-eda-remediation">Step 5: Trigger and Verify EDA Remediation</h2>
 <h3 id="scenario-a-pvc-missing-storage-class-label">Scenario A: PVC Missing Storage Class Label</h3>
@@ -681,7 +681,7 @@ The <code>eda.ansible.com/watch-events</code> annotation is optional but useful 
 <h3 id="scenario-c-networkpolicy-deleted">Scenario C: NetworkPolicy Deleted</h3>
 <hr />
 <h2 id="what-you-have-built-the-complete-governance-loop">What You Have Built: The Complete Governance Loop</h2>
-<pre><code>Git PR merged
+<div class="highlight"><pre><span></span><code>Git PR merged
       ↓
 ArgoCD syncs → Namespace + ResourceQuota + NetworkPolicy + RBAC
       ↓
@@ -700,7 +700,7 @@ TLS Secret created without annotation
 EDA rule fires → AAC job applies cert-manager annotation
       ↓
 Every remediation annotated on the resource → full audit trail in cluster + AAC
-</code></pre>
+</code></pre></div>
 <p>This is a <strong>self-governing namespace</strong> — it continuously enforces its own desired state without human intervention.</p>
 <hr />
 <h2 id="eda-rule-reference">EDA Rule Reference</h2>

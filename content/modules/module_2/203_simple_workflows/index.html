@@ -491,53 +491,53 @@ To learn about developing workflows locally using the <code>kn</code> CLI and th
 <li>Click the plus (<strong>+</strong>) icon in the top navigation bar and choose <strong>Import YAML</strong>.</li>
 <li>Paste the following YAML and click <strong>Create</strong>:</li>
 </ol>
-<p><code>yaml
-   apiVersion: sonataflow.org/v1alpha08
-   kind: SonataFlow
-   metadata:
-     name: greeting
-     annotations:
-       # Dev profile runs the Quarkus server in development mode,
-       # enabling the Dev UI for testing and debugging
-       sonataflow.org/profile: dev
-       sonataflow.org/description: Greeting example on OpenShift!
-       sonataflow.org/version: 0.0.1
-       app.kubernetes.io/part-of: sonataflow-platform
-   spec:
-     flow:
-       start: ChooseOnLanguage
-       functions:
-         - name: greetFunction
-           type: custom
-           operation: sysout
-       states:
-         - name: ChooseOnLanguage
-           type: switch
-           dataConditions:
-             - condition: "${ .language == \"English\" }"
-               transition: GreetInEnglish
-             - condition: "${ .language == \"Spanish\" }"
-               transition: GreetInSpanish
-           defaultCondition: GreetInEnglish
-         - name: GreetInEnglish
-           type: inject
-           data:
-             greeting: "Hello from JSON Workflow, "
-           transition: GreetPerson
-         - name: GreetInSpanish
-           type: inject
-           data:
-             greeting: "Saludos desde JSON Workflow, "
-           transition: GreetPerson
-         - name: GreetPerson
-           type: operation
-           actions:
-             - name: greetAction
-               functionRef:
-                 refName: greetFunction
-                 arguments:
-                   message: ".greeting+.name"
-           end: true</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonataflow.org/v1alpha08</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SonataFlow</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greeting</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Dev profile runs the Quarkus server in development mode,</span>
+<span class="w">    </span><span class="c1"># enabling the Dev UI for testing and debugging</span>
+<span class="w">    </span><span class="nt">sonataflow.org/profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">sonataflow.org/description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Greeting example on OpenShift!</span>
+<span class="w">    </span><span class="nt">sonataflow.org/version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.1</span>
+<span class="w">    </span><span class="nt">app.kubernetes.io/part-of</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonataflow-platform</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">flow</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChooseOnLanguage</span>
+<span class="w">    </span><span class="nt">functions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greetFunction</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
+<span class="w">        </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysout</span>
+<span class="w">    </span><span class="nt">states</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChooseOnLanguage</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch</span>
+<span class="w">        </span><span class="nt">dataConditions</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${</span><span class="nv"> </span><span class="s">.language</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">\&quot;English\&quot;</span><span class="nv"> </span><span class="s">}&quot;</span>
+<span class="w">            </span><span class="nt">transition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInEnglish</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${</span><span class="nv"> </span><span class="s">.language</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">\&quot;Spanish\&quot;</span><span class="nv"> </span><span class="s">}&quot;</span>
+<span class="w">            </span><span class="nt">transition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInSpanish</span>
+<span class="w">        </span><span class="nt">defaultCondition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInEnglish</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInEnglish</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inject</span>
+<span class="w">        </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">greeting</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hello</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">JSON</span><span class="nv"> </span><span class="s">Workflow,</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">        </span><span class="nt">transition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetPerson</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInSpanish</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inject</span>
+<span class="w">        </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">greeting</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Saludos</span><span class="nv"> </span><span class="s">desde</span><span class="nv"> </span><span class="s">JSON</span><span class="nv"> </span><span class="s">Workflow,</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">        </span><span class="nt">transition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetPerson</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetPerson</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operation</span>
+<span class="w">        </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greetAction</span>
+<span class="w">            </span><span class="nt">functionRef</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">refName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greetFunction</span>
+<span class="w">              </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;.greeting+.name&quot;</span>
+<span class="w">        </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 The <code>namespace</code> field has been intentionally omitted — set it to your target namespace before applying, or rely on your current <code>oc project</code> context.
@@ -555,8 +555,8 @@ Quarkus is the application framework that exposes REST endpoints, performs input
 <li>Click the <strong>play</strong> button under the <strong>Actions</strong> column for the <strong>greeting</strong> workflow.</li>
 <li>Enter the following JSON in the <strong>Start Workflow Data</strong> field and click <strong>Start</strong>:</li>
 </ol>
-<p><code>json
-   { "language": "English" }</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <blockquote>
 <p><strong>💡 Tip</strong>
 Click the up arrow (^) at the bottom of the Quarkus Dev UI to expand the application log pane. This provides additional visibility into workflow execution.
@@ -604,14 +604,14 @@ The source code and build scripts for the sample workflow used in this section c
 <li>Open the Web Terminal (<strong>&gt;_</strong> icon in the top navigation) or use your local terminal with an active <code>oc</code> session.</li>
 <li>Set your project context to the Developer Portal namespace:</li>
 </ol>
-<p><code>bash
-   oc project &lt;your-developer-portal-namespace&gt;</code>
+<p><div class="highlight"><pre><span></span><code>oc<span class="w"> </span>project<span class="w"> </span>&lt;your-developer-portal-namespace&gt;
+</code></pre></div>
 1. Add the Helm repository containing the sample workflows:</p>
-<p><code>bash
-   helm repo add workflows https://redhat-ads-tech.github.io/orchestrator-workflows/</code>
+<p><div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>workflows<span class="w"> </span>https://redhat-ads-tech.github.io/orchestrator-workflows/
+</code></pre></div>
 1. Install the greeting workflow:</p>
-<p><code>bash
-   helm install greeting-workflow workflows/greeting -n &lt;your-developer-portal-namespace&gt;</code>
+<p><div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>greeting-workflow<span class="w"> </span>workflows/greeting<span class="w"> </span>-n<span class="w"> </span>&lt;your-developer-portal-namespace&gt;
+</code></pre></div>
 1. The new <strong>greeting</strong> service will appear in the Topology view. Wait for the Pod to reach Running status.</p>
 <hr />
 <h3 id="step-3-verify-the-workflow-appears-in-your-developer-portal">Step 3: Verify the Workflow Appears in Your Developer Portal</h3>
@@ -681,7 +681,7 @@ The input form is automatically generated from the workflow’s <code>dataInputS
 </table>
 <hr />
 <h2 id="workflow-lifecycle-summary">Workflow Lifecycle Summary</h2>
-<pre><code>Write workflow YAML
+<div class="highlight"><pre><span></span><code>Write workflow YAML
         ↓
 Apply SonataFlow CR (dev profile) → Test in Quarkus Dev UI
         ↓
@@ -694,7 +694,7 @@ Package as Helm chart → Deploy to OpenShift
 Workflow appears in Developer Portal via Orchestrator plugin
         ↓
 Developers run workflows self-service via portal UI
-</code></pre>
+</code></pre></div>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>In this section you:</p>

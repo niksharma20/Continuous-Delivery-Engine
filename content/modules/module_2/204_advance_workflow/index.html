@@ -528,53 +528,53 @@
 <li><code>GetIssueTrackerProjectId</code> — for large namespaces (triggers the approval flow)</li>
 </ul>
 <p>For a <strong>large</strong> namespace, the first transition calls <code>getProjectId</code> and stores the result for downstream states:</p>
-<pre><code class="language-yaml">- name: GetIssueTrackerProjectId
-  actionMode: sequential
-  actions:
-    - name: GetIssueTrackerProjectId
-      actionDataFilter:
-        toStateData: .getProjectIdResult
-        useResults: true
-      functionRef:
-        arguments:
-          search: orchestrator-approvals
-          simple: true
-        invoke: sync
-        refName: getProjectId
-  transition:
-    nextState: CreateIssue
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GetIssueTrackerProjectId</span>
+<span class="w">  </span><span class="nt">actionMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sequential</span>
+<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GetIssueTrackerProjectId</span>
+<span class="w">      </span><span class="nt">actionDataFilter</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">toStateData</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.getProjectIdResult</span>
+<span class="w">        </span><span class="nt">useResults</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">functionRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">search</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orchestrator-approvals</span>
+<span class="w">          </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">invoke</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sync</span>
+<span class="w">        </span><span class="nt">refName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getProjectId</span>
+<span class="w">  </span><span class="nt">transition</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">nextState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CreateIssue</span>
+</code></pre></div>
 <p>The <code>actionDataFilter</code> tells the workflow to update overall state (<code>useResults: true</code>) and store the result under <code>getProjectIdResult</code>.</p>
 <p>The workflow then creates an approval issue in the issue tracker and continuously polls between <strong>PollIssue</strong> and <strong>CheckIssueStatus</strong> states until an <code>approved</code> or <code>denied</code> label is detected. <strong>PollIssue</strong> sleeps for 60 seconds between each poll (<code>PT60S</code> in ISO 8601 duration format).</p>
 <hr />
 <h3 id="workflow-output">Workflow Output</h3>
 <p>When a terminal state is reached (e.g. <strong>CloseIssueDenied</strong>), it sets <code>end.terminate: true</code>:</p>
-<pre><code class="language-yaml">- name: CloseIssueDenied
-  type: operation
-  actionMode: sequential
-  actions:
-    - actionDataFilter:
-        useResults: true
-      functionRef:
-        invoke: sync
-        refName: errorDeniedResult
-      name: setOutput
-    - actionDataFilter:
-        toStateData: .closeIssueResult
-        useResults: true
-      functionRef:
-        arguments:
-          id: .getProjectIdResult[0].id|tostring
-          issue_iid: .createIssueResult.iid
-          state_event: close
-        invoke: sync
-        refName: closeIssue
-      name: CloseIssue
-  end:
-    terminate: true
-  metadata:
-    errorMessage: '&quot;Creation of namespace &quot; + .namespace + &quot; denied&quot;'
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CloseIssueDenied</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operation</span>
+<span class="w">  </span><span class="nt">actionMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sequential</span>
+<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">actionDataFilter</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">useResults</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">functionRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">invoke</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sync</span>
+<span class="w">        </span><span class="nt">refName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">errorDeniedResult</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setOutput</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">actionDataFilter</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">toStateData</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.closeIssueResult</span>
+<span class="w">        </span><span class="nt">useResults</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">functionRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.getProjectIdResult[0].id|tostring</span>
+<span class="w">          </span><span class="nt">issue_iid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.createIssueResult.iid</span>
+<span class="w">          </span><span class="nt">state_event</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">close</span>
+<span class="w">        </span><span class="nt">invoke</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sync</span>
+<span class="w">        </span><span class="nt">refName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">closeIssue</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CloseIssue</span>
+<span class="w">  </span><span class="nt">end</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">terminate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">errorMessage</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&quot;Creation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">namespace</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">.namespace</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">denied&quot;&#39;</span>
+</code></pre></div>
 <p>The <code>errorDeniedResult</code> expression sets <code>result.message</code> to “Creation of namespace <name> denied” and attaches the issue link in the <code>outputs</code> block.</p>
 <hr />
 <h2 id="part-2-configure-your-developer-portal">Part 2: Configure Your Developer Portal</h2>
@@ -584,11 +584,11 @@
 <li>Open the YAML editor for the dynamic plugins ConfigMap (e.g. <code>&lt;your-rhdh-instance&gt;-dynamic-plugins</code>).</li>
 <li>Verify these notification plugins are present and set to <code>disabled: false</code>:</li>
 </ol>
-<p><code>yaml
-   - disabled: false
-     package: ./dynamic-plugins/dist/backstage-plugin-notifications
-   - disabled: false
-     package: ./dynamic-plugins/dist/backstage-plugin-notifications-backend-dynamic</code>
+<p><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">disabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./dynamic-plugins/dist/backstage-plugin-notifications</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">disabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./dynamic-plugins/dist/backstage-plugin-notifications-backend-dynamic</span>
+</code></pre></div>
 1. Save the ConfigMap.</p>
 <h3 id="step-2-enable-token-based-api-access">Step 2: Enable Token-Based API Access</h3>
 <p>The workflow calls the Developer Portal backend API using <a href="https://backstage.io/docs/auth/service-to-service-auth/#static-tokens">static token authentication</a>.</p>
@@ -596,21 +596,21 @@
 <li>Open the YAML editor for the app config ConfigMap (e.g. <code>&lt;your-rhdh-instance&gt;-app-config</code>).</li>
 <li>Add <code>externalAccess</code> to the <code>backend.auth</code> section — do not remove existing properties:</li>
 </ol>
-<p><code>yaml
-   backend:
-     auth:
-       externalAccess:
-         - type: static
-           options:
-             token: ${BACKEND_SECRET}
-             subject: Orchestrator</code>
+<p><div class="highlight"><pre><span></span><code><span class="nt">backend</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">externalAccess</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">static</span>
+<span class="w">        </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${BACKEND_SECRET}</span>
+<span class="w">          </span><span class="nt">subject</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Orchestrator</span>
+</code></pre></div>
 1. Save the ConfigMap.
 1. Wait for the Developer Portal pod to redeploy and reach Running status.</p>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 <code>BACKEND_SECRET</code> is typically already used as a session signing secret. In production, provision a dedicated secret with a securely generated token:</p>
-<p><code>bash
-openssl rand 24 | base64 | cut -c1-32</code></p>
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>rand<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c1-32
+</code></pre></div>
 </blockquote>
 <hr />
 <h2 id="part-3-import-the-namespace-software-template">Part 3: Import the Namespace Software Template</h2>
@@ -621,7 +621,8 @@ openssl rand 24 | base64 | cut -c1-32</code></p>
 <li>Click <strong>Import an existing Git repository</strong>.</li>
 <li>Enter the following URL and click <strong>Analyze</strong>:</li>
 </ol>
-<p><code>https://github.com/redhat-ads-tech/orchestrator-self-service-templates/blob/main/namespace/template.yaml</code>
+<p><div class="highlight"><pre><span></span><code>https://github.com/redhat-ads-tech/orchestrator-self-service-templates/blob/main/namespace/template.yaml
+</code></pre></div>
 1. Review the entities to import and click <strong>Import</strong>.
 1. Verify the import by clicking <strong>+</strong> again and filtering by the <code>orchestrator</code> tag. You should see the <strong>OpenShift Namespace Request</strong> template.</p>
 <blockquote>
@@ -632,14 +633,14 @@ This template is not intended to be used directly — it is invoked by the Orche
 <h2 id="part-4-deploy-the-advanced-workflow">Part 4: Deploy the Advanced Workflow</h2>
 <h3 id="step-1-gather-prerequisites">Step 1: Gather Prerequisites</h3>
 <p>Collect the credentials the workflow needs. Run these commands in a terminal with an active <code>oc</code> session, replacing secret and namespace names with your own:</p>
-<pre><code class="language-bash"># Retrieve the Developer Portal backend token
-export BACKSTAGE_TOKEN=$(oc get secret &lt;your-rhdh-env-secret&gt; -n &lt;your-portal-namespace&gt; \
-  -o jsonpath='{.data.BACKEND_SECRET}' | base64 -d)
+<div class="highlight"><pre><span></span><code><span class="c1"># Retrieve the Developer Portal backend token</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BACKSTAGE_TOKEN</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>&lt;your-rhdh-env-secret&gt;<span class="w"> </span>-n<span class="w"> </span>&lt;your-portal-namespace&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.BACKEND_SECRET}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="k">)</span>
 
-# Retrieve the issue tracker token (e.g. GitLab personal access token)
-export ISSUE_TRACKER_TOKEN=$(oc get secret &lt;your-issue-tracker-secret&gt; -n &lt;your-issue-tracker-namespace&gt; \
-  -o jsonpath='{.data.token}' | base64 -d)
-</code></pre>
+<span class="c1"># Retrieve the issue tracker token (e.g. GitLab personal access token)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ISSUE_TRACKER_TOKEN</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>&lt;your-issue-tracker-secret&gt;<span class="w"> </span>-n<span class="w"> </span>&lt;your-issue-tracker-namespace&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="k">)</span>
+</code></pre></div>
 <blockquote>
 <p><strong>⚠️ Warning</strong>
 In production, create dedicated tokens with the minimum required permissions and store them in OpenShift Secrets.</p>
@@ -649,19 +650,19 @@ In production, create dedicated tokens with the minimum required permissions and
 <li>Open the OpenShift Web Terminal (<strong>&gt;_</strong>) or use a local terminal with <code>oc</code> and <code>helm</code>.</li>
 <li>Set your project context:</li>
 </ol>
-<p><code>bash
-   oc project &lt;your-developer-portal-namespace&gt;</code>
+<p><div class="highlight"><pre><span></span><code>oc<span class="w"> </span>project<span class="w"> </span>&lt;your-developer-portal-namespace&gt;
+</code></pre></div>
 1. Add the Helm repository:</p>
-<p><code>bash
-   helm repo add advanced-workflows https://redhat-ads-tech.github.io/orchestrator-self-service-workflows/</code>
+<p><div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>advanced-workflows<span class="w"> </span>https://redhat-ads-tech.github.io/orchestrator-self-service-workflows/
+</code></pre></div>
 1. Install the workflow with your environment-specific values:</p>
-<p><code>bash
-   helm install request-ns advanced-workflows/create-ocp-namespace-swt \
-     -n &lt;your-developer-portal-namespace&gt; \
-     --set env.backstageBackendUrl="https://&lt;your-developer-portal-url&gt;" \
-     --set env.backstageBackendBearerToken="$BACKSTAGE_TOKEN" \
-     --set env.gitlabUrl="https://&lt;your-issue-tracker-url&gt;" \
-     --set env.gitlabToken="$ISSUE_TRACKER_TOKEN"</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>request-ns<span class="w"> </span>advanced-workflows/create-ocp-namespace-swt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>&lt;your-developer-portal-namespace&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>env.backstageBackendUrl<span class="o">=</span><span class="s2">&quot;https://&lt;your-developer-portal-url&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>env.backstageBackendBearerToken<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$BACKSTAGE_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>env.gitlabUrl<span class="o">=</span><span class="s2">&quot;https://&lt;your-issue-tracker-url&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>env.gitlabToken<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$ISSUE_TRACKER_TOKEN</span><span class="s2">&quot;</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 Replace <code>&lt;your-developer-portal-url&gt;</code> and <code>&lt;your-issue-tracker-url&gt;</code> with your environment’s actual hostnames. If using a different issue tracker (e.g. Jira, ServiceNow), update the Helm values accordingly.
@@ -808,7 +809,7 @@ The workflow polls for label changes every 60 seconds. Once <code>approved</code
 </ol>
 <hr />
 <h2 id="workflow-state-diagram">Workflow State Diagram</h2>
-<pre><code>Start
+<div class="highlight"><pre><span></span><code>Start
   ↓
 NamespaceSizeSwitch
   ├── small/medium ──→ LaunchSoftwareTemplate ──→ NotifySuccess/Failure ──→ End
@@ -823,7 +824,7 @@ NamespaceSizeSwitch
                     ├── approved ──→ CloseIssueApproved ──→ LaunchSoftwareTemplate ──→ NotifySuccess ──→ End
                     ├── denied   ──→ CloseIssueDenied   ──→ NotifyDenied ──→ End
                     └── pending  ──→ PollIssue (loop)
-</code></pre>
+</code></pre></div>
 <hr />
 <h2 id="key-concepts-demonstrated">Key Concepts Demonstrated</h2>
 <table>

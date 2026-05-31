@@ -484,81 +484,81 @@
 <p>Serverless Workflow is a cloud-native workflow engine that allows teams to design, deploy, and execute arbitrarily complex workflows that integrate with external systems through several mechanisms. Teams define workflows in the Serverless Workflow format, and SonataFlow handles the build, state management, and serverless deployment aspects automatically.</p>
 <h3 id="example-workflow-definition">Example Workflow Definition</h3>
 <p>The following workflow definition demonstrates functions, input validation using schemas, and behavior modeling using <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machine</a> semantics. A workflow like this can be built and deployed on OpenShift as a Quarkus-based application container using the SonataFlow Operator.</p>
-<pre><code class="language-yaml">id: greeting
-version: '1.0'
-specVersion: '1.0'
-name: Greeting workflow
-description: YAML based greeting workflow
-annotations:
-  - &quot;workflow-type/infrastructure&quot;
+<div class="highlight"><pre><span></span><code><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greeting</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.0&#39;</span>
+<span class="nt">specVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.0&#39;</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Greeting workflow</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YAML based greeting workflow</span>
+<span class="nt">annotations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;workflow-type/infrastructure&quot;</span>
 
-# Workflows use schemas, in JSON Schema format, to validate inputs
-dataInputSchema:
-  schema: schemas/greeting.sw.input-schema.json
-  failOnValidationErrors: true
+<span class="c1"># Workflows use schemas, in JSON Schema format, to validate inputs</span>
+<span class="nt">dataInputSchema</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schemas/greeting.sw.input-schema.json</span>
+<span class="w">  </span><span class="nt">failOnValidationErrors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
-# Reusable logic can be defined using functions
-functions:
-  - name: greetFunction
-    type: custom
-    operation: sysout
+<span class="c1"># Reusable logic can be defined using functions</span>
+<span class="nt">functions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greetFunction</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
+<span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysout</span>
 
-  - name: successResult
-    type: expression
-    operation: '{ &quot;result&quot;: { &quot;message&quot;: &quot;Greeting workflow completed successfully&quot;, &quot;outputs&quot;:[ { &quot;key&quot;:&quot;Selected language&quot;, &quot;value&quot;: .language }, { &quot;key&quot;:&quot;Greeting message&quot;, &quot;value&quot;: .greeting } ] } }'
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">successResult</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expression</span>
+<span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">&quot;result&quot;:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">&quot;message&quot;:</span><span class="nv"> </span><span class="s">&quot;Greeting</span><span class="nv"> </span><span class="s">workflow</span><span class="nv"> </span><span class="s">completed</span><span class="nv"> </span><span class="s">successfully&quot;,</span><span class="nv"> </span><span class="s">&quot;outputs&quot;:[</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">&quot;key&quot;:&quot;Selected</span><span class="nv"> </span><span class="s">language&quot;,</span><span class="nv"> </span><span class="s">&quot;value&quot;:</span><span class="nv"> </span><span class="s">.language</span><span class="nv"> </span><span class="s">},</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">&quot;key&quot;:&quot;Greeting</span><span class="nv"> </span><span class="s">message&quot;,</span><span class="nv"> </span><span class="s">&quot;value&quot;:</span><span class="nv"> </span><span class="s">.greeting</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}&#39;</span>
 
-start:
-  stateName: ChooseOnLanguage
+<span class="nt">start</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stateName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChooseOnLanguage</span>
 
-states:
-  - dataConditions:
-      - condition: .language == &quot;English&quot;
-        transition:
-          nextState: GreetInEnglish
-      - condition: .language == &quot;Spanish&quot;
-        transition:
-          nextState: GreetInSpanish
-    defaultCondition:
-      transition:
-        nextState: GreetInEnglish
-    name: ChooseOnLanguage
-    type: switch
+<span class="nt">states</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dataConditions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.language == &quot;English&quot;</span>
+<span class="w">        </span><span class="nt">transition</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">nextState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInEnglish</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.language == &quot;Spanish&quot;</span>
+<span class="w">        </span><span class="nt">transition</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">nextState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInSpanish</span>
+<span class="w">    </span><span class="nt">defaultCondition</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">transition</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">nextState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInEnglish</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChooseOnLanguage</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch</span>
 
-  - data:
-      greeting: Hello from YAML Workflow
-    name: GreetInEnglish
-    transition:
-      nextState: GreetPerson
-    type: inject
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">greeting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hello from YAML Workflow</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInEnglish</span>
+<span class="w">    </span><span class="nt">transition</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">nextState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetPerson</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inject</span>
 
-  - data:
-      greeting: Saludos desde YAML Workflow
-    name: GreetInSpanish
-    transition:
-      nextState: GreetPerson
-    type: inject
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">greeting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Saludos desde YAML Workflow</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetInSpanish</span>
+<span class="w">    </span><span class="nt">transition</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">nextState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetPerson</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inject</span>
 
-  - actionMode: sequential
-    actions:
-      - actionDataFilter:
-          useResults: true
-        functionRef:
-          arguments:
-            message: .greeting
-          invoke: sync
-          refName: greetFunction
-        name: greetAction
-      - actionDataFilter:
-          useResults: true
-        functionRef:
-          invoke: sync
-          refName: successResult
-        name: setOutput
-    end:
-      terminate: true
-    name: GreetPerson
-    type: operation
-</code></pre>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">actionMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sequential</span>
+<span class="w">    </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">actionDataFilter</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">useResults</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">functionRef</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.greeting</span>
+<span class="w">          </span><span class="nt">invoke</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sync</span>
+<span class="w">          </span><span class="nt">refName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greetFunction</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">greetAction</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">actionDataFilter</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">useResults</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">functionRef</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">invoke</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sync</span>
+<span class="w">          </span><span class="nt">refName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">successResult</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setOutput</span>
+<span class="w">    </span><span class="nt">end</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">terminate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GreetPerson</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operation</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
 To learn more about the workflow YAML/JSON format, see the <a href="https://serverlessworkflow.io/schemas/1.0.0/workflow.json">workflow JSON schema on serverlessworkflow.io</a>.</p>
@@ -606,7 +606,7 @@ To learn more about the workflow YAML/JSON format, see the <a href="https://serv
 <hr />
 <h2 id="architectural-overview">Architectural Overview</h2>
 <p>The following describes the high-level architecture of the Orchestrator:</p>
-<pre><code>Developer Portal (UI)
+<div class="highlight"><pre><span></span><code>Developer Portal (UI)
         ↓
 Orchestrator Plugin
         ↓  ↑ (status / notifications)
@@ -615,7 +615,7 @@ SonataFlow Operator (OpenShift)
 Workflow Instances (Quarkus containers)
         ↓
 External Systems (APIs, ITSM, Approval Services, etc.)
-</code></pre>
+</code></pre></div>
 <table>
 <thead>
 <tr>
