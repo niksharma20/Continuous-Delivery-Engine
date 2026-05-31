@@ -2,7 +2,7 @@
 ### Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and Event Driven Ansible.  
 
 ## Architecture  
-![Architecture Diagram](content/images/module/module_3/fulll_namespace_goverance.jpg)
+![Architecture Diagram](content/images/module/module_3/full_namespace_goverance.jpg)
 
 
 This hands-on comprehensive workshop provides **technical understanding** of Continuous Delivery Engine (CDE) components and their implementation.  
