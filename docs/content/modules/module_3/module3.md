@@ -1,10 +1,8 @@
 ## Continuous Delivery Engine: Hands-On Technical Workshop   
-### Module 3 - Enforcing Governance**
+### Module 3 - Enforcing Governance
 
 ## Architecture  
-![Architecture Diagram](content/images/module/module_3/full_namespace_goverance.jpg)
->
->
+![Architecture Diagram](/docs/content/images/module/module_3/full_namespace_goverance.jpg)  
 
 ## Component
 
