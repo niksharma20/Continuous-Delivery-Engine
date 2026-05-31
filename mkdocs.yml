@@ -18,12 +18,9 @@ theme:
     - navigation.sections
     - toc.integrate
     - search.suggest
+    
 markdown_extensions:
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.mermaid_format
+  - pymdownx.superfences
 
 nav:
   - Home: index.md
