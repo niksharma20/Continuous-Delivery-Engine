@@ -11,8 +11,8 @@ extra:
 theme:
   name: material
   palette:
-    - primary: red
-      accent: red
+    primary: red
+    accent: red
   features:
     - navigation.tabs
     - navigation.sections
