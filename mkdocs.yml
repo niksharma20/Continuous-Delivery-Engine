@@ -37,15 +37,15 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Setup: content/setup/setup.md
-  - Declarative Infrastructure:
+  - Module 1 - Declarative Infrastructure:
     - Overview: content/modules/module_1/module1.md
-  - EDA for Openshift:
+  - Module 3 - EDA for Openshift:
     - Overview: content/modules/module_2/module2.md
     - EDA Infra: content/modules/module_2/eda_infra.md
     - EDA Rulebook: content/modules/module_2/eda_rulebook.md
     - AAC Infra: content/modules/module_2/eda_infra.md
     - AAC Job Templates: content/modules/module_2/aac_job_template.md
-  - Enforcing Governance via IDP:
+  - Module 2 - Enforcing Governance via IDP:
     - Overview: content/modules/module_3/module3.md
     - Software Template: content/modules/module_3/software_template_changes.md
   - Conclusion: content/conclusion/conclusion.md
