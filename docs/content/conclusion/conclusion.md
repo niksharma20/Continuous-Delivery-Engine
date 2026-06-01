@@ -1,8 +1,8 @@
 # Conclusion: Continuous Delivery Engine
 
 ## What You Have Built  
+By working through this workshop, you have assembled the complete **event-driven governance layer** for a Namespace on Openshift — this simple is very use case but the integration quite Powerful.  
 
-By working through this repository, you have assembled the complete **event-driven governance layer** of the Namespace as a Service platform — the component that turns a provisioned namespace into a self-governing, self-healing unit.  
 -----
 
 ## Objectives: Completed
