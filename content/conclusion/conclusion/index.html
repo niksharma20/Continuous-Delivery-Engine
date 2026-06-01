@@ -499,6 +499,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#developer-portal-rhdh-self-service-ui-software-templates-catalog-form-submission-orchestrator-sonataflow-approval-workflows-stateful-processes-notifications-namespace-typeeda-label-gitops-argocd-desired-state-sync-resourcequota-rbac-networkpolicy-namespace-live-in-cluster-custom-decision-environment-this-repository-juniperedak8s-event-stream-from-openshift-eda-rulebooks-match-events-to-rules-aac-job-templates-execute-remediation-playbooks-kubernetescore-patch-resources-back-to-desired-state-audit-annotations-in-cluster-aac-job-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      ┌─────────────────────────────────────────────────────────────────┐ │ DEVELOPER PORTAL (RHDH) │ │ Self-service UI · Software Templates · Catalog │ └─────────────────────────────┬───────────────────────────────────┘ │ Form submission ↓ ┌─────────────────────────────────────────────────────────────────┐ │ ORCHESTRATOR (SonataFlow) │ │ Approval workflows · Stateful processes · Notifications │ └─────────────────────────────┬───────────────────────────────────┘ │ Namespace + type=eda label ↓ ┌─────────────────────────────────────────────────────────────────┐ │ GITOPS (ArgoCD) │ │ Desired state sync · ResourceQuota · RBAC · NetworkPolicy │ └─────────────────────────────┬───────────────────────────────────┘ │ Namespace live in cluster ↓ ┌─────────────────────────────────────────────────────────────────┐ │ CUSTOM DECISION ENVIRONMENT (This Repository) │ │ │ │ juniper.eda.k8s ──→ Event stream from OpenShift │ │ EDA rulebooks ──→ Match events to rules │ │ AAC Job Templates → Execute remediation playbooks │ │ kubernetes.core ──→ Patch resources back to desired state │ │ Audit annotations → In-cluster + AAC job history │ └─────────────────────────────────────────────────────────────────┘
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#goals-achieved" class="md-nav__link">
     <span class="md-ellipsis">
       Goals: Achieved
@@ -517,36 +526,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-three-phases-complete" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Three Phases: Complete
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-makes-this-different-from-just-gitops" class="md-nav__link">
-    <span class="md-ellipsis">
-      What Makes This Different from Just GitOps
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#extending-this-platform" class="md-nav__link">
     <span class="md-ellipsis">
       Extending This Platform
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation Map
     </span>
   </a>
   
@@ -591,7 +573,7 @@
 <h2 id="what-you-have-built">What You Have Built</h2>
 <p>By working through this repository, you have assembled the complete <strong>event-driven governance layer</strong> of the Namespace as a Service platform — the component that turns a provisioned namespace into a self-governing, self-healing unit.</p>
 <p>The full stack now looks like this:</p>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────────┐
+<h2 id="developer-portal-rhdh-self-service-ui-software-templates-catalog-form-submission-orchestrator-sonataflow-approval-workflows-stateful-processes-notifications-namespace-typeeda-label-gitops-argocd-desired-state-sync-resourcequota-rbac-networkpolicy-namespace-live-in-cluster-custom-decision-environment-this-repository-juniperedak8s-event-stream-from-openshift-eda-rulebooks-match-events-to-rules-aac-job-templates-execute-remediation-playbooks-kubernetescore-patch-resources-back-to-desired-state-audit-annotations-in-cluster-aac-job-history"><div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────────┐
 │                   DEVELOPER PORTAL (RHDH)                       │
 │         Self-service UI · Software Templates · Catalog          │
 └─────────────────────────────┬───────────────────────────────────┘
@@ -618,111 +600,11 @@
 │  kubernetes.core  ──→ Patch resources back to desired state     │
 │  Audit annotations → In-cluster + AAC job history               │
 └─────────────────────────────────────────────────────────────────┘
-</code></pre></div>
-<hr />
+</code></pre></div></h2>
 <h2 id="goals-achieved">Goals: Achieved</h2>
-<table>
-<thead>
-<tr>
-<th>Goal</th>
-<th>How It Was Met</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Real-time cluster governance</td>
-<td>Juniper <code>k8s.eda</code> opens an async event stream — no polling</td>
-</tr>
-<tr>
-<td>Reusable, version-controlled DE</td>
-<td><code>decision-environment.yml</code> is the single source of truth for the container image</td>
-</tr>
-<tr>
-<td>Least-privilege OpenShift access</td>
-<td>ClusterRole grants only <code>get/list/watch</code> — no write permissions for EDA</td>
-</tr>
-<tr>
-<td>Clean EDA / AAC separation</td>
-<td>Rulebooks decide; playbooks execute — two separate concerns, two separate systems</td>
-</tr>
-<tr>
-<td>NaaS governance model</td>
-<td><code>eda-governed=true</code> label activates governance at provisioning time — zero additional config</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="objectives-completed">Objectives: Completed</h2>
 <p>After working through this repository you can:</p>
-<ul>
-<li>✅ Build and publish a custom EDA Decision Environment using <code>ansible-builder</code></li>
-<li>✅ Register the DE in AAP Automation Decisions</li>
-<li>✅ Configure OpenShift RBAC so EDA can authenticate and watch resources with least privilege</li>
-<li>✅ Import and activate EDA credential types for OpenShift and AAC</li>
-<li>✅ Activate a rulebook that streams live events from OpenShift in real time</li>
-<li>✅ Understand how <code>{{ eda.filename.kubeconfig }}</code> is injected by AAP at activation time</li>
-<li>✅ Trigger and verify remediation playbooks via AAC job templates</li>
-<li>✅ Create an in-cluster and in-AAC audit trail for every automated remediation</li>
-</ul>
-<hr />
-<h2 id="the-three-phases-complete">The Three Phases: Complete</h2>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Layer</th>
-<th>Tools</th>
-<th>What It Does</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Phase 1</strong></td>
-<td>Self-service provisioning</td>
-<td>Developer Portal + ArgoCD + Helm</td>
-<td>Developer fills a form → Git PR → namespace provisioned with quota, RBAC, NetworkPolicy</td>
-</tr>
-<tr>
-<td><strong>Phase 2</strong></td>
-<td>Stateful workflows and approvals</td>
-<td>Orchestrator + SonataFlow + AAC</td>
-<td>Large namespace requests require approval · Multi-step integrations · Notifications</td>
-</tr>
-<tr>
-<td><strong>Phase 3</strong></td>
-<td>Event-driven governance</td>
-<td>EDA + Custom DE + AAC + juniper.eda.k8s</td>
-<td><code>eda-governed=true</code> label activates real-time event watching and automated remediation</td>
-</tr>
-</tbody>
-</table>
-<p>Together these three phases implement the <strong>Continuous Delivery Engine for the Real World</strong> — a platform that provisions, governs, remediates, and retires namespaces with minimal human intervention, where every action is traceable back to a Git commit or an AAC job log.</p>
-<hr />
-<h2 id="what-makes-this-different-from-just-gitops">What Makes This Different from Just GitOps</h2>
-<p>GitOps alone is a one-way pipe:</p>
-<div class="highlight"><pre><span></span><code>Desired state in Git → ArgoCD syncs → Cluster reflects desired state
-</code></pre></div>
-<p>It is excellent at detecting drift and resyncing on a schedule, but it does not:</p>
-<ul>
-<li>React to events in real time</li>
-<li>Detect violations that happen <em>within</em> a provisioned namespace (e.g. a PVC created without a label)</li>
-<li>Handle approval workflows or long-running processes</li>
-<li>Notify stakeholders at decision points</li>
-</ul>
-<p>The EDA layer closes the feedback loop:</p>
-<div class="highlight"><pre><span></span><code>Something happens in the cluster
-          ↓
-EDA detects it immediately (not on the next ArgoCD sync cycle)
-          ↓
-EDA decides whether it matches a governance rule
-          ↓
-AAC executes the appropriate response
-          ↓
-Cluster returns to desired state
-          ↓
-Every action annotated in the cluster + logged in AAC
-</code></pre></div>
-<p>This is <strong>reactive governance</strong> layered on top of <strong>declarative provisioning</strong> — and together they form a genuinely self-governing platform.</p>
 <hr />
 <h2 id="extending-this-platform">Extending This Platform</h2>
 <p>The patterns in this repository are intentionally generic. Common extensions include:</p>
@@ -758,58 +640,6 @@ Every action annotated in the cluster + logged in AAC
 <td>Add quota breach alerting</td>
 <td>Source from Alertmanager in addition to <code>k8s.eda</code> — combine event sources in one rulebook</td>
 </tr>
-<tr>
-<td>Air-gapped deployment</td>
-<td>Mirror the Juniper Git repo internally, update <code>decision-environment.yml</code> URL, rebuild DE</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="documentation-map">Documentation Map</h2>
-<table>
-<thead>
-<tr>
-<th>File</th>
-<th>Contents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>custom-de-00-introduction.md</code></td>
-<td>Overview, repo structure, goals, objectives, quick start</td>
-</tr>
-<tr>
-<td><code>custom-de-01-decision-environment.md</code></td>
-<td>DE build manifest explained field by field, build steps</td>
-</tr>
-<tr>
-<td><code>custom-de-02-ocp-rbac.md</code></td>
-<td>ClusterRole, ServiceAccount, ClusterRoleBinding, token generation</td>
-</tr>
-<tr>
-<td><code>custom-de-03-eda-credentials.md</code></td>
-<td>OpenShift and AAC credential configuration in AAP</td>
-</tr>
-<tr>
-<td><code>custom-de-04-custom-credentials.md</code></td>
-<td>Custom credential type definitions and import instructions</td>
-</tr>
-<tr>
-<td><code>custom-de-05-rulebooks.md</code></td>
-<td>Rulebook structure, event format, rules, activation setup</td>
-</tr>
-<tr>
-<td><code>custom-de-06-playbooks.md</code></td>
-<td>Remediation playbooks, Job Template registration, audit trail</td>
-</tr>
-<tr>
-<td><code>custom-de-07-extra.md</code></td>
-<td>Supporting utilities, ansible.cfg, tips, pitfalls</td>
-</tr>
-<tr>
-<td><code>custom-de-08-conclusion.md</code></td>
-<td>This page — full picture, goals review, extension patterns</td>
-</tr>
 </tbody>
 </table>
 <hr />
@@ -817,7 +647,6 @@ Every action annotated in the cluster + logged in AAC
 <ul>
 <li><a href="https://www.ansible.com/products/event-driven-ansible">Event-Driven Ansible documentation</a></li>
 <li><a href="https://github.com/Juniper/k8s.eda">Juniper k8s.eda collection</a></li>
-<li><a href="https://ansible.readthedocs.io/projects/builder/en/latest/">ansible-builder documentation</a></li>
 <li><a href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/latest/html/using_automation_decisions">AAP Automation Decisions</a></li>
 <li><a href="https://docs.ansible.com/ansible/latest/collections/kubernetes/core/index.html">kubernetes.core collection</a></li>
 <li><a href="https://docs.openshift.com/container-platform/latest/authentication/using-rbac.html">OpenShift RBAC</a></li>
