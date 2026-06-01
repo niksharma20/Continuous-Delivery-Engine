@@ -39,6 +39,7 @@ nav:
   - Setup: content/setup/setup.md
   - Module 1:
     - Overview: content/modules/module_1/module1.md
+    - Service Account: content/modules/module_1/service_account.md
   - Module 2:
     - Overview: content/modules/module_2/module2.md
     - EDA Infra: content/modules/module_2/eda_infra.md

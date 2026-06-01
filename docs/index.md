@@ -109,11 +109,6 @@ graph LR
 | **Openshift Gitops** | GitOps | 
 | **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
->
-> ## Use Case to explore
->
->
-
 
 ## References
 [View the Showroom Demo Event-Driven Ansible Modules](https://redhat-gpte-devopsautomation.github.io/showroom-demo-event-driven-ansible/modules/index.html)  

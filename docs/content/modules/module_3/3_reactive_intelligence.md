@@ -1,3 +1,0 @@
-# Reactive Intelligence
-
-## 

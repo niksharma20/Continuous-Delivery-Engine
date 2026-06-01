@@ -2,6 +2,7 @@
 
 ## Overview  
 
+
 ## Architecture  
 
 ```mermaid
@@ -72,15 +73,10 @@ graph LR
 | **Openshift Gitops** | GitOps | 
 | **GitHub** | Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now) |  
 
-## Use Case to explore  
-> 
->
 
 
-## Prerequisites   
->
-> 
->
+## Further Reading
+
 
 ## References
 [Event Driven Ansible for Openshift](https://github.com/redhat-ads-tech/rhads-enablement-l3-st-self-service)  

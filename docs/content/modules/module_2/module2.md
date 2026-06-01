@@ -14,15 +14,13 @@
 | **Event Driven Ansible** | Automation Decisions |  
 
 
-## Use Case to explore  
-> 
->
-
-
 ## Prerequisites   
 >
 > 
 >
+
+## Further Reading
+
 
 ## References
 [Event Driven Ansible for Openshift](https://github.com/redhat-ads-tech/rhads-enablement-l3-st-self-service)  
