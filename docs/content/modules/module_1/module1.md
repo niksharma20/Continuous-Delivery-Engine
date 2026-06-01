@@ -1,4 +1,9 @@
-# Architecture  
+# Module 1  
+
+## Overview     
+
+## Architecture   
+
 ```mermaid
 graph LR
     %% Color Palette Configurations
