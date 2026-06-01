@@ -1,10 +1,10 @@
-# Conclusion: Building a Self-Governing Platform with EDA
+# Conclusion: Building a Self-Governing Platform with EDA  
 
-## What You Have Built
+## What You Have Built  
 
 By working through this repository, you have assembled the complete **event-driven governance layer** of the Namespace as a Service platform — the component that turns a provisioned namespace into a self-governing, self-healing unit.
 
-The full stack now looks like this:
+The full stack now looks like this:  
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -34,15 +34,13 @@ The full stack now looks like this:
 │  kubernetes.core  ──→ Patch resources back to desired state     │
 │  Audit annotations → In-cluster + AAC job history               │
 └─────────────────────────────────────────────────────────────────┘
-```
------
-## Goals: Achieved
 
+```  
 -----
 
 ## Objectives: Completed
 
-After working through this repository you can:
+
 
 
 -----
