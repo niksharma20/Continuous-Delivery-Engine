@@ -390,6 +390,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
       Architecture
@@ -525,6 +534,10 @@
 
 
 <h1 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h1>
+<h2 id="overview">Overview</h2>
+<p>This hands-on comprehensive workshop provides technical understanding of Continuous Delivery Engine (CDE) components and their implementation.<br />
+Designed for platform engineers, DevOps practitioners, and technical leaders.<br />
+In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Ansible Automation Platform that delivers to containers, VMs, and other infrastructure components through a single, automated, policy-enforced pipeline — no environment left behind. Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform serves as the cross-platform automation engine. You will learn how to empower developers with a unified self-service experience while maintaining total operational control.  </p>
 <h2 id="architecture">Architecture</h2>
 <p>Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and Event Driven Ansible.  </p>
 <pre class="mermaid"><code>graph LR
@@ -580,9 +593,6 @@
     Target_Clusters -.-&gt;|Cluster events&lt;br&gt;type=eda| EDA
     EDA --&gt;|Automatically triggers next step| Controller
     Controller --&gt;|Remediation playbooks| Target_Clusters</code></pre>
-<p>This hands-on comprehensive workshop provides technical understanding of Continuous Delivery Engine (CDE) components and their implementation.<br />
-Designed for platform engineers, DevOps practitioners, and technical leaders.  </p>
-<p>In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Ansible Automation Platform that delivers to containers, VMs, and other infrastructure components through a single, automated, policy-enforced pipeline — no environment left behind. Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform serves as the cross-platform automation engine. You will learn how to empower developers with a unified self-service experience while maintaining total operational control.  </p>
 <blockquote>
 <h1 id="workshop-goal"><strong>Workshop Goal</strong></h1>
 <p>Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases.<br />
