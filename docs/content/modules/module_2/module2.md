@@ -3,7 +3,7 @@
 ## Overview     
 
 ## Architecture  
-![Architecture Diagram](/docs/content/images/module/module_2/eda_ocp.jpg)
+![Architecture Diagram](../../../images/module/module_2/eda_ocp.jpg)  
 
 ## Component
 
