@@ -11,12 +11,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_1/101_declarative_Infra/</loc>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_1/module1/</loc>
          <lastmod>2026-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_1/module1/</loc>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_1/service_account/</loc>
          <lastmod>2026-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -42,41 +42,6 @@
     </url>
     <url>
          <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/module2/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/201_overview/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/202_setup/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/203_simple_workflows/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/204_advance_workflow/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/205_ns_eda/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/2_operational_orchestration/</loc>
-         <lastmod>2026-06-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/3_reactive_intelligence/</loc>
          <lastmod>2026-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>

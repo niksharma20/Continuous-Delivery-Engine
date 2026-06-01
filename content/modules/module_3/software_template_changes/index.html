@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#eda-enabled-namespace-provisioning" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -438,6 +443,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_1/service_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Service Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -676,6 +702,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Software Template
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -686,6 +725,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -737,9 +822,52 @@
   
 
 
-  <h1>Software Template</h1>
-
-<p>This file defines the changes that is required to enable software template with EDA goverenace.</p>
+<h1 id="eda-enabled-namespace-provisioning">EDA-Enabled Namespace Provisioning</h1>
+<h2 id="overview">Overview</h2>
+<p>In this section you will extend the namespace request workflow by enabling Event-Driven Ansible (EDA) governance on a namespace at provisioning time.</p>
+<p>When a developer requests a <strong>medium/large</strong> namespace and with <strong>Enable EDA Governance</strong> option, the workflow applies a label to the namespace:<br />
+<div class="highlight"><pre><span></span><code>type: &quot;eda&quot;
+</code></pre></div>
+This label acts as a signal to the EDA Decision Controller. The <code>juniper.eda.k8s</code> collection watches the cluster for events on labelled namespaces and triggers Ansible Automation Controller (AAC) job templates in response to detected drift, policy violations, or resource lifecycle events.</p>
+<p>By the end of this section you will have:</p>
+<ul>
+<li>Provisioned an EDA-governed medium namespace via the Orchestrator workflow</li>
+<li>Observed how the EDA label activates namespace-scoped event polling</li>
+<li>Triggered and verified EDA-driven remediation for a real-world scenarios.
+  Other scenarios to consider:</li>
+<li>A PersistentVolumeClaim created without a storage class label</li>
+<li>A TLS certificate Secret missing a required annotation</li>
+<li>A NetworkPolicy deleted from the namespace</li>
+</ul>
+<h2 id="architecture-flow">Architecture Flow</h2>
+<div class="highlight"><pre><span></span><code>Developer checks &quot;Enable EDA Governance&quot; in workflow form
+          ↓
+Orchestrator workflow provisions namespace via Software Template
+          ↓
+Software Template applies label: eda-governed=true to Namespace CR
+          ↓
+EDA Decision Controller (juniper.eda.k8s) detects labelled namespace
+          ↓
+EDA begins polling events scoped to that namespace
+          ↓
+Event detected (PVC / Certificate / NetworkPolicy change)
+          ↓
+EDA rulebook fires matching rule
+          ↓
+Ansible Automation Controller runs remediation Job Template
+          ↓
+Namespace returns to desired state — Git is the audit trail
+</code></pre></div>
+<h2 id="prerequisites">Prerequisites</h2>
+<blockquote>
+<p>Make sure module two has been successfully and completed and verified.</p>
+</blockquote>
+<h1 id="step-1-update-the-software-template-to-support-the-eda-label">Step 1: Update the Software Template to Support the EDA Label</h1>
+<h3 id="1b-pass-the-value-through-the-workflow-step">1b: Pass the Value Through the Workflow Step</h3>
+<h3 id="1c-apply-the-label-conditionally-in-the-helm-chart">1c: Apply the Label Conditionally in the Helm Chart</h3>
+<h2 id="step-4-provision-an-eda-governed-medium-namespace">Step 4: Provision an EDA-Governed Medium Namespace</h2>
+<h3 id="verify-the-eda-label-was-applied">Verify the EDA Label Was Applied</h3>
+<h2 id="further-reading">Further Reading</h2>
 
 
 
