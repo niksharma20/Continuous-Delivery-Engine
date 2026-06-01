@@ -1,47 +1,11 @@
-# Conclusion: Building a Self-Governing Platform with EDA  
+# Conclusion: Continuous Delivery Engine
 
 ## What You Have Built  
 
-By working through this repository, you have assembled the complete **event-driven governance layer** of the Namespace as a Service platform — the component that turns a provisioned namespace into a self-governing, self-healing unit.
-
-The full stack now looks like this:  
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   DEVELOPER PORTAL (RHDH)                       │
-│         Self-service UI · Software Templates · Catalog          │
-└─────────────────────────────┬───────────────────────────────────┘
-                              │ Form submission
-                              ↓
-┌─────────────────────────────────────────────────────────────────┐
-│               ORCHESTRATOR (SonataFlow)                         │
-│     Approval workflows · Stateful processes · Notifications     │
-└─────────────────────────────┬───────────────────────────────────┘
-                              │ Namespace + type=eda label
-                              ↓
-┌─────────────────────────────────────────────────────────────────┐
-│                  GITOPS (ArgoCD)                                 │
-│     Desired state sync · ResourceQuota · RBAC · NetworkPolicy   │
-└─────────────────────────────┬───────────────────────────────────┘
-                              │ Namespace live in cluster
-                              ↓
-┌─────────────────────────────────────────────────────────────────┐
-│        CUSTOM DECISION ENVIRONMENT (This Repository)            │
-│                                                                 │
-│  juniper.eda.k8s ──→ Event stream from OpenShift                │
-│  EDA rulebooks   ──→ Match events to rules                      │
-│  AAC Job Templates → Execute remediation playbooks              │
-│  kubernetes.core  ──→ Patch resources back to desired state     │
-│  Audit annotations → In-cluster + AAC job history               │
-└─────────────────────────────────────────────────────────────────┘
-
-```  
+By working through this repository, you have assembled the complete **event-driven governance layer** of the Namespace as a Service platform — the component that turns a provisioned namespace into a self-governing, self-healing unit.  
 -----
 
 ## Objectives: Completed
-
-
-
 
 -----
 
