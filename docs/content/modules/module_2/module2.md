@@ -1,4 +1,4 @@
-# Module 2  
+# EDA for Openshift  
 
 ## Overview     
 
