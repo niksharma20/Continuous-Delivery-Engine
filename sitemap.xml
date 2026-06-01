@@ -21,6 +21,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/aac_infra/</loc>
+         <lastmod>2026-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/aac_job_template/</loc>
+         <lastmod>2026-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/eda_infra/</loc>
+         <lastmod>2026-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/eda_rulebook/</loc>
+         <lastmod>2026-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/module2/</loc>
          <lastmod>2026-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -61,12 +81,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/cde_intro/</loc>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/module3/</loc>
          <lastmod>2026-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/module3/</loc>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/software_template_changes/</loc>
          <lastmod>2026-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
