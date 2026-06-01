@@ -79,7 +79,7 @@ graph LR
 ## **Use Case: Namespace Goverance**  
 ### Workshop Structure  
 
-[**Module 1 - Declarative Infrastructure**](content/modules/module_1)  
+**Module 1 - Declarative Infrastructure**  
 
 | Component | Description |
 | :--- | :--- |
@@ -88,7 +88,7 @@ graph LR
 | **Openshift** | Target Platform |  
 | **Openshift Gitops** | GitOps |
 
-[**Module 2 - Event Drieven Ansible for Openshift**](content/modules/module_2)  
+**Module 2 - Event Driven Ansible for Openshift**
 
 | Component | Description |
 | :--- | :--- |
@@ -97,7 +97,7 @@ graph LR
 | **Event Driven Ansible** | Automation Decisions |  
 
 
-[**Module 3 - Enforcing Governance**](content/modules/module_3)
+**Module 3 - Enforcing Governance**
 
 | Component | Description |
 | :--- | :--- |
