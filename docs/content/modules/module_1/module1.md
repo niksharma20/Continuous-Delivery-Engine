@@ -1,8 +1,8 @@
 # Declarative Infrastructure  
 
-## Overview     
+## Overview       
 
-## Architecture   
+## Architecture    
 
 ```mermaid
 graph LR
@@ -49,7 +49,6 @@ graph LR
 
 ## Component
 
-
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
@@ -57,9 +56,9 @@ graph LR
 | **Openshift Gitops** | GitOps |
 
 
-> ## Use Case to explore  
-> 
->
+> ## Use Case to explore (not part of the workshop) 
+> VM as a Service
+> DB as a Service (Data Grid)
 
 
 ## Prerequisites   
@@ -67,5 +66,5 @@ graph LR
 > Openshift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator
 >
 
-## References
-[Request Namespace Developer Hub](https://github.com/redhat-ads-tech/rhads-enablement-l3-st-self-service)  
+## Further Reading
+
