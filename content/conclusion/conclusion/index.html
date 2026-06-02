@@ -824,7 +824,19 @@
 
 <h1 id="conclusion-continuous-delivery-engine">Conclusion: Continuous Delivery Engine<a class="headerlink" href="#conclusion-continuous-delivery-engine" title="Permanent link">¶</a></h1>
 <h2 id="what-you-have-built">What You Have Built<a class="headerlink" href="#what-you-have-built" title="Permanent link">¶</a></h2>
-<p>By working through this workshop, you built a <strong>Continuous Delivery Engine</strong> with a simiplied End User Experinece. platform that provisions, governs, and remediates namespaces automatically.  </p>
+<p>By working through this workshop, you didn’t configure a tool — you built a <strong><em>Continuous Delivery Engine</em></strong> with a simplified end-user experience.</p>
+<p>Most teams spend their time reacting. 
+Someone deletes a NetworkPolicy, a namespace gets misconfigured, or a resource quota disappears. 
+They find out during troubleshooting or in a post-incident review, if they find out at all. The fix takes a ticket, a human, and time.</p>
+<p>What you built today reacts in seconds, automatically, without anyone filing a ticket.</p>
+<p>A developer requests a namespace. GitOps provisions it. The moment it lands in OpenShift, EDA is already watching it. If something drifts — a policy deleted, a quota removed, a misconfigured resource created — Ansible detects it, remediates it, and annotates it. </p>
+<p>The label type=eda is a small thing, but it is the thread that connects self-service provisioning to real-time governance. 
+One label, applied once at provisioning time, activates a loop that continuously monitors and responds to change.</p>
+<p>Labels can be surprisingly powerful when combined with the right context. 
+They become more than metadata; they become signals that drive automation and governance across the platform.</p>
+<p>Take pattern back to your environment. Start with a different use case
+Whether it is security policies, resource management, compliance controls, or operational workflows, the underlying pattern remains the same:
+ <strong>provision, observe, react, and govern</strong>.</p>
 <h2 id="take-it-further">Take it Further<a class="headerlink" href="#take-it-further" title="Permanent link">¶</a></h2>
 <ul>
 <li>Add more EDA rules for additional governance scenarios</li>
@@ -850,6 +862,7 @@ You now have a working, end-to-end governance platform you can adapt to your own
 <li><a href="https://docs.openshift.com/container-platform/latest/authentication/using-rbac.html">OpenShift RBAC</a></li>
 <li><a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD documentation</a></li>
 <li><a href="https://sonataflow.org/">SonataFlow documentation</a></li>
+<li><a href="https://developers.redhat.com/learn/openshift/using-red-hat-openshift-labels?source=sso">Using Red Hat OpenShift labels</a></li>
 </ul>
 
 
