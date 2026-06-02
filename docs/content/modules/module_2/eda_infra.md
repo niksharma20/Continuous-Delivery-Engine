@@ -1,4 +1,4 @@
-# Overview  
+# EDA Infra Definations 
 This is moment when you define credentials needed by the execution enviroment to authenticate against the Target Openshift Cluster.
 
 Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.
@@ -32,7 +32,7 @@ These are configured separately and both assigned to the same Rulebook Activatio
 ```
 Automation Decisions → Credentials → Create Credential
 ```  
-**Step3:** Fill in the Credential Form (like below)  
+**Step3:** Fill in the credential form and save (like below)  
 ```
 Name: OpenShift Cluster Token for EDA
 Organization: Default
@@ -54,7 +54,7 @@ Verify SSL: On
 ```
 Automation Decisions → Credentials → Create Credential
 ```  
-**Step2:** Fill in the Credential Form (like below)  
+**Step2:** Fill in the credential form and save (like below)    
 ```
 Name: aap credentials
 Organization: Default
@@ -84,7 +84,7 @@ Creating the Decision Environment in AAP
 ```
 Automation Decisions → Decision Environments → Create Decision Environment
 ```  
-**Step2:** Fill in the Form (like below)  
+**Step2:** Fill in the form and save (like below)  
 ```
 Name: DE-Juniper
 Organization: Default
