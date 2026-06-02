@@ -56,5 +56,5 @@ nav:
     - AAC Job Templates: content/modules/module_2/aac_job_template.md
   - Module 3:
     - Overview: content/modules/module_3/module3.md
-    - Software Template: content/modules/module_3/software_template_changes.md
+    - Namespace Governance: content/modules/module_3/naas_governance.md
   - Conclusion: content/conclusion/conclusion.md

@@ -2,7 +2,7 @@
 
 ## Overview  
 
-**Welcome to module 1**, this is final module of the workshop and also everything comes together.  
+**Welcome to module 3**, this is final module of the workshop and also everything comes together.  
 This is divided in three parts:  
 1. You will be setting **Orchestrator** (serverless workflow component).   
 2. Deploy Namespace as a Service serverless worklow with **human in the loop** integration.  
@@ -29,9 +29,9 @@ This is divided in three parts:
 
 !!! note "**Part 3**"
 
-    For this part of the module you will *Software Template* section.
+    For this part of the module you will executing the procedures in *Namespace Governance* section.
 
-    
+
 
 **we working to have an integrate experience and adding Trusted Software Supply chain to this worskhop**  
 

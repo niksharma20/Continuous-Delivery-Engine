@@ -12,40 +12,23 @@ This label acts as a signal to the EDA Decision Controller. The `juniper.eda.k8s
 
 By the end of this section you will have:
 
-- Provisioned an EDA-governed medium namespace via the Orchestrator workflow
+- Provisioned an EDA-governed medium/large namespace via the Orchestrator workflow
 - Observed how the EDA label activates namespace-scoped event polling
-- Triggered and verified EDA-driven remediation for a real-world scenarios.
-  Other scenarios to consider:
-  - A PersistentVolumeClaim created without a storage class label
-  - A TLS certificate Secret missing a required annotation
-  - A NetworkPolicy deleted from the namespace
+- Triggered and verified EDA-driven remediation for the governanced namespace .  
+  Other scenarios to consider related this use case:
+  - PersistentVolumeClaim
+  - TLS certificates
+  - NetworkPolicy
 
-## Architecture Flow  
 
-```
-Developer checks "Enable EDA Governance" in workflow form
-          ↓
-Orchestrator workflow provisions namespace via Software Template
-          ↓
-Software Template applies label: eda-governed=true to Namespace CR
-          ↓
-EDA Decision Controller (juniper.eda.k8s) detects labelled namespace
-          ↓
-EDA begins polling events scoped to that namespace
-          ↓
-Event detected (PVC / Certificate / NetworkPolicy change)
-          ↓
-EDA rulebook fires matching rule
-          ↓
-Ansible Automation Controller runs remediation Job Template
-          ↓
-Namespace returns to desired state — Git is the audit trail
-```
 
-## Prerequisites   
-> Make sure module two has been successfully and completed and verified.
-> 
->
+!!! warning "Prerequisites"
+
+    ✅ **Module 1, Part 2 - completed successfull**
+    ✅ **Module 2         - completed successfull**
+    ✅ **Module 3, Part 1 - completed successfully**
+    ✅ **Module 3, Part 2 - completed successfully**
+
 
 # Step 1: Update the Software Template to Support the EDA Label
 ### 1b: Pass the Value Through the Workflow Step
