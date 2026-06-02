@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -46,8 +43,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -59,7 +56,17 @@
     
     
     
-  </head>
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -93,12 +100,12 @@
     <a href="../../../.." title="Red Hat Tech Day Netherlands - Continuous Delivery Engine" class="md-header__button md-logo" aria-label="Red Hat Tech Day Netherlands - Continuous Delivery Engine" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -124,24 +131,24 @@
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
         </button>
       </nav>
       
@@ -149,7 +156,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -166,7 +173,7 @@
         <a href="https://github.com/niksharma20/Continuous-Delivery-Engine" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
   </div>
   <div class="md-source__repository">
     niksharma20/Continuous-Delivery-Engine
@@ -306,7 +313,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -322,7 +329,7 @@
     <a href="../../../.." title="Red Hat Tech Day Netherlands - Continuous Delivery Engine" class="md-nav__button md-logo" aria-label="Red Hat Tech Day Netherlands - Continuous Delivery Engine" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 
     </a>
     Red Hat Tech Day Netherlands - Continuous Delivery Engine
@@ -332,7 +339,7 @@
       <a href="https://github.com/niksharma20/Continuous-Delivery-Engine" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
   </div>
   <div class="md-source__repository">
     niksharma20/Continuous-Delivery-Engine
@@ -340,7 +347,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -401,7 +408,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -420,7 +427,7 @@
             <span class="md-nav__icon md-icon"></span>
             Module 1
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -495,7 +502,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -514,7 +521,7 @@
             <span class="md-nav__icon md-icon"></span>
             Module 2
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -650,7 +657,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#projects" class="md-nav__link">
@@ -705,7 +712,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -724,7 +731,7 @@
             <span class="md-nav__icon md-icon"></span>
             Module 3
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -813,22 +820,22 @@
   
 
 
-<h1 id="ae-project-and-rulebooks-definations">AE Project and Rulebooks Definations<a class="headerlink" href="#ae-project-and-rulebooks-definations" title="Permanent link">&para;</a></h1>
+<h1 id="ae-project-and-rulebooks-definations">AE Project and Rulebooks Definations<a class="headerlink" href="#ae-project-and-rulebooks-definations" title="Permanent link">¶</a></h1>
 <p>A Project in Automation Controller(AC) is a connection to a Git repository that contains your playbooks. AC syncs the repo and makes the playbooks available for Job Templates.  </p>
 <blockquote>
-<p><strong>Prerequisites</strong><br />
-Before you start you need:<br />
-1) The URL of your rulebooks Git repository.<br />
+<p><strong>Prerequisites</strong><br>
+Before you start you need:<br>
+1) The URL of your rulebooks Git repository.<br>
 2) If the repo is private — a Git credential (Personal Access Token).  </p>
-<p>I have created a public repo for the workshop with a rulebook, that we will be using for the workshop.<br />
+<p>I have created a public repo for the workshop with a rulebook, that we will be using for the workshop.<br>
 repo url: https://github.com/niksharma20/custom-de.git  </p>
 </blockquote>
-<h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">&para;</a></h2>
+<h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">¶</a></h2>
 <p><strong>Creating a Project in Automation Controller (AC)</strong>  </p>
-<p><strong>Step 1:</strong> Navigate to Projects<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Automation Execution → Projects → Create Project
+<p><strong>Step 1:</strong> Navigate to Projects<br>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Automation Execution → Projects → Create Project
 </code></pre></div>
-<strong>Step 2:</strong> Fill in the  form and save (like below)<br />
+<strong>Step 2:</strong> Fill in the  form and save (like below)<br>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Name: Namespace Governance
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Organization: Default
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Execution environment: ee-ansible-techday
@@ -838,41 +845,41 @@ repo url: https://github.com/niksharma20/custom-de.git  </p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Update revision on launch: On
 </code></pre></div>
-<img alt="Image" src="../../../images/module/module_2/aac_projects_namespace.jpg" />  </p>
-<p><strong>Step3:</strong> Verify the sync (Success looks like below).<br />
-<img alt="Image" src="../../../images/module/module_2/page20_aac_project.jpg" />  </p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/aac_projects_namespace.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/aac_projects_namespace.jpg"></a>  <p></p>
+<p><strong>Step3:</strong> Verify the sync (Success looks like below).<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page20_aac_project.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page20_aac_project.jpg"></a>  </p>
 <p>Automation Controller scans the repository and indexes all .yml playbook files. Your playbooks in the playbooks/ directory will appear as selectable options when creating Job Templates.  </p>
-<h2 id="job-templates">Job Templates<a class="headerlink" href="#job-templates" title="Permanent link">&para;</a></h2>
+<h2 id="job-templates">Job Templates<a class="headerlink" href="#job-templates" title="Permanent link">¶</a></h2>
 <p>A Job Template defines what playbook to run, where to run it, and what credentials to use. EDA triggers these templates automatically when a rulebook rule fires.  </p>
 <blockquote>
-<p><strong>Prerequisites</strong><br />
- ✅ Project (AAC Remediation Playbooks) — synced successfully<br />
- ✅ Credential (OpenShift Cluster Token for AAC)<br />
+<p><strong>Prerequisites</strong><br>
+ ✅ Project (AAC Remediation Playbooks) — synced successfully<br>
+ ✅ Credential (OpenShift Cluster Token for AAC)<br>
  ✅ Inventory — at minimum a localhost inventory (We will using "Demo Inventory", this should already be present)  </p>
 </blockquote>
 <p><strong>Creating a Job Templates in Automation Controller</strong>  </p>
-<p><strong>Step 1:</strong> Navigate to Job Templates<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Automation Execution → Templates → Create Job Template
+<p><strong>Step 1:</strong> Navigate to Job Templates<br>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Automation Execution → Templates → Create Job Template
 </code></pre></div>
-<strong>Step 2:</strong> Fill in the  form and save (like below)<br />
+<strong>Step 2:</strong> Fill in the  form and save (like below)<br>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Name: OpenShift Set Resource Quota on Namespace
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Job type: Run
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Inventory: Demo Inventory
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Project: Namespace Goverance
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Playbook: playbooks/apply_enterprise_compliance_Quotas.yml (select from the drop down)
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Credential(s): &quot;OCP Cluster Token for AAC&quot;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Credential(s): "OCP Cluster Token for AAC"
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Execution environment: ee-ansible-techday
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Prompt on launch: Enabled
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Extra variables: 
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a> namespace: default-placeholder
 </code></pre></div>
-<img alt="Image" src="../../../images/module/module_2/page23_aac_job_template_ocp.jpg" />  </p>
-<p><strong>Step3:</strong> Verify (Success looks like below).<br />
-<img alt="Image" src="../../../images/module/module_2/page22_aac_job_template.jpg" />  </p>
-<p><strong>Step4:</strong> If you would like to verify this right way. bext way is to go to your Openshift web terminal and run below command.<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc apply -f - &lt;&lt;EOF
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page23_aac_job_template_ocp.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page23_aac_job_template_ocp.jpg"></a>  <p></p>
+<p><strong>Step3:</strong> Verify (Success looks like below).<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page22_aac_job_template.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page22_aac_job_template.jpg"></a>  </p>
+<p><strong>Step4:</strong> If you would like to verify this right way. bext way is to go to your Openshift web terminal and run below command.<br>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc apply -f - &lt;&lt;EOF
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>apiVersion: project.openshift.io/v1
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>kind: Project
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>metadata:
@@ -882,12 +889,12 @@ repo url: https://github.com/niksharma20/custom-de.git  </p>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>spec: {}
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>EOF
 </code></pre></div>
-<strong>Steps5:</strong> Go to Jobs and look for the latest run of your Job Template "OpenShift Set Resource Quota on Namespace"<br />
-Similar to the images below<br />
-<img alt="Image" src="../../../images/module/module_2/page24_aac_job.jpg" />  </p>
-<p><img alt="Image" src="../../../images/module/module_2/page25_aac_job_ocp.jpg" />  </p>
-<p><img alt="Image" src="../../../images/module/module_2/page26_aac_job_ocp_host.jpg" />  </p>
-<p><img alt="Image" src="../../../images/module/module_2/page27_aac_job_ocp_host_data.jpg" />  </p>
+<strong>Steps5:</strong> Go to Jobs and look for the latest run of your Job Template "OpenShift Set Resource Quota on Namespace"<br>
+Similar to the images below<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page24_aac_job.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page24_aac_job.jpg"></a>  <p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page25_aac_job_ocp.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page25_aac_job_ocp.jpg"></a>  </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page26_aac_job_ocp_host.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page26_aac_job_ocp_host.jpg"></a>  </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_2/page27_aac_job_ocp_host_data.jpg" data-desc-position="bottom"><img alt="Image" src="../../../images/module/module_2/page27_aac_job_ocp_host_data.jpg"></a>  </p>
 <p>```
 Congratulations!!!
 ````</p>
@@ -945,5 +952,7 @@ Congratulations!!!
         <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
