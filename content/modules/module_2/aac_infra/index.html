@@ -840,18 +840,18 @@
 <h1 id="aac-infra-definations">AAC Infra Definations</h1>
 <p>Ansible Automation Controller(AAC) needs a credential to authenticate to OpenShift so the remediation playbooks can execute kubernetes.core.k8s tasks against the cluster.</p>
 <blockquote>
-<p><strong>Prerequisites</strong>
-1) The OpenShift cluster API URL
-     <code>oc whoami --show-server</code><br />
+<p><strong>Prerequisites</strong><br />
+1) The OpenShift cluster API URL<br />
+<code>oc whoami --show-server</code><br />
 2) The decoded bearer token from the AAC ServiceAccount<br />
 <code>oc get secret aac-token-secret -n aap -o jsonpath='{.data.token}' | base64 --decode</code>  </p>
 </blockquote>
 <h2 id="creating-aac-credentials-for-openshift">Creating AAC Credentials for OpenShift</h2>
 <p><strong>Step1:</strong> Log in to AAP<br />
-<strong>Step2:</strong> Navigate to Credentials
-<div class="highlight"><pre><span></span><code>Automation Controller → Infrastructure → Credentials → Create Credential
+<strong>Step2:</strong> Navigate to Credentials<br />
+<div class="highlight"><pre><span></span><code>Automation Controller → Infrastructure → Credentials → Create Credential  
 </code></pre></div>
-<strong>Step3:</strong> Fill in the credential form and save (like below) 
+<strong>Step3:</strong> Fill in the credential form and save (like below)<br />
 <div class="highlight"><pre><span></span><code>Name: OCP Cluster Token for AAC
 Organization: Default
 </code></pre></div>
@@ -866,9 +866,9 @@ Bearer Token: (this is part of the Prerequisites)
 <h2 id="execution-environement">Execution Environement</h2>
 <p>Creating the Execution Environment in AAP</p>
 <blockquote>
-<p><strong>Prerequisites</strong>
-The custom EE image built and pushed to your registry
-Registry credentials if your registry requires authentication or make the image public.
+<p><strong>Prerequisites</strong><br />
+The custom EE image built and pushed to your registry<br />
+Registry credentials if your registry requires authentication or make the image public.<br />
 </p>
 </blockquote>
 <p><strong>Step1:</strong> Navigate to Execution Environments<br />
