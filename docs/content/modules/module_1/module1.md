@@ -1,70 +1,48 @@
 # Declarative Infrastructure  
 
-## Overview       
+## Overview
+
+Welcome to module 1, this is also the simplest and easiet out three.  
+This is divided in two parts:  
+1. You provision a namespace using software templates in Developer Hub.  
+2. You will be a creating a Cluster Roles, Service Accounts and Role Bindings as prepartion for the Module 2 of this workshop.
 
 ## Architecture    
+![Image1](../../images/module/module_1/ocp_rhdh_gitops.jpg)  
 
-```mermaid
-graph LR
-    %% Color Palette Configurations
-    classDef rhdh fill:#151515,stroke:#326ce5,stroke-width:2px,color:#fff;
-    classDef repo fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
-    classDef gitops fill:#151515,stroke:#ff4500,stroke-width:2px,color:#fff;
-    classDef ocp fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
+This has two parts:
 
-    %% --- COLUMN 1: DEVELOPER PORTAL ---
-    subgraph Portal_Layer [Internal Developer Portal]
-        RHDH["Red Hat Developer Hub (RHDH)<br><small>Self-service portal</small>"]
-    end
-    class Portal_Layer,RHDH rhdh;
+!!! note "Part 1"
 
-    %% --- COLUMN 2: VERSION CONTROL ---
-    subgraph Source_Layer [Version Control]
-        GitRepo["Git Repository<br><small>Declarative<br>Manifests</small>"]
-    end
-    class Source_Layer,GitRepo repo;
+    For this part of the module you will have to use user guide avaible in the showroom link (as shown in the pic).
+    Module 12 in the showroom link is the Part 1 of this module.
 
-    %% --- COLUMN 3: GITOPS ENGINE ---
-    subgraph GitOps_Layer [GitOps]
-        Argo["Argo CD<br><small>Monitors<br>Git<br>for<br>changes</small>"]
-    end
-    class GitOps_Layer,Argo gitops;
+![Image1](../../images/module/module_1/naas.jpg)  
 
-    %% --- COLUMN 4: INFRASTRUCTURE ---
-    subgraph OCP_Layer [Red Hat OpenShift Platform]
-        subgraph Target_Clusters [Target Cluster]
-            Na["Namespace a"]
-            Nb["Namespace b"]
-            Nc["Namespace c..."]
-        end
-        MCM["Multi-cluster management"]
-    end
-    class OCP_Layer,Target_Clusters,Na,Nb,Nc,MCM ocp;
+**we working to have towards creating an integrate experience and adding Trusted Software Supply chain to this worskhop**
 
-    %% --- RELATIONSHIPS & FLOW LINES ---
-    RHDH -->|1. Triggers Software Template| GitRepo
-    Argo -->|2. Pulls & Monitors Code Changes| GitRepo
-    Argo -->|3. Reconciles & Auto-Deploys| Target_Clusters
-```
+!!! note "Part 2"
+
+    this is basically prepartion for module 2 in the workshop. you will be using the same OpenShift Cluster.
+    
+
+**we working to have towards creating an integrate experience and adding Trusted Software Supply chain to this worskhop**
 
 ## Component
 
 | Component | Description |
 | :--- | :--- |
 | **Red Hat Developer Hub (RHDH)** | Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration |
-| **Openshift** | Target Platform |  
-| **Openshift Gitops** | GitOps |
+| **OpenShift** | Target Platform |  
+| **OpenShift GitOps** | GitOps |
 
 
-> ## Use Case to explore (not part of the workshop) 
-> VM as a Service
-> DB as a Service (Data Grid)
+!!! tip "Use Case to explore - Not part of the workshop"
 
+    VM as a Service
 
-## Prerequisites   
->
-> Openshift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator
->
+    DB as a Service (Data Grid)
+
 
 ## Further Reading
-
+[Red Hat Advance Developer Suite](https://www.redhat.com/en/products/advanced-developer-suite)
