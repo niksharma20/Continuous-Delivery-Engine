@@ -1,4 +1,4 @@
-# Setting up Machine Identity  
+# Setting up Machine Identity - Service Account
 
 The Service Accounts created here belong to the cluster configuration layer, not the EDA layer.  
 But it’s a prerequisite for Module 2 — without it, EDA cannot connect to OpenShift.
@@ -87,14 +87,14 @@ Once the Secret is created, extract and decode the token for use in AAP:
 
 ## Create OpenShift Service Account for Automation Controller  
 
-## Step 1  
+### Step 1  
 **Create the ClusterRole** [01_aac-clusterrole.yaml](https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/01_aac-clusterrole.yaml)
 
   ```bash
   oc apply -f aac-ocp-sa/01_aac-clusterrole.yaml
   ```
 
-## Step 2   
+### Step 2   
 **Create the ServiceAccount** [02_aac-serviceaccount.yaml](https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/02_aac-serviceaccount.yaml)
 
   ```bash
@@ -102,21 +102,21 @@ Once the Secret is created, extract and decode the token for use in AAP:
   oc apply -f aac-ocp-sa/02_aac-serviceaccount.yaml
   ```
 
-## Step 3  
+### Step 3  
 **Bind the ServiceAccount to the ClusterRole** [03_aac-rolebinding.yaml](https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/03_aac-rolebinding.yaml)
 
   ```bash
   oc apply -f aac-ocp-sa/03_aac-rolebinding.yaml
   ```
 
-## Step 4  
+### Step 4  
 **Generate a Persistent Long-Lived Token** [04_aac-token-secret.yaml](https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/04_aac-token-secret.yaml)
 
   ```bash
   oc apply -f aac-ocp-sa/04_aac-token-secret.yaml
   ```
 
-## Step 5   
+### Step 5   
 Extract the Token
 
 Once the Secret is created, extract and decode the token for use in AAP:
