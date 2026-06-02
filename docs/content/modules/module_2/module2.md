@@ -2,10 +2,10 @@
 
 ## Overview 
 **Welcome to module 2**, in this module you will configure the Event-Driven Ansible (EDA) governance layer for OpenShift. 
-By the end of this module, EDA will be watching your governed namespaces in real time and automatically triggering remediation playbooks via Ansible Automation Controller when cluster state drifts from the desired state.
+By the end of this module, EDA will be watching your governed namespaces in real time and automatically triggering remediation playbooks via Ansible Automation Controller when cluster state drifts from the desired state.  
 This module is also divided in two parts:  
-1. Event Driven Ansible (EDA) : Decision Environment 
-2. Ansible Automation Execution: Automation Controller
+1. Event Driven Ansible (EDA) : Decision Environment  
+2. Ansible Automation Execution: Automation Controller  
 
 
 ## Architecture
@@ -15,9 +15,9 @@ This module is also divided in two parts:
 
     1. **Environment 1 — Ansible Automation Platform (AAP)**
     Provides Automation Controller (AAC) and Automation Decisions (EDA).
-    **Ansible 2.6 with EDA**
+    **Ansible 2.6 with EDA**  
 
-    2. OpenShift Service Accounts
+    2. OpenShift Service Accounts , created in the previous module.  
 
 
 

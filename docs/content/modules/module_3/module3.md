@@ -2,9 +2,39 @@
 
 ## Overview  
 
+**Welcome to module 1**, this is final module of the workshop and also everything comes together.  
+This is divided in three parts:  
+1. You will be setting **Orchestrator** (serverless workflow component)
+2. Deploy Namespace as a Service serverless worklow with **human in the loop** integration.
+3. You will be a editing software tempaltes in the gitlab and provisioning a namespace with **EDA Goverance** enabled.
 
 ## Architecture  
 ![Architecture Diagram](../../images/module/module_3/full_namespace_goverance.jpg)
+
+!!! note "**Part 1**"
+
+    For this part of the module you will have to use user guide avaible in the showroom link (as shown in the pic).
+
+    **Module 6 - Install & Setup**  in the showroom link is the Part 1 of this module.
+
+![Image1](../../images/module/module_3/orchestrator_lab.jpg)  
+
+!!! note "**Part 2**"
+
+    For this part of the module you will have to use user guide avaible in the showroom link (as shown in the pic).
+
+    **Module 6 - Workflows with State and Integrations** in the showroom link is the Part 2 of this module.
+
+![Image1](../../images/module/module_3/orchestrator_naas.jpg) 
+
+!!! note "**Part 3**"
+
+    the inal section of the workshop
+
+    **Module 6 - Workflows with State and Integrations** in the showroom link is the Part 2 of this module.
+
+![Image1](../../images/module/module_3/orchestrator_naas.jpg) 
+
 
 ## Component
 
@@ -17,10 +47,6 @@
 | **OpenShift** | Target Platform |
 | **OpenShift GitOps** | GitOps | 
 | **GitHub** | Issue tracker for approval workflows (Jira or ServiceNow in production)|  
-
-
-
-## Further Reading
 
 
 ## References

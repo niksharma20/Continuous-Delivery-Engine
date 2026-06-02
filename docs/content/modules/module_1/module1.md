@@ -12,7 +12,7 @@ This is divided in two parts:
 
 This has two parts:
 
-!!! note "Part 1"
+!!! note "**Part 1**"
 
     For this part of the module you will have to use user guide avaible in the showroom link (as shown in the pic).
 
@@ -21,7 +21,7 @@ This has two parts:
 ![Image1](../../images/module/module_1/naas.jpg)  
 
 
-!!! note "Part 2"
+!!! note "**Part 2**"
 
     Service Account section, this is basically prepartion for module 2 in the workshop. you will be using the same OpenShift Cluster.
     
