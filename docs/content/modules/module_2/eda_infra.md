@@ -1,9 +1,72 @@
 # EDA Infra Definations 
-This is moment when you define credentials needed by the execution enviroment to authenticate against the Target Openshift Cluster.
+This is moment when you define credentials needed by the decision enviroment in Event Driven Ansible(EDA) to authenticate against the Target Openshift Cluster.
 
 Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.
 
 ## Credential Type 
+
+The `custom credential type` definitions extend the built-in credential types available in Automation Decisions with organisation-specific schemas — allowing you to pass structured, encrypted configuration to rulebooks and playbooks in a standardised, reusable way.
+
+**A custom credential type in AAP has three components:**
+
+|Component                 |Purpose                                                                                                                  |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|**Input configuration**   |Defines the fields the user fills in when creating a credential (e.g. URL, username, token)                              |
+|**Injector configuration**|Defines how the field values are exposed to the runtime — as environment variables, extra vars, or file-based credentials|
+|**Credential**            |An instance of the type — the actual values stored encrypted in AAP                                                      |
+
+Once a custom credential type is created, you can create one or more credentials from it, assign them to Job Templates or Rulebook Activations, and the values are injected at runtime without appearing in logs or playbook source.
+
+### Creating Custom Credential  
+**Step1:** Log in to AAP  
+**Step2:** Navigate to Credentials
+```
+Automation Decisions → Credential Type → Create Credential type
+```  
+**Step3:** Fill in the credential form and save (like below)  
+```
+Name: OpenShift Service Account Token
+Description: For mapping OpenShift Bearer tokens into rulebooks
+```
+
+**Input Configuration**  
+```yaml
+fields:
+  - id: host
+    type: string
+    label: OpenShift API Server URL
+  - id: token
+    type: string
+    label: Bearer Token
+    secret: true
+required:
+  - host
+  - token
+```  
+**Injector Configuration**
+```yaml
+file:
+  template.kubeconfig: |
+    apiVersion: v1
+    kind: Config
+    clusters:
+      - cluster:
+          insecure-skip-tls-verify: true
+          server: "{{ host }}"
+        name: openshift-cluster
+    contexts:
+      - context:
+          cluster: openshift-cluster
+          user: eda-runner
+        name: eda-context
+    current-context: eda-context
+    users:
+      - name: eda-runner
+        user:
+          token: "{{ token }}"
+```  
+![Image](../../images/module/module_2/page7_eda_credential_type_ocp.jpg)
+![Image](../../images/module/module_2/page6_eda_credential_type.jpg)
 
 
 ## Credentials  
@@ -17,7 +80,7 @@ Credentials in AAP are never exposed in plaintext to rulebooks — they are inje
 These are configured separately and both assigned to the same Rulebook Activation.
 ```  
 >
-> ### Prerequisites  
+> **Prerequisites**
 > Before you start you need:  
 > 1) The OpenShift cluster API URL.   
 >      `oc whoami --show-server`  
@@ -75,7 +138,7 @@ Verify SSL: On
 ## Decision Environment  
 
 Creating the Decision Environment in AAP
-> Prerequisites
+> **Prerequisites**
 > The custom DE image built and pushed to your registry
 > Registry credentials if your registry requires authentication or make the image public.
 > 

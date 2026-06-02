@@ -1,5 +1,5 @@
 # EDA Project and Rulebooks Definations  
-A Project in EDA is a connection to a Git repository that contains your rulebooks. EDA syncs the repo and makes the rulebooks available for Rulebook Activations.
+A Project in Event Driven Ansible(EDA) is a connection to a Git repository that contains your rulebooks. EDA syncs the repo and makes the rulebooks available for Rulebook Activations.
 
 > Prerequisites
 > Before you start you need:
