@@ -1,7 +1,7 @@
 site_name: Red Hat Tech Day Netherlands - Continuous Delivery Engine
 site_description: Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, Event Driven Ansible and Openshift.
 site_author: Nikhil Sharma
-site_url: https://github.com/niksharma20/Continuous-Delivery-Engine
+site_url: https://niksharma20.github.io/Continuous-Delivery-Engine/
 repo_url: https://github.com/niksharma20/Continuous-Delivery-Engine
 repo_name: niksharma20/Continuous-Delivery-Engine
 
@@ -28,11 +28,18 @@ plugins:
   - include-markdown
   
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - tables
+  - toc:
+      permalink: true
 
 nav:
   - Home: index.md
