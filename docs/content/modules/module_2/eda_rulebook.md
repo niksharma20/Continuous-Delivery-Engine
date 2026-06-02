@@ -80,5 +80,6 @@ Automation Decisions → Rulebook Activations → OpenShift Namespace Governance
 ![Image](../../images/module/module_2/eda_rulebook_logs.jpg)  
 
 ```
-**Let's move to configuring the Automation Controller**
+Congratulations!!!  
+Let's move to configuring the Automation Controller
 ```
