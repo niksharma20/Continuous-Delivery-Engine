@@ -1,29 +1,21 @@
 # Conclusion: Continuous Delivery Engine
 
 ## What You Have Built  
-By working through this workshop, you have assembled the complete **event-driven governance layer** for a Namespace on Openshift — this simple is very use case but the integration quite Powerful.  
 
------
+By working through this workshop, you built a **Continuous Delivery Engine** with a simiplied End User Experinece. platform that provisions, governs, and remediates namespaces automatically.  
 
-## Objectives: Completed
 
------
+## Take it Further
 
-## Extending This Platform
+- Add more EDA rules for additional governance scenarios
+- Connect Alertmanager as a second event source for metric-based remediation
+- Extend the Orchestrator workflow to integrate with Jira, ServiceNow, Ansible Automation Controller (XaaS). **Think of Platform Automation**
+- Apply NIS2 / CIS compliance annotations to every remediation. **Think of Security Automation**
 
-The patterns in this repository are intentionally generic. Common extensions include:
 
-|Extension                      |What to Add                                                                              |
-|-------------------------------|-----------------------------------------------------------------------------------------|
-|Watch additional resource types|Add new `kinds:` entries to the rulebook source block                                    |
-|Add a new governance rule      |Add a new `rules:` entry in the rulebook + a new Job Template + a new playbook           |
-|Support multiple clusters      |Create one Rulebook Activation per cluster, each with its own OpenShift credential       |
-|Add TTL enforcement            |Add a rule matching namespace TTL annotations + a playbook that opens a Git PR           |
-|Integrate with ITSM            |Extend remediation playbooks to create ServiceNow / Jira tickets via their APIs          |
-|Add quota breach alerting      |Source from Alertmanager in addition to `k8s.eda` — combine event sources in one rulebook|
-
------
-
+!!! success "Congratulations!"
+    You have completed the Continuous Delivery Engine workshop.
+    You now have a working, end-to-end governance platform you can adapt to your own environment.  
 
 ## Further Reading
 

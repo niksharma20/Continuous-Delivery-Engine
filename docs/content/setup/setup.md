@@ -46,7 +46,7 @@ You will see below, you will need the things in marked in red circles.
 
 ![Image1](../images/setup/page6_rhads_ocp.jpg)  
 
->  Please open below in seperate brower tab  
+>  Please open below in separate browser tab  
 >  1. Showroom url, please keep it open in a separate tab  
 >  2. Red Hat Developer Hub details, please keep it open in a separate tab  
 >  3. GitLab details, please keep it open in a separate tab  

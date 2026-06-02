@@ -74,15 +74,15 @@ This label acts as a signal to the Event Driven Ansible. The `juniper.eda.k8s` c
 
 **Step 4:**  
     ```You are presented with a form to enter the details of your request. Let’s start with a request for a large namespace. Fill in the form as follows:```  
-
     ```
     Namespace name: <yourname>-large  
     GitLab Host: <Gitlab host name used previously in the part 2 of the module>  
     Requester: user1  
     Size: large  
     Reason: you can leave this blank  
-    Recipients: user:default/user1
-    ```  
+    Recipients: user:default/user1  
+    ```
+
 **Step 5:**  
     ```Click on Next and Run to start the workflow.```  
 
@@ -90,9 +90,11 @@ This label acts as a signal to the Event Driven Ansible. The `juniper.eda.k8s` c
     ```Select the Notifications item in the left-hand menu. After a couple of seconds you will see a notification that an issue has been created in GitLab.```  
 
 **Step 7**  
+
     ```Click on the link of the notification. This opens the issue in GitLab.  
        Same as previous part in the module, approve the request.  
-       Make sure you are logged in into GitLab as root, password as mentioned in the part of the module.  
+       Make sure you are logged in into GitLab as root, password as mentioned in the part of the module.
+    ```  
 
 **Step 8**
     ``` Verify the namespace label in OpenShift and Ansible Automation Platform ```  
@@ -106,8 +108,8 @@ This label acts as a signal to the Event Driven Ansible. The `juniper.eda.k8s` c
 ```EDA Rulebook History verification```
 ![image1](../../images/module/module_3/eda_namespace_verification.jpg)  
 
-```EDA Rulebook History verification```
-![image1](../../images/module/module_3/eda_namespace_verification.jpg)  
+```Automation Controller Job verification```
+![image1](../../images/module/module_3/job_namespace_verification.jpg)  
 
 
 !!! success "Congratulations!"
