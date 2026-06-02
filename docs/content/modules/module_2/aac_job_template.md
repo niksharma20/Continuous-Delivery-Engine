@@ -99,5 +99,5 @@ Similar to the images below
 
 
 !!! success "Congratulations!"
-    You have successfully completed this section.
+    You have successfully completed this module.
 
