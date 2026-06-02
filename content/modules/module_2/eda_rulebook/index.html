@@ -814,13 +814,13 @@
 
 
 <h1 id="eda-project-and-rulebooks-definations">EDA Project and Rulebooks Definations</h1>
-<p>A Project in Event Driven Ansible(EDA) is a connection to a Git repository that contains your rulebooks. EDA syncs the repo and makes the rulebooks available for Rulebook Activations.</p>
+<p>A Project in Event Driven Ansible(EDA) is a connection to a Git repository that contains your rulebooks. EDA syncs the repo and makes the rulebooks available for Rulebook Activations.  </p>
 <blockquote>
-<p>Prerequisites
-Before you start you need:
-1) The URL of your rulebooks Git repository.
-2) If the repo is private — a Git credential (Personal Access Token).</p>
-<p>I have created a public repo for the workshop with a rulebook, that we will be using for the workshop.
+<p>Prerequisites<br />
+Before you start you need:<br />
+1) The URL of your rulebooks Git repository.<br />
+2) If the repo is private — a Git credential (Personal Access Token).  </p>
+<p>I have created a public repo for the workshop with a rulebook, that we will be using for the workshop.<br />
 repo url: https://github.com/niksharma20/custom-de.git  </p>
 </blockquote>
 <h2 id="projects">Projects</h2>
@@ -837,19 +837,19 @@ Source control URL: https://github.com/niksharma20/custom-de.git
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Verify SSL: On
 </code></pre></div>
-<img alt="Image" src="../../../images/module/module_2/page14_eda_project_ocp.jpg" /></p>
+<img alt="Image" src="../../../images/module/module_2/page14_eda_project_ocp.jpg" />  </p>
 <p><strong>Step3:</strong> Verify the sync (Success looks like below).<br />
-<img alt="Image" src="../../../images/module/module_2/page13_eda_projects.jpg" /></p>
-<p>If all was successful in previous step, EDA should have scanned the repository for .yml files that match the rulebook format and makes them available in Rulebook Activations. Your rulebooks in the rulebooks/ directory will appear as selectable options when creating an activation.</p>
+<img alt="Image" src="../../../images/module/module_2/page13_eda_projects.jpg" />  </p>
+<p>If all was successful in previous step, EDA should have scanned the repository for .yml files that match the rulebook format and makes them available in Rulebook Activations. Your rulebooks in the rulebooks/ directory will appear as selectable options when creating an activation.  </p>
 <h2 id="rulebooks">Rulebooks</h2>
-<p>A Rulebook Activation is what actually runs your rulebook. It combines the Project, Decision Environment, and Credentials into a running process that streams events from OpenShift.</p>
+<p>A Rulebook Activation is what actually runs your rulebook. It combines the Project, Decision Environment, and Credentials into a running process that streams events from OpenShift.  </p>
 <blockquote>
-<p>Prerequisites
-Before you start you need:
-✅ OpenShift credential (OpenShift Cluster Token for EDA)
-✅ AAC credential (aap credentials)
-✅ Decision Environment (DE-Juniper)
-✅ Project (EDA Rulebooks) — synced successfully</p>
+<p>Prerequisites<br />
+Before you start you need:<br />
+✅ OpenShift credential (OpenShift Cluster Token for EDA)<br />
+✅ AAC credential (aap credentials)<br />
+✅ Decision Environment (DE-Juniper)<br />
+✅ Project (EDA Rulebooks) — synced successfully  </p>
 </blockquote>
 <p><strong>Creating a Rulebook Activation in Automation Decisions (EDA)</strong>  </p>
 <p><strong>Step 1:</strong> Navigate to Rulebook Activations<br />
@@ -867,14 +867,15 @@ Decision environment: DE-Juniper
 <div class="highlight"><pre><span></span><code>Restart policy: On Failure
 Enabled: Yes
 </code></pre></div>
-<img alt="Image" src="../../../images/module/module_2/page16_eda_rulebook_ocp.jpg" /></p>
+<img alt="Image" src="../../../images/module/module_2/page16_eda_rulebook_ocp.jpg" />  </p>
 <p><strong>Step3:</strong> Verify the Activation is Running (Success looks like below).<br />
-<img alt="Image" src="../../../images/module/module_2/page15_eda_rulebook.jpg" /></p>
-<p><strong>Step4:</strong> Check the Logs
+<img alt="Image" src="../../../images/module/module_2/page15_eda_rulebook.jpg" />  </p>
+<p><strong>Step4:</strong> Check the Logs<br />
 <div class="highlight"><pre><span></span><code>Automation Decisions → Rulebook Activations → OpenShift Namespace Governance (Running with a green indicator) → History → latest activation → logs
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/eda_rulebook_logs.jpg" />  </p>
-<p><strong>Let's move to configuring the Automation Controller</strong></p>
+<div class="highlight"><pre><span></span><code>**Let&#39;s move to configuring the Automation Controller**
+</code></pre></div>
 
 
 
