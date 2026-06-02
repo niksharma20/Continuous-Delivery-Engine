@@ -46,6 +46,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/aac-ocp-sa/aac-ocp-rbac/</loc>
+         <lastmod>2026-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/eda-ocp-sa/eda-ocp-rbac/</loc>
+         <lastmod>2026-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_3/module3/</loc>
          <lastmod>2026-06-02</lastmod>
          <changefreq>daily</changefreq>
