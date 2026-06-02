@@ -104,7 +104,6 @@ Verify SSL: On
 
 -----
 ### Important Collections part DE Image
-??? info "What's inside the DE image?"
 
 |Collection                              |Purpose                                                                                                      |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -114,7 +113,6 @@ Verify SSL: On
 
 
 ### Python dependencies part DE Image
-??? info "which dependencies are inside the DE image"
 
 |Package             |Purpose                                                                                                                                  |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
