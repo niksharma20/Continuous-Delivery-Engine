@@ -21,6 +21,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_1/aac-ocp-sa/aac-ocp-rbac/</loc>
+         <lastmod>2026-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_1/eda-ocp-sa/eda-ocp-rbac/</loc>
+         <lastmod>2026-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/aac_infra/</loc>
          <lastmod>2026-06-02</lastmod>
          <changefreq>daily</changefreq>
@@ -42,16 +52,6 @@
     </url>
     <url>
          <loc>https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/module2/</loc>
-         <lastmod>2026-06-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/aac-ocp-sa/aac-ocp-rbac/</loc>
-         <lastmod>2026-06-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/eda-ocp-sa/eda-ocp-rbac/</loc>
          <lastmod>2026-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>

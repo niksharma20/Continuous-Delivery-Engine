@@ -9,7 +9,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/eda-ocp-sa/eda-ocp-rbac/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_1/aac-ocp-sa/aac-ocp-rbac/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>OpenShift RBAC Setup for EDA - Red Hat Tech Day Netherlands - Continuous Delivery Engine</title>
+        <title>OpenShift RBAC Setup for AAC - Red Hat Tech Day Netherlands - Continuous Delivery Engine</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openshift-rbac-setup-for-eda" class="md-skip">
+        <a href="#openshift-rbac-setup-for-aac" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OpenShift RBAC Setup for EDA
+              OpenShift RBAC Setup for AAC
             
           </span>
         </div>
@@ -232,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../module_1/module1/" class="md-tabs__link">
+        <a href="../../module1/" class="md-tabs__link">
           
   
   Module 1
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../module2/" class="md-tabs__link">
+        <a href="../../../module_2/module2/" class="md-tabs__link">
           
   
   Module 2
@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../module_1/module1/" class="md-nav__link">
+      <a href="../../module1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -451,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../module_1/service_account/" class="md-nav__link">
+      <a href="../../service_account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module2/" class="md-nav__link">
+      <a href="../../../module_2/module2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../eda_infra/" class="md-nav__link">
+      <a href="../../../module_2/eda_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../eda_rulebook/" class="md-nav__link">
+      <a href="../../../module_2/eda_rulebook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aac_infra/" class="md-nav__link">
+      <a href="../../../module_2/aac_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aac_job_template/" class="md-nav__link">
+      <a href="../../../module_2/aac_job_template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +751,7 @@
   
 
 
-<h1 id="openshift-rbac-setup-for-eda">OpenShift RBAC Setup for EDA<a class="headerlink" href="#openshift-rbac-setup-for-eda" title="Permanent link">¶</a></h1>
+<h1 id="openshift-rbac-setup-for-aac">OpenShift RBAC Setup for AAC<a class="headerlink" href="#openshift-rbac-setup-for-aac" title="Permanent link">¶</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>For the EDA Decision Controller to stream events from an OpenShift cluster, it needs a <strong>machine identity</strong> (ServiceAccount) with read-only permissions to watch cluster resources, and a <strong>persistent bearer token</strong> it can use to authenticate.</p>
 <p>The <code>ocp/</code> directory contains the four Kubernetes manifests that establish this access, and <code>00_ocp_execution.md</code> documents the exact sequence of commands to apply them.</p>
@@ -762,10 +762,10 @@
 <p>Additionally, the Juniper <code>k8s.eda</code> event source plugin uses label selectors to filter which resources it watches. Unlabelled resources are ignored — this is by design to limit event noise and reduce API server load.</p>
 <hr>
 <h2 id="step-1-create-the-clusterrole">Step 1: Create the ClusterRole<a class="headerlink" href="#step-1-create-the-clusterrole" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/01_eda-clusterrole.yaml">ocp/01_eda-clusterrole.yaml</a></p>
-<p>The ClusterRole defines exactly what the EDA service account is allowed to do — <strong>read-only access</strong> to the resource types the rulebooks need to watch.</p>
+<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/01_aac-clusterrole.yaml">01_aac-clusterrole.yaml</a></p>
+<p>The ClusterRole defines exactly what the AAC service account is allowed to do — <strong>read-only access</strong> to the resource types the rulebooks need to watch.</p>
 <p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/01_eda-clusterrole.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/01_aac-clusterrole.yaml
 </code></pre></div>
 <blockquote>
 <p><strong>ℹ️ Note</strong>
@@ -773,28 +773,28 @@ Only include resource types in the ClusterRole that your rulebooks actively watc
 </blockquote>
 <hr>
 <h2 id="step-2-create-the-serviceaccount">Step 2: Create the ServiceAccount<a class="headerlink" href="#step-2-create-the-serviceaccount" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/02_eda-serviceaccount.yaml">ocp/02_eda-serviceaccount.yaml</a></p>
+<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/02_aac-serviceaccount.yaml">02_aac-serviceaccount.yaml</a></p>
 <p>The ServiceAccount is the machine identity the EDA controller presents when connecting to OpenShift. It is created in a dedicated namespace (e.g. <code>aap</code>) to keep it isolated from workload namespaces.  </p>
 <p><strong>Apply:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create the namespace first if it doesn't exist</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>aap
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Create the ServiceAccount</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/02_eda-serviceaccount.yaml
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/02_aac-serviceaccount.yaml
 </code></pre></div>
 <hr>
 <h2 id="step-3-bind-the-serviceaccount-to-the-clusterrole">Step 3: Bind the ServiceAccount to the ClusterRole<a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/03_eda-rolebinding.yaml">ocp/03_eda-rolebinding.yaml</a></p>
+<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/03_aac-rolebinding.yaml">03_aac-rolebinding.yaml</a></p>
 <p>The ClusterRoleBinding connects the ServiceAccount (Step 2) to the ClusterRole (Step 1), granting the identity its read-only permissions.</p>
 <p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/eda-rolebinding.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/03_aac-rolebinding.yaml
 </code></pre></div>
 <hr>
 <h2 id="step-4-generate-a-persistent-long-lived-token">Step 4: Generate a Persistent Long-Lived Token<a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/04_eda-token-secret.yaml">ocp/04_eda-token-secret.yaml</a></p>
+<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/04_aac-token-secret.yaml">04_aac-token-secret.yaml</a></p>
 <p>OpenShift does not auto-generate permanent tokens for ServiceAccounts. Since the EDA controller lives outside the cluster, you must manually create a Secret to house a permanent bearer token.</p>
 <p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/04_eda-token-secret.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/04_aac-token-secret.yaml
 </code></pre></div>
 <blockquote>
 <p><strong>⚠️ Important</strong>
@@ -803,68 +803,14 @@ This token does not expire automatically. Treat it like a password — store it 
 <hr>
 <h2 id="step-5-extract-the-token">Step 5: Extract the Token<a class="headerlink" href="#step-5-extract-the-token" title="Permanent link">¶</a></h2>
 <p>Once the Secret is created, extract and decode the token for use in AAP:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>eda-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>aac-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
 </code></pre></div>
 <p>Copy the output. You will paste it into AAP when configuring the OpenShift credential in the next section.</p>
 <p>You can also retrieve the cluster API URL at this point:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc<span class="w"> </span>whoami<span class="w"> </span>--show-server
 </code></pre></div>
-<hr>
-<h2 id="step-6-label-target-namespaces">Step 6: Label Target Namespaces<a class="headerlink" href="#step-6-label-target-namespaces" title="Permanent link">¶</a></h2>
-<p>** For namespaces provisioned through the Namespace as a Service workflow with the <strong>EDA Governance</strong> checkbox enabled, this label is applied automatically at provisioning time. You only need to apply it manually for namespaces provisioned outside the workflow.**</p>
-<hr>
-<h2 id="how-the-rulebook-uses-these-components">How the Rulebook Uses These Components<a class="headerlink" href="#how-the-rulebook-uses-these-components" title="Permanent link">¶</a></h2>
-<p>The table below maps each OpenShift component to the rulebook parameter that depends on it:</p>
-<table>
-<thead>
-<tr>
-<th>Rulebook Parameter</th>
-<th>OpenShift Component</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>eda.filename.kubeconfig</code></td>
-<td>Step 4 &amp; 5: Token Secret</td>
-<td>Provides identity and cluster endpoint to the Juniper plugin</td>
-</tr>
-<tr>
-<td><code>juniper.eda.k8s</code> (connection)</td>
-<td>Step 2 &amp; 3: ServiceAccount + ClusterRoleBinding</td>
-<td>Identifies the incoming connection as <code>eda-service-account</code></td>
-</tr>
-<tr>
-<td><code>kind: Namespace</code>, <code>kind: Route</code> etc.</td>
-<td>Step 1: ClusterRole resource list</td>
-<td>Verifies this account has <code>get/list/watch</code> permissions for those types</td>
-</tr>
-<tr>
-<td><code>label_selectors: type=eda</code></td>
-<td>Step 6: Object labels</td>
-<td>Filters events — only labelled resources generate events in the stream</td>
-</tr>
-</tbody>
-</table>
-<h3 id="how-kubeconfig-credential-projection-works">How kubeconfig Credential Projection Works<a class="headerlink" href="#how-kubeconfig-credential-projection-works" title="Permanent link">¶</a></h3>
-<p>When a Rulebook Activation runs in AAP with an OpenShift token credential assigned:</p>
-<ol>
-<li>AAP reads the decoded OpenShift bearer token from the credential</li>
-<li>AAP dynamically writes a valid <code>kubeconfig</code> file into the container runtime at activation time</li>
-<li>AAP assigns the generated file path to the internal variable <code>{{ eda.filename.kubeconfig }}</code></li>
-<li>The Juniper plugin reads this file to discover the cluster API endpoint and authenticate</li>
-</ol>
-<p>This means <strong>you never hardcode cluster URLs or tokens in your rulebook YAML</strong> — they are injected at runtime by AAP’s credential system.</p>
-<hr>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>eda-clusterrole.yaml        → What EDA can read (get/list/watch on specific resources)
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>eda-serviceaccount.yaml     → Who EDA is (machine identity in the aap namespace)
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>eda-rolebinding.yaml        → Connects identity to permissions
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>eda-token-secret.yaml       → Persistent token for external (out-of-cluster) access
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>oc label namespace ...      → Scopes event streaming to labelled resources only
-</code></pre></div>
-<hr>
+<h2 id="-">-----<a class="headerlink" href="#-" title="Permanent link">¶</a></h2>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://docs.openshift.com/container-platform/latest/authentication/using-rbac.html">OpenShift RBAC documentation</a></li>
