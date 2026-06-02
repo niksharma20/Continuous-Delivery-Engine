@@ -2,8 +2,25 @@
 
 ## What You Have Built  
 
-By working through this workshop, you built a **Continuous Delivery Engine** with a simiplied End User Experinece. platform that provisions, governs, and remediates namespaces automatically.  
+By working through this workshop, you didn’t configure a tool — you built a ***Continuous Delivery Engine*** with a simplified end-user experience.
 
+Most teams spend their time reacting. 
+Someone deletes a NetworkPolicy, a namespace gets misconfigured, or a resource quota disappears. 
+They find out during troubleshooting or in a post-incident review, if they find out at all. The fix takes a ticket, a human, and time.
+
+What you built today reacts in seconds, automatically, without anyone filing a ticket.
+
+A developer requests a namespace. GitOps provisions it. The moment it lands in OpenShift, EDA is already watching it. If something drifts — a policy deleted, a quota removed, a misconfigured resource created — Ansible detects it, remediates it, and annotates it. 
+
+The label type=eda is a small thing, but it is the thread that connects self-service provisioning to real-time governance. 
+One label, applied once at provisioning time, activates a loop that continuously monitors and responds to change.
+
+Labels can be surprisingly powerful when combined with the right context. 
+They become more than metadata; they become signals that drive automation and governance across the platform.
+
+Take pattern back to your environment. Start with a different use case
+Whether it is security policies, resource management, compliance controls, or operational workflows, the underlying pattern remains the same:
+ **provision, observe, react, and govern**.
 
 ## Take it Further
 
@@ -29,3 +46,4 @@ By working through this workshop, you built a **Continuous Delivery Engine** wit
 - [OpenShift RBAC](https://docs.openshift.com/container-platform/latest/authentication/using-rbac.html)
 - [ArgoCD documentation](https://argo-cd.readthedocs.io/en/stable/)
 - [SonataFlow documentation](https://sonataflow.org/)
+- [Using Red Hat OpenShift labels](https://developers.redhat.com/learn/openshift/using-red-hat-openshift-labels?source=sso)
