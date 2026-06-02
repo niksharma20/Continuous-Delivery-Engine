@@ -12,6 +12,9 @@ By working through this workshop, you built a **Continuous Delivery Engine** wit
 - Extend the Orchestrator workflow to integrate with Jira, ServiceNow, Ansible Automation Controller (XaaS). **Think of Platform Automation**
 - Apply NIS2 / CIS compliance annotations to every remediation. **Think of Security Automation**
 
+!!! important "Think of Platform Engineering!"
+
+    [What is Platform Engineering](https://www.redhat.com/en/topics/platform-engineering/what-is-platform-engineering)
 
 !!! success "Congratulations!"
     You have completed the Continuous Delivery Engine workshop.
