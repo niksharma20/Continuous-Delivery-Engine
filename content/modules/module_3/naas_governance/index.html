@@ -757,6 +757,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#unregister-software-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unregister Software Template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-a-new-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register a new template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provision-a-new-namespace-with-eda-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provision a new namespace with EDA Governance
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -813,37 +840,89 @@
 
 <h1 id="eda-enabled-namespace-provisioning">EDA-Enabled Namespace Provisioning<a class="headerlink" href="#eda-enabled-namespace-provisioning" title="Permanent link">¶</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>In this section you will extend the namespace request workflow by enabling Event-Driven Ansible (EDA) governance on a namespace at provisioning time.</p>
-<p>When a developer requests a <strong>medium/large</strong> namespace and with <strong>Enable EDA Governance</strong> option, the workflow applies a label to the namespace:<br>
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>type: "eda"
+<p><strong>Welcome to the last section of the workshop</strong>, by now you should have good idea of the Developer Hub UI.</p>
+<p>In this section, we will <code>unregister the OpenShift Namespace Request</code> software template from the Developer Hub UI.
+Then import a new software template which will extend the namespace request workflow by enabling Event-Driven Ansible (EDA) governance on a namespace at provisioning time.
+Provision a <strong>small/medium/large</strong> namespace and with <strong>Enable EDA Governance</strong> option, the workflow applies a label to the namespace:  </p>
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>type: "eda"
 </code></pre></div>
-This label acts as a signal to the EDA Decision Controller. The <code>juniper.eda.k8s</code> collection watches the cluster for events on labelled namespaces and triggers Ansible Automation Controller (AAC) job templates in response to detected drift, policy violations, or resource lifecycle events.<p></p>
-<p>By the end of this section you will have:</p>
-<ul>
-<li>Provisioned an EDA-governed medium/large namespace via the Orchestrator workflow</li>
-<li>Observed how the EDA label activates namespace-scoped event polling</li>
-<li>Triggered and verified EDA-driven remediation for the governanced namespace .<br>
-  Other scenarios to consider related this use case:</li>
-<li>PersistentVolumeClaim</li>
-<li>TLS certificates</li>
-<li>NetworkPolicy</li>
-</ul>
+This label acts as a signal to the Event Driven Ansible. The <code>juniper.eda.k8s</code> collection watches the cluster for events on labelled namespaces and triggers Ansible Automation Controller job templates in response to ADDED, MODIFIED events on labelled namespaces.<p></p>
 <div class="admonition warning">
 <p class="admonition-title">Prerequisites</p>
-<p>✅ <strong>Module 1, Part 2 - completed successfull</strong>
-✅ <strong>Module 2         - completed successfull</strong>
-✅ <strong>Module 3, Part 1 - completed successfully</strong>
-✅ <strong>Module 3, Part 2 - completed successfully</strong></p>
+<p>✅ <strong>Module 1, Part 2 - completed successfull</strong><br>
+✅ <strong>Module 2         - completed successfull</strong><br>
+✅ <strong>Module 3, Part 1 - completed successfully</strong><br>
+✅ <strong>Module 3, Part 2 - completed successfully</strong>  </p>
 </div>
-<h1 id="step-1-update-the-software-template-to-support-the-eda-label">Step 1: Update the Software Template to Support the EDA Label<a class="headerlink" href="#step-1-update-the-software-template-to-support-the-eda-label" title="Permanent link">¶</a></h1>
-<h3 id="1b-pass-the-value-through-the-workflow-step">1b: Pass the Value Through the Workflow Step<a class="headerlink" href="#1b-pass-the-value-through-the-workflow-step" title="Permanent link">¶</a></h3>
-<h3 id="1c-apply-the-label-conditionally-in-the-helm-chart">1c: Apply the Label Conditionally in the Helm Chart<a class="headerlink" href="#1c-apply-the-label-conditionally-in-the-helm-chart" title="Permanent link">¶</a></h3>
-<h2 id="step-4-provision-an-eda-governed-medium-namespace">Step 4: Provision an EDA-Governed Medium Namespace<a class="headerlink" href="#step-4-provision-an-eda-governed-medium-namespace" title="Permanent link">¶</a></h2>
-<h3 id="verify-the-eda-label-was-applied">Verify the EDA Label Was Applied<a class="headerlink" href="#verify-the-eda-label-was-applied" title="Permanent link">¶</a></h3>
-<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">¶</a></h2>
+<h2 id="unregister-software-template">Unregister Software Template<a class="headerlink" href="#unregister-software-template" title="Permanent link">¶</a></h2>
+<p><strong>Step 1:</strong><br>
+<code>Login to Red Hat Developer Hub as the admin user</code> 
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/self_service.jpg" data-desc-position="bottom"><img alt="image" src="../../../images/module/module_3/self_service.jpg"></a>  </p>
+<p><strong>Step 2:</strong><br>
+<code>Click the self-service icon (the + plus) in the top-right corner of the UI</code>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/deregister_namespace_template.jpg" data-desc-position="bottom"><img alt="image" src="../../../images/module/module_3/deregister_namespace_template.jpg"></a>  </p>
+<p><strong>Step 3:</strong>
+    <code>Unregister the Software Template by clicking menu in the top-right corner of the UI</code><br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/unregister_template.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/unregister_template.jpg"></a>  </p>
+<h2 id="register-a-new-template">Register a new template<a class="headerlink" href="#register-a-new-template" title="Permanent link">¶</a></h2>
+<p><strong>Step 1:</strong> 
+    <code>You are already logged Red Hat Developer Hub as the admin user</code>  </p>
+<p><strong>Step 2:</strong> 
+    <code>Click the self-service icon (the + plus) in the top-right corner of the UI.</code>  </p>
+<p><strong>Step 3:</strong>
+    <code>Click the Import an existing Git repository button.</code>  </p>
+<p><strong>Step 4:</strong>  <br>
+<code>Enter the following URL in the Select URL field and click Analyze</code><br>
+<code>https://github.com/niksharma20/orchestrator-self-service/blob/main/namespace/template.yaml</code>  </p>
+<p><strong>Step 5:</strong>
+    <code>Click Import when prompted</code>  </p>
+<p><strong>Step 6:</strong>
+    <code>Select the self-service icon (the + plus) icon on the top navigation bar, then filter by setting the Tags to orchestrator to see the new template.</code>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/namespace_template_eda.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/namespace_template_eda.jpg"></a>  </p>
+<p><strong>Step 7:</strong>
+    <code>Verify the Software template for **EDA Governance** checkbox, it has been disabled on purpose to enfore Governance</code><br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/check_new_namespace_eda.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/check_new_namespace_eda.jpg"></a>  </p>
+<h2 id="provision-a-new-namespace-with-eda-governance">Provision a new namespace with EDA Governance<a class="headerlink" href="#provision-a-new-namespace-with-eda-governance" title="Permanent link">¶</a></h2>
+<p><strong>Step 1:</strong> 
+    <code>Before proceeding, logout of Red Hat Developer Hub as the admin and login as user1</code><br>
+<code>Select the Orchestrator item in the left-hand menu of Red Hat Developer Hub.</code>  </p>
+<p><strong>Step 2:</strong> 
+    <code>Click on the Create OpenShift Namespace workflow.</code></p>
+<p><strong>Step 3:</strong><br>
+<code>Click on the Run button at the top right of the screen to start an instance of the workflow.</code></p>
+<p><strong>Step 4:</strong><br>
+<code>You are presented with a form to enter the details of your request. Let’s start with a request for a large namespace. Fill in the form as follows:</code>  </p>
+<div class="highlight"><pre><span></span><code>```
+Namespace name: &lt;yourname&gt;-large  
+GitLab Host: &lt;Gitlab host name used previously in the part 2 of the module&gt;  
+Requester: user1  
+Size: large  
+Reason: you can leave this blank  
+Recipients: user:default/user1
+```
+</code></pre></div>
+<p><strong>Step 5:</strong><br>
+<code>Click on Next and Run to start the workflow.</code>  </p>
+<p><strong>Step 6</strong><br>
+<code>Select the Notifications item in the left-hand menu. After a couple of seconds you will see a notification that an issue has been created in GitLab.</code>  </p>
+<p><strong>Step 7</strong><br>
+    ```Click on the link of the notification. This opens the issue in GitLab.<br>
+       Same as previous part in the module, approve the request.<br>
+       Make sure you are logged in into GitLab as root, password as mentioned in the part of the module.  </p>
+<p><strong>Step 8</strong>
+    <code>Verify the namespace label in OpenShift and Ansible Automation Platform</code>  </p>
+<p><code>OpenShift Namespace Label</code><br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/ocp_namespace_label.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/ocp_namespace_label.jpg"></a>  </p>
+<p><code>OpenShift Namespace Resource Quoata</code>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/nikhil_namespace_verfication.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/nikhil_namespace_verfication.jpg"></a>  </p>
+<p><code>EDA Rulebook History verification</code>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/eda_namespace_verification.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/eda_namespace_verification.jpg"></a>  </p>
+<p><code>EDA Rulebook History verification</code>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_3/eda_namespace_verification.jpg" data-desc-position="bottom"><img alt="image1" src="../../../images/module/module_3/eda_namespace_verification.jpg"></a>  </p>
 <div class="admonition success">
 <p class="admonition-title">Congratulations!</p>
-<p>You have successfully completed this section.</p>
+<p>You have successfully completed this section.
+Let's check Conclusion</p>
 </div>
 
 
