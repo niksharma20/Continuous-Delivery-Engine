@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eda" class="md-skip">
+        <a href="#setting-up-machine-identity" class="md-skip">
           Skip to content
         </a>
       
@@ -508,70 +508,121 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#step-1-create-the-clusterrole" class="md-nav__link">
+  <a href="#clone-this-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Create the ClusterRole
+      Clone this Repo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#oc-apply-f-ocp01_eda-clusterroleyaml" class="md-nav__link">
+  <a href="#create-openshift-service-account-for-eda" class="md-nav__link">
     <span class="md-ellipsis">
-      oc apply -f ocp/01_eda-clusterrole.yaml
+      Create OpenShift Service Account for EDA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create OpenShift Service Account for EDA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-clusterrole-01_eda-clusterroleyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the ClusterRole 01_eda-clusterrole.yaml
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-create-the-serviceaccount" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-serviceaccount-02_eda-serviceaccountyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Create the ServiceAccount
+      Step 2: Create the ServiceAccount 02_eda-serviceaccount.yaml
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#create-the-namespace-first-if-it-doesnt-exist-oc-create-namespace-aap-create-the-serviceaccount-oc-apply-f-ocp02_eda-serviceaccountyaml" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_eda-rolebindingyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      # Create the namespace first if it doesn't exist oc create namespace aap # Create the ServiceAccount oc apply -f ocp/02_eda-serviceaccount.yaml
+      Step 3: Bind the ServiceAccount to the ClusterRole 03_eda-rolebinding.yaml
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-bind-the-serviceaccount-to-the-clusterrole" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#step-4-generate-a-persistent-long-lived-token-04_eda-token-secretyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Bind the ServiceAccount to the ClusterRole
+      Step 4: Generate a Persistent Long-Lived Token 04_eda-token-secret.yaml
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#oc-apply-f-ocpeda-rolebindingyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      oc apply -f ocp/eda-rolebinding.yaml
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-generate-a-persistent-long-lived-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Generate a Persistent Long-Lived Token
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-5-extract-the-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Extract the Token
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-openshift-service-account-for-automation-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create OpenShift Service Account for Automation Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-the-clusterrole-01_aac-clusterroleyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the ClusterRole 01_aac-clusterrole.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-the-serviceaccount-02_aac-serviceaccountyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create the ServiceAccount 02_aac-serviceaccount.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_aac-rolebindingyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Bind the ServiceAccount to the ClusterRole 03_aac-rolebinding.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-generate-a-persistent-long-lived-token-04_aac-token-secretyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Generate a Persistent Long-Lived Token 04_aac-token-secret.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-extract-the-token_1" class="md-nav__link">
     <span class="md-ellipsis">
       Step 5: Extract the Token
     </span>
@@ -874,82 +925,97 @@
   
 
 
-<p>This is where provision ClusterRole, service account, Role binding, generate token for AAP.
-User will git clone this repo and run the yamls and store the decoded secret.</p>
-<h1 id="eda">EDA<a class="headerlink" href="#eda" title="Permanent link">¶</a></h1>
-<h2 id="step-1-create-the-clusterrole">Step 1: Create the ClusterRole<a class="headerlink" href="#step-1-create-the-clusterrole" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> [01_eda-clusterrole.yaml]</p>
-<p>The ClusterRole defines exactly what the EDA service account is allowed to do — <strong>read-only access</strong> to the resource types the rulebooks need to watch.</p>
-<h2 id="oc-apply-f-ocp01_eda-clusterroleyaml"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/01_eda-clusterrole.yaml
-</code></pre></div><a class="headerlink" href="#oc-apply-f-ocp01_eda-clusterroleyaml" title="Permanent link">¶</a></h2>
-<h2 id="step-2-create-the-serviceaccount">Step 2: Create the ServiceAccount<a class="headerlink" href="#step-2-create-the-serviceaccount" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/02_eda-serviceaccount.yaml">ocp/02_eda-serviceaccount.yaml</a></p>
-<p>The ServiceAccount is the machine identity the EDA controller presents when connecting to OpenShift. It is created in a dedicated namespace (e.g. <code>aap</code>) to keep it isolated from workload namespaces.  </p>
-<p><strong>Apply:</strong></p>
-<h2 id="create-the-namespace-first-if-it-doesnt-exist-oc-create-namespace-aap-create-the-serviceaccount-oc-apply-f-ocp02_eda-serviceaccountyaml"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create the namespace first if it doesn't exist</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>aap
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Create the ServiceAccount</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/02_eda-serviceaccount.yaml
-</code></pre></div><a class="headerlink" href="#create-the-namespace-first-if-it-doesnt-exist-oc-create-namespace-aap-create-the-serviceaccount-oc-apply-f-ocp02_eda-serviceaccountyaml" title="Permanent link">¶</a></h2>
-<h2 id="step-3-bind-the-serviceaccount-to-the-clusterrole">Step 3: Bind the ServiceAccount to the ClusterRole<a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/03_eda-rolebinding.yaml">ocp/03_eda-rolebinding.yaml</a></p>
-<p>The ClusterRoleBinding connects the ServiceAccount (Step 2) to the ClusterRole (Step 1), granting the identity its read-only permissions.</p>
-<p><strong>Apply:</strong></p>
-<h2 id="oc-apply-f-ocpeda-rolebindingyaml"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/eda-rolebinding.yaml
-</code></pre></div><a class="headerlink" href="#oc-apply-f-ocpeda-rolebindingyaml" title="Permanent link">¶</a></h2>
-<h2 id="step-4-generate-a-persistent-long-lived-token">Step 4: Generate a Persistent Long-Lived Token<a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="ocp/04_eda-token-secret.yaml">ocp/04_eda-token-secret.yaml</a></p>
-<p>OpenShift does not auto-generate permanent tokens for ServiceAccounts. Since the EDA controller lives outside the cluster, you must manually create a Secret to house a permanent bearer token.</p>
-<p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp/04_eda-token-secret.yaml
+<h1 id="setting-up-machine-identity">Setting up Machine Identity<a class="headerlink" href="#setting-up-machine-identity" title="Permanent link">¶</a></h1>
+<p>The Service Accounts created here belong to the cluster configuration layer, not the EDA layer.<br>
+But it’s a prerequisite for Module 2 — without it, EDA cannot connect to OpenShift.</p>
+<div class="admonition question">
+<p class="admonition-title">Why a dedicated Service Account?</p>
+<p>EDA runs outside the cluster (on AAP).</p>
+<p>It needs a persistent, non-expiring token to maintain the event stream.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">What gets Created?</p>
+<p>ServiceAccount        → the identity</p>
+<p>ClusterRole           → what it's allowed to do </p>
+<p>ClusterRoleBinding    → connects identity to permissions</p>
+<p>Token Secret          → the bearer token EDA uses to authenticate</p>
+</div>
+<h2 id="clone-this-repo">Clone this Repo<a class="headerlink" href="#clone-this-repo" title="Permanent link">¶</a></h2>
+<p><strong>Let's clone this repo - we don't have to write yamls</strong>  </p>
+<p>You should already logged in into your target Openshift Cluster  </p>
+<p>1.Start a web terminal (as shown in pic)<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_1/page1_ocp_web_terminal.jpg" data-desc-position="bottom"><img alt="image" src="../../../images/module/module_1/page1_ocp_web_terminal.jpg"></a>  </p>
+<ol>
+<li>
+<p>Git clone<br>
+  </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bash-5.1:~$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/niksharma20/Continuous-Delivery-Engine.git
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Change directory to module 1<br>
+  </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>Continuous-Delivery-Engine/docs/content/modules/module_1/
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Create namespace aap<br>
+   </p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create the namespace first if it doesn't exist</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>oc<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>aap
+</code></pre></div><p></p>
+</li>
+</ol>
+<h2 id="create-openshift-service-account-for-eda">Create OpenShift Service Account for EDA<a class="headerlink" href="#create-openshift-service-account-for-eda" title="Permanent link">¶</a></h2>
+<h3 id="step-1-create-the-clusterrole-01_eda-clusterroleyaml">Step 1: Create the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/01_eda-clusterrole.yaml">01_eda-clusterrole.yaml</a><a class="headerlink" href="#step-1-create-the-clusterrole-01_eda-clusterroleyaml" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/01_eda-clusterrole.yaml
 </code></pre></div>
-<hr>
-<h2 id="step-5-extract-the-token">Step 5: Extract the Token<a class="headerlink" href="#step-5-extract-the-token" title="Permanent link">¶</a></h2>
+<h3 id="step-2-create-the-serviceaccount-02_eda-serviceaccountyaml">Step 2: Create the ServiceAccount <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/02_eda-serviceaccount.yaml">02_eda-serviceaccount.yaml</a><a class="headerlink" href="#step-2-create-the-serviceaccount-02_eda-serviceaccountyaml" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create the ServiceAccount</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oc<span class="w"> </span>apply<span class="w"> </span>y<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/02_eda-serviceaccount.yaml
+</code></pre></div>
+<h3 id="step-3-bind-the-serviceaccount-to-the-clusterrole-03_eda-rolebindingyaml">Step 3: Bind the ServiceAccount to the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/03_eda-rolebinding.yaml">03_eda-rolebinding.yaml</a><a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_eda-rolebindingyaml" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/03_eda-rolebinding.yaml
+</code></pre></div>
+<h3 id="step-4-generate-a-persistent-long-lived-token-04_eda-token-secretyaml">Step 4: Generate a Persistent Long-Lived Token <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/04_eda-token-secret.yaml">04_eda-token-secret.yaml</a><a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token-04_eda-token-secretyaml" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/04_eda-token-secret.yaml
+</code></pre></div>
+<h3 id="step-5-extract-the-token">Step 5: Extract the Token<a class="headerlink" href="#step-5-extract-the-token" title="Permanent link">¶</a></h3>
 <p>Once the Secret is created, extract and decode the token for use in AAP:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>eda-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>eda-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
 </code></pre></div>
-<p>Copy the output. You will paste it into AAP when configuring the OpenShift credential in the next section.</p>
-<h1 id="aac">AAC<a class="headerlink" href="#aac" title="Permanent link">¶</a></h1>
-<h2 id="step-1-create-the-clusterrole_1">Step 1: Create the ClusterRole<a class="headerlink" href="#step-1-create-the-clusterrole_1" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/01_aac-clusterrole.yaml">01_aac-clusterrole.yaml</a></p>
-<p>The ClusterRole defines exactly what the AAC service account is allowed to do — <strong>read-only access</strong> to the resource types the rulebooks need to watch.</p>
-<p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/01_aac-clusterrole.yaml
+<p><strong>Copy the output. You will need it later for creating EDA credential in the next section.</strong></p>
+<h2 id="create-openshift-service-account-for-automation-controller">Create OpenShift Service Account for Automation Controller<a class="headerlink" href="#create-openshift-service-account-for-automation-controller" title="Permanent link">¶</a></h2>
+<h2 id="step-1-create-the-clusterrole-01_aac-clusterroleyaml">Step 1: Create the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/01_aac-clusterrole.yaml">01_aac-clusterrole.yaml</a><a class="headerlink" href="#step-1-create-the-clusterrole-01_aac-clusterroleyaml" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/01_aac-clusterrole.yaml
 </code></pre></div>
-<hr>
-<h2 id="step-2-create-the-serviceaccount_1">Step 2: Create the ServiceAccount<a class="headerlink" href="#step-2-create-the-serviceaccount_1" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/02_aac-serviceaccount.yaml">02_aac-serviceaccount.yaml</a></p>
-<p>The ServiceAccount is the machine identity the EDA controller presents when connecting to OpenShift. It is created in a dedicated namespace (e.g. <code>aap</code>) to keep it isolated from workload namespaces.  </p>
-<p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Create the namespace first if it doesn't exist</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>oc<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>aap
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Create the ServiceAccount</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/02_aac-serviceaccount.yaml
+<h2 id="step-2-create-the-serviceaccount-02_aac-serviceaccountyaml">Step 2: Create the ServiceAccount <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/02_aac-serviceaccount.yaml">02_aac-serviceaccount.yaml</a><a class="headerlink" href="#step-2-create-the-serviceaccount-02_aac-serviceaccountyaml" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Create the ServiceAccount</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/02_aac-serviceaccount.yaml
 </code></pre></div>
-<hr>
-<h2 id="step-3-bind-the-serviceaccount-to-the-clusterrole_1">Step 3: Bind the ServiceAccount to the ClusterRole<a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole_1" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/03_aac-rolebinding.yaml">03_aac-rolebinding.yaml</a></p>
-<p>The ClusterRoleBinding connects the ServiceAccount (Step 2) to the ClusterRole (Step 1), granting the identity its read-only permissions.</p>
-<p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/03_aac-rolebinding.yaml
+<h2 id="step-3-bind-the-serviceaccount-to-the-clusterrole-03_aac-rolebindingyaml">Step 3: Bind the ServiceAccount to the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/03_aac-rolebinding.yaml">03_aac-rolebinding.yaml</a><a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_aac-rolebindingyaml" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/03_aac-rolebinding.yaml
 </code></pre></div>
-<hr>
-<h2 id="step-4-generate-a-persistent-long-lived-token_1">Step 4: Generate a Persistent Long-Lived Token<a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token_1" title="Permanent link">¶</a></h2>
-<p><strong>File:</strong> <a href="content/rbac/aac/aac-ocp-sa/04_aac-token-secret.yaml">04_aac-token-secret.yaml</a></p>
-<p>OpenShift does not auto-generate permanent tokens for ServiceAccounts. Since the EDA controller lives outside the cluster, you must manually create a Secret to house a permanent bearer token.</p>
-<p><strong>Apply:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>rbac/aac/aac-ocp-sa/04_aac-token-secret.yaml
+<h2 id="step-4-generate-a-persistent-long-lived-token-04_aac-token-secretyaml">Step 4: Generate a Persistent Long-Lived Token <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/04_aac-token-secret.yaml">04_aac-token-secret.yaml</a><a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token-04_aac-token-secretyaml" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/04_aac-token-secret.yaml
 </code></pre></div>
-<hr>
 <h2 id="step-5-extract-the-token_1">Step 5: Extract the Token<a class="headerlink" href="#step-5-extract-the-token_1" title="Permanent link">¶</a></h2>
 <p>Once the Secret is created, extract and decode the token for use in AAP:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>aac-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>aac-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
 </code></pre></div>
-<p>Copy the output. You will paste it into AAP when configuring the OpenShift credential in the next section.</p>
+<p><strong>Copy the output. You will need it later for creating EDA credential in the next section.</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Two Service Accounts</p>
+<ol>
+<li>
+<p>eda-service-account: observes — read only, never touches resources</p>
+</li>
+<li>
+<p>aac-service-account: read/write, makes changes to resources</p>
+</li>
+</ol>
+<p>Two separate identities, two separate permission sets, two separate purposes. 
+The principle of least privilege applied in practice.</p>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Congratulations!</p>
 <p>You have successfully completed this section.</p>
