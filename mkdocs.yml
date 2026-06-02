@@ -44,7 +44,7 @@ nav:
     - Overview: content/modules/module_2/module2.md
     - EDA Infra: content/modules/module_2/eda_infra.md
     - EDA Rulebook: content/modules/module_2/eda_rulebook.md
-    - AAC Infra: content/modules/module_2/eda_infra.md
+    - AAC Infra: content/modules/module_2/aac_infra.md
     - AAC Job Templates: content/modules/module_2/aac_job_template.md
   - Module 3:
     - Overview: content/modules/module_3/module3.md
