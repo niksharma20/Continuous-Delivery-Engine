@@ -16,6 +16,7 @@ This is divided in three parts:
     For this part of the module you will have to use user guide available in the showroom link (as shown in the pic).
 
     **Module 6 - Install & Setup**  in the showroom link is the Part 1 of this module.
+    Feel to read through the **Foundations** section shown in the pic.
 
 ![Image1](../../images/module/module_3/orchestrator_lab.jpg)  
 
@@ -24,6 +25,7 @@ This is divided in three parts:
     For this part of the module you will have to use the user guide available in the showroom link (as shown in the pic).
 
     **Module 6 - Workflows with State and Integrations** in the showroom link is the Part 2 of this module.
+    Feel to try through the **Managing and Running Workflows** section shown in the pic. It is not mandoatory for the workshop though.
 
 ![Image1](../../images/module/module_3/orchestrator_naas.jpg) 
 

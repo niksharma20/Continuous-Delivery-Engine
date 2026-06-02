@@ -24,6 +24,7 @@ The patterns in this repository are intentionally generic. Common extensions inc
 
 -----
 
+
 ## Further Reading
 
 - [Event-Driven Ansible documentation](https://www.ansible.com/products/event-driven-ansible)
