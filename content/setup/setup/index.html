@@ -825,7 +825,8 @@
 
 
 <h1 id="workshop-architecture-note">Workshop Architecture Note<a class="headerlink" href="#workshop-architecture-note" title="Permanent link">¶</a></h1>
-<p>Following a real world architecture, the workshop is deployed with clear separtaion of Ansible Automation Platform is deployed in a completly separate environment is outside of the Target OpenShift Cluster.
+<p>Following a real world architecture, the workshop is deployed with clear separation. 
+Ansible Automation Platform is deployed in a completly separate environment is outside of the Target OpenShift Cluster.
 A centralised AAP instance governing multiple OpenShift clusters is exactly how enterprise customers deploy it.  </p>
 <div class="admonition info">
 <p class="admonition-title">Deployment Model</p>
@@ -834,7 +835,7 @@ A centralised AAP instance governing multiple OpenShift clusters is exactly how 
 <li><strong>AAP</strong> — hosts Automation Controller and EDA Decision Controller</li>
 <li><strong>OpenShift (RHADS)</strong> — target cluster running RHDH, Orchestrator, GitOps, and workloads</li>
 </ul>
-<p>EDA authenticates to OpenShift remotely via a ServiceAccount bearer token.
+<p>EDA authenticates to OpenShift remotely via a ServiceAccount bearer token.<br>
 This reflects a real-world enterprise model where a centralised AAP instance
 governs multiple OpenShift clusters.</p>
 </div>
@@ -850,31 +851,31 @@ Provides Automation Controller (AAC) and Automation Decisions (EDA).
 Target cluster with GitOps, Pipelines, Monitoring Stack, and RHDH with Orchestrator pre-installed.
 <strong>OpenShift 4.18+ with RHDH</strong></p>
 <blockquote>
-<p>AAP lives <strong>outside</strong> the OpenShift cluster — this is intentional.
-EDA connects to OpenShift remotely using a ServiceAccount bearer token.</p>
+<p>AAP lives <strong>outside</strong> the OpenShift cluster — this is intentional.<br>
+EDA connects to OpenShift remotely using a ServiceAccount bearer token.  </p>
 </blockquote>
 </div>
 <h2 id="rhads-request-page">RHADS Request Page<a class="headerlink" href="#rhads-request-page" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/setup/page2_rhads.jpg" data-desc-position="bottom"><img alt="Image1" src="../../images/setup/page2_rhads.jpg"></a>  </p>
-<p>Once you have put in email id (this is just assignment purpose)
-You will see below, you will need the things in marked in red circles.</p>
+<p>Once you have put in email id (this is just assignment purpose)<br>
+You will see below, you will need the things in marked in red circles.  </p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/setup/page5_rhads_showroom.jpg" data-desc-position="bottom"><img alt="Image1" src="../../images/setup/page5_rhads_showroom.jpg"></a>  </p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/setup/page6_rhads_ocp.jpg" data-desc-position="bottom"><img alt="Image1" src="../../images/setup/page6_rhads_ocp.jpg"></a>  </p>
 <blockquote>
-<p>Please open below in seperate brower tab 
- 1. Showroom url, please keep it open in a separate tab
- 2. Red Hat Developer Hub details, please keep it open in a separate tab
- 3. GitLab details, please keep it open in a separate tab
- 4. Red Hat OpenShift, this is your Target OpenShift Cluster</p>
+<p>Please open below in seperate brower tab<br>
+ 1. Showroom url, please keep it open in a separate tab<br>
+ 2. Red Hat Developer Hub details, please keep it open in a separate tab<br>
+ 3. GitLab details, please keep it open in a separate tab<br>
+ 4. Red Hat OpenShift, this is your Target OpenShift Cluster  </p>
 </blockquote>
 <h2 id="ansible-request-page">Ansible Request Page<a class="headerlink" href="#ansible-request-page" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/setup/page3_ansible.jpg" data-desc-position="bottom"><img alt="Image1" src="../../images/setup/page3_ansible.jpg"></a>  </p>
-<p>Once you have put in email id (this is just assignment purpose)
-You will see below, you will need the things in marked in red circles.</p>
+<p>Once you have put in email id (this is just assignment purpose)<br>
+You will see below, you will need the things in marked in red circles.  </p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/setup/page4_ansible_details.jpg" data-desc-position="bottom"><img alt="Image1" src="../../images/setup/page4_ansible_details.jpg"></a>  </p>
 <blockquote>
-<p>Please open below in seperate brower tab 
- 1. Automation Controller Credentials and URL, please keep it open in a separate tab</p>
+<p>Please open below in seperate brower tab<br>
+ 1. Automation Controller Credentials and URL, please keep it open in a separate tab  </p>
 </blockquote>
 <div class="admonition success">
 <p class="admonition-title">Congratulations!</p>
