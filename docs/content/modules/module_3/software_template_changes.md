@@ -54,3 +54,7 @@ Namespace returns to desired state — Git is the audit trail
 ### Verify the EDA Label Was Applied
 
 ## Further Reading
+
+
+!!! success "Congratulations!"
+    You have successfully completed this section.

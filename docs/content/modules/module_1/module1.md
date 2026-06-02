@@ -23,10 +23,10 @@ This has two parts:
 
 !!! note "**Part 2**"
 
-    Service Account section, this is basically prepartion for module 2 in the workshop. you will be using the same OpenShift Cluster.
+    **Service Account section**, this is basically prepartion for module 2 in the workshop. you will be using the same OpenShift Cluster.
     
 
-**we working to have towards creating an integrate experience and adding Trusted Software Supply chain to this worskhop**
+**we working to have an integrate experience and adding Trusted Software Supply chain to this worskhop**
 
 ## Component
 
