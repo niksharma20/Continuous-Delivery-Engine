@@ -12,7 +12,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://github.com/niksharma20/Continuous-Delivery-Engine/content/setup/setup/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/setup/setup/">
       
       
         <link rel="prev" href="../../..">
@@ -817,36 +817,39 @@
   
 
 
-<h1 id="workshop-architecture-note">Workshop Architecture Note</h1>
+<h1 id="workshop-architecture-note">Workshop Architecture Note<a class="headerlink" href="#workshop-architecture-note" title="Permanent link">&para;</a></h1>
 <p>Following a real world architecture, the workshop is deployed with clear separtaion of Ansible Automation Platform is deployed in a completly separate environment is outside of the Target OpenShift Cluster.
 A centralised AAP instance governing multiple OpenShift clusters is exactly how enterprise customers deploy it.  </p>
-<p>!!! info "Deployment Model"
-    AAP and OpenShift run as <strong>separate, independent deployments</strong>.</p>
-<pre><code>- **AAP** — hosts Automation Controller and EDA Decision Controller
-- **OpenShift (RHADS)** — target cluster running RHDH, Orchestrator, GitOps, and workloads
-
-EDA authenticates to OpenShift remotely via a ServiceAccount bearer token.
+<div class="admonition info">
+<p class="admonition-title">Deployment Model</p>
+<p>AAP and OpenShift run as <strong>separate, independent deployments</strong>.</p>
+<ul>
+<li><strong>AAP</strong> — hosts Automation Controller and EDA Decision Controller</li>
+<li><strong>OpenShift (RHADS)</strong> — target cluster running RHDH, Orchestrator, GitOps, and workloads</li>
+</ul>
+<p>EDA authenticates to OpenShift remotely via a ServiceAccount bearer token.
 This reflects a real-world enterprise model where a centralised AAP instance
-governs multiple OpenShift clusters.
-</code></pre>
-<h2 id="workshop-landing-page">Workshop Landing Page</h2>
+governs multiple OpenShift clusters.</p>
+</div>
+<h2 id="workshop-landing-page">Workshop Landing Page<a class="headerlink" href="#workshop-landing-page" title="Permanent link">&para;</a></h2>
 <p>This workshop uses <strong>two separate environments</strong> — both need separate assignment.  </p>
 <p><img alt="Image1" src="../../images/setup/page1.jpg" />  </p>
-<p>!!! warning "Prerequisites"</p>
-<pre><code>**Environment 1 — Ansible Automation Platform (AAP)**
+<div class="admonition warning">
+<p class="admonition-title">Prerequisites</p>
+<p><strong>Environment 1 — Ansible Automation Platform (AAP)</strong>
 Provides Automation Controller (AAC) and Automation Decisions (EDA).
-**Ansible 2.6 with EDA**
-
-**Environment 2 — OpenShift (RHADS)**
+<strong>Ansible 2.6 with EDA</strong></p>
+<p><strong>Environment 2 — OpenShift (RHADS)</strong>
 Target cluster with GitOps, Pipelines, Monitoring Stack, and RHDH with Orchestrator pre-installed.
-**OpenShift 4.18+ with RHDH**
-
-&gt; AAP lives **outside** the OpenShift cluster — this is intentional.
-&gt; EDA connects to OpenShift remotely using a ServiceAccount bearer token.
-</code></pre>
-<h2 id="rhads-request-page">RHADS Request Page</h2>
+<strong>OpenShift 4.18+ with RHDH</strong></p>
+<blockquote>
+<p>AAP lives <strong>outside</strong> the OpenShift cluster — this is intentional.
+EDA connects to OpenShift remotely using a ServiceAccount bearer token.</p>
+</blockquote>
+</div>
+<h2 id="rhads-request-page">RHADS Request Page<a class="headerlink" href="#rhads-request-page" title="Permanent link">&para;</a></h2>
 <p><img alt="Image1" src="../../images/setup/page2_rhads.jpg" />  </p>
-<h2 id="ansible-request-page">Ansible Request Page</h2>
+<h2 id="ansible-request-page">Ansible Request Page<a class="headerlink" href="#ansible-request-page" title="Permanent link">&para;</a></h2>
 <p><img alt="Image1" src="../../images/setup/page3_ansible.jpg" />  </p>
 
 

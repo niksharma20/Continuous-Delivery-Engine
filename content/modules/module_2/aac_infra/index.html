@@ -12,7 +12,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/aac_infra/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/aac_infra/">
       
       
         <link rel="prev" href="../eda_rulebook/">
@@ -837,7 +837,7 @@
   
 
 
-<h1 id="aac-infra-definations">AAC Infra Definations</h1>
+<h1 id="aac-infra-definations">AAC Infra Definations<a class="headerlink" href="#aac-infra-definations" title="Permanent link">&para;</a></h1>
 <p>Ansible Automation Controller(AAC) needs a credential to authenticate to OpenShift so the remediation playbooks can execute kubernetes.core.k8s tasks against the cluster.</p>
 <blockquote>
 <p><strong>Prerequisites</strong><br />
@@ -846,24 +846,24 @@
 2) The decoded bearer token from the AAC ServiceAccount<br />
 <code>oc get secret aac-token-secret -n aap -o jsonpath='{.data.token}' | base64 --decode</code>  </p>
 </blockquote>
-<h2 id="creating-aac-credentials-for-openshift">Creating AAC Credentials for OpenShift</h2>
+<h2 id="creating-aac-credentials-for-openshift">Creating AAC Credentials for OpenShift<a class="headerlink" href="#creating-aac-credentials-for-openshift" title="Permanent link">&para;</a></h2>
 <p><strong>Step1:</strong> Log in to AAP<br />
 <strong>Step2:</strong> Navigate to Credentials<br />
-<div class="highlight"><pre><span></span><code>Automation Controller → Infrastructure → Credentials → Create Credential  
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Automation Controller → Infrastructure → Credentials → Create Credential  
 </code></pre></div>
 <strong>Step3:</strong> Fill in the credential form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: OCP Cluster Token for AAC
-Organization: Default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Name: OCP Cluster Token for AAC
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Organization: Default
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Credential Type: OpenShift or Kubernetes API Bearer Token
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Credential Type: OpenShift or Kubernetes API Bearer Token
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>OpenShift or Kubernetes API Endpoint: https://api.&lt;your-cluster-domain&gt;:6443 (this is part of the Prerequisites).
-Bearer Token: (this is part of the Prerequisites)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>OpenShift or Kubernetes API Endpoint: https://api.&lt;your-cluster-domain&gt;:6443 (this is part of the Prerequisites).
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Bearer Token: (this is part of the Prerequisites)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Verify SSL: On
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Verify SSL: On
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page18_aac_credential.jpg" />  </p>
-<h2 id="execution-environement">Execution Environement</h2>
+<h2 id="execution-environement">Execution Environement<a class="headerlink" href="#execution-environement" title="Permanent link">&para;</a></h2>
 <p>Creating the Execution Environment in AAP</p>
 <blockquote>
 <p><strong>Prerequisites</strong><br />
@@ -872,21 +872,21 @@ Registry credentials if your registry requires authentication or make the image 
 </p>
 </blockquote>
 <p><strong>Step1:</strong> Navigate to Execution Environments<br />
-<div class="highlight"><pre><span></span><code>Automation Decisions → Infrastructure → Execution Environments → Create Execution Environment
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Automation Decisions → Infrastructure → Execution Environments → Create Execution Environment
 </code></pre></div>
 <strong>Step2:</strong> Fill in the form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: ee-ansible-techday
-Organization: Default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Name: ee-ansible-techday
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Organization: Default
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Image: quay.io/rhn_support_idhaoui/ee-custom/ee-ansible-ssa:latest ( This public image, custom built for the workshop)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Image: quay.io/rhn_support_idhaoui/ee-custom/ee-ansible-ssa:latest ( This public image, custom built for the workshop)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Pull: Only pull the image if not present before running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Pull: Only pull the image if not present before running
 </code></pre></div></p>
 <p><img alt="Image 1" src="../../../images/module/module_2/aac_ee_ansible_techday.jpg" />  </p>
 <p><img alt="Image 2" src="../../../images/module/module_2/page19_aac_ee.jpg" />  </p>
 <hr />
-<h3 id="important-collections-part-ee-image">Important Collections part EE Image</h3>
-<h3 id="python-dependencies-part-ee-image">Python dependencies part EE Image</h3>
+<h3 id="important-collections-part-ee-image">Important Collections part EE Image<a class="headerlink" href="#important-collections-part-ee-image" title="Permanent link">&para;</a></h3>
+<h3 id="python-dependencies-part-ee-image">Python dependencies part EE Image<a class="headerlink" href="#python-dependencies-part-ee-image" title="Permanent link">&para;</a></h3>
 <hr />
 
 

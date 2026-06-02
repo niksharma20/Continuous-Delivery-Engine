@@ -12,7 +12,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/eda_rulebook/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/eda_rulebook/">
       
       
         <link rel="prev" href="../eda_infra/">
@@ -813,7 +813,7 @@
   
 
 
-<h1 id="eda-project-and-rulebooks-definations">EDA Project and Rulebooks Definations</h1>
+<h1 id="eda-project-and-rulebooks-definations">EDA Project and Rulebooks Definations<a class="headerlink" href="#eda-project-and-rulebooks-definations" title="Permanent link">&para;</a></h1>
 <p>A Project in Event Driven Ansible(EDA) is a connection to a Git repository that contains your rulebooks. EDA syncs the repo and makes the rulebooks available for Rulebook Activations.  </p>
 <blockquote>
 <p>Prerequisites<br />
@@ -823,25 +823,25 @@ Before you start you need:<br />
 <p>I have created a public repo for the workshop with a rulebook, that we will be using for the workshop.<br />
 repo url: https://github.com/niksharma20/custom-de.git  </p>
 </blockquote>
-<h2 id="projects">Projects</h2>
+<h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">&para;</a></h2>
 <p><strong>Creating a Project in Automation Decisions (EDA)</strong>  </p>
 <p><strong>Step 1:</strong> Navigate to Projects<br />
-<div class="highlight"><pre><span></span><code>Automation Decisions → Projects → Create Project
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Automation Decisions → Projects → Create Project
 </code></pre></div>
 <strong>Step 2:</strong> Fill in the  form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: OpenShift Event Rulebooks
-Organization: Default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Name: OpenShift Event Rulebooks
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Organization: Default
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Source control type: Git
-Source control URL: https://github.com/niksharma20/custom-de.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Source control type: Git
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Source control URL: https://github.com/niksharma20/custom-de.git
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Verify SSL: On
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Verify SSL: On
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page14_eda_project_ocp.jpg" />  </p>
 <p><strong>Step3:</strong> Verify the sync (Success looks like below).<br />
 <img alt="Image" src="../../../images/module/module_2/page13_eda_projects.jpg" />  </p>
 <p>If all was successful in previous step, EDA should have scanned the repository for .yml files that match the rulebook format and makes them available in Rulebook Activations. Your rulebooks in the rulebooks/ directory will appear as selectable options when creating an activation.  </p>
-<h2 id="rulebooks">Rulebooks</h2>
+<h2 id="rulebooks">Rulebooks<a class="headerlink" href="#rulebooks" title="Permanent link">&para;</a></h2>
 <p>A Rulebook Activation is what actually runs your rulebook. It combines the Project, Decision Environment, and Credentials into a running process that streams events from OpenShift.  </p>
 <blockquote>
 <p>Prerequisites<br />
@@ -853,29 +853,29 @@ Before you start you need:<br />
 </blockquote>
 <p><strong>Creating a Rulebook Activation in Automation Decisions (EDA)</strong>  </p>
 <p><strong>Step 1:</strong> Navigate to Rulebook Activations<br />
-<div class="highlight"><pre><span></span><code>Automation Decisions → Rulebook Activations → Create Rulebook Activation
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Automation Decisions → Rulebook Activations → Create Rulebook Activation
 </code></pre></div>
 <strong>Step 2:</strong> Fill in the  form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: OpenShift Namespace Governance
-Organization: Default
-Project: OpenShift Event Rulebooks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Name: OpenShift Namespace Governance
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Organization: Default
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Project: OpenShift Event Rulebooks
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Rulebook: openshifteda.yml (select from the drop down)
-Credential(s): &quot;OpenShift Cluster Token for EDA&quot; &quot;aap credentials&quot;
-Decision environment: DE-Juniper
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Rulebook: openshifteda.yml (select from the drop down)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Credential(s): &quot;OpenShift Cluster Token for EDA&quot; &quot;aap credentials&quot;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Decision environment: DE-Juniper
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Restart policy: On Failure
-Enabled: Yes
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Restart policy: On Failure
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Enabled: Yes
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page16_eda_rulebook_ocp.jpg" />  </p>
 <p><strong>Step3:</strong> Verify the Activation is Running (Success looks like below).<br />
 <img alt="Image" src="../../../images/module/module_2/page15_eda_rulebook.jpg" />  </p>
 <p><strong>Step4:</strong> Check the Logs<br />
-<div class="highlight"><pre><span></span><code>Automation Decisions → Rulebook Activations → OpenShift Namespace Governance (Running with a green indicator) → History → latest activation → logs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Automation Decisions → Rulebook Activations → OpenShift Namespace Governance (Running with a green indicator) → History → latest activation → logs
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/eda_rulebook_logs.jpg" />  </p>
-<div class="highlight"><pre><span></span><code>Congratulations!!!  
-Let&#39;s move to configuring the Automation Controller
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Congratulations!!!  
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Let&#39;s move to configuring the Automation Controller
 </code></pre></div>
 
 

@@ -12,7 +12,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/aac_job_template/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/aac_job_template/">
       
       
         <link rel="prev" href="../aac_infra/">
@@ -813,7 +813,7 @@
   
 
 
-<h1 id="ae-project-and-rulebooks-definations">AE Project and Rulebooks Definations</h1>
+<h1 id="ae-project-and-rulebooks-definations">AE Project and Rulebooks Definations<a class="headerlink" href="#ae-project-and-rulebooks-definations" title="Permanent link">&para;</a></h1>
 <p>A Project in Automation Controller(AC) is a connection to a Git repository that contains your playbooks. AC syncs the repo and makes the playbooks available for Job Templates.  </p>
 <blockquote>
 <p><strong>Prerequisites</strong><br />
@@ -823,26 +823,26 @@ Before you start you need:<br />
 <p>I have created a public repo for the workshop with a rulebook, that we will be using for the workshop.<br />
 repo url: https://github.com/niksharma20/custom-de.git  </p>
 </blockquote>
-<h2 id="projects">Projects</h2>
+<h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">&para;</a></h2>
 <p><strong>Creating a Project in Automation Controller (AC)</strong>  </p>
 <p><strong>Step 1:</strong> Navigate to Projects<br />
-<div class="highlight"><pre><span></span><code>Automation Execution → Projects → Create Project
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Automation Execution → Projects → Create Project
 </code></pre></div>
 <strong>Step 2:</strong> Fill in the  form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: Namespace Governance
-Organization: Default
-Execution environment: ee-ansible-techday
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Name: Namespace Governance
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Organization: Default
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Execution environment: ee-ansible-techday
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Source control type: Git
-Source control URL: https://github.com/niksharma20/custom-de.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Source control type: Git
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Source control URL: https://github.com/niksharma20/custom-de.git
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Update revision on launch: On
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Update revision on launch: On
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/aac_projects_namespace.jpg" />  </p>
 <p><strong>Step3:</strong> Verify the sync (Success looks like below).<br />
 <img alt="Image" src="../../../images/module/module_2/page20_aac_project.jpg" />  </p>
 <p>Automation Controller scans the repository and indexes all .yml playbook files. Your playbooks in the playbooks/ directory will appear as selectable options when creating Job Templates.  </p>
-<h2 id="job-templates">Job Templates</h2>
+<h2 id="job-templates">Job Templates<a class="headerlink" href="#job-templates" title="Permanent link">&para;</a></h2>
 <p>A Job Template defines what playbook to run, where to run it, and what credentials to use. EDA triggers these templates automatically when a rulebook rule fires.  </p>
 <blockquote>
 <p><strong>Prerequisites</strong><br />
@@ -852,35 +852,35 @@ Source control URL: https://github.com/niksharma20/custom-de.git
 </blockquote>
 <p><strong>Creating a Job Templates in Automation Controller</strong>  </p>
 <p><strong>Step 1:</strong> Navigate to Job Templates<br />
-<div class="highlight"><pre><span></span><code>Automation Execution → Templates → Create Job Template
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Automation Execution → Templates → Create Job Template
 </code></pre></div>
 <strong>Step 2:</strong> Fill in the  form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: OpenShift Set Resource Quota on Namespace
-Job type: Run
-Inventory: Demo Inventory
-Project: Namespace Goverance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Name: OpenShift Set Resource Quota on Namespace
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Job type: Run
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Inventory: Demo Inventory
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Project: Namespace Goverance
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Playbook: playbooks/apply_enterprise_compliance_Quotas.yml (select from the drop down)
-Credential(s): &quot;OCP Cluster Token for AAC&quot;
-Execution environment: ee-ansible-techday
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Playbook: playbooks/apply_enterprise_compliance_Quotas.yml (select from the drop down)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Credential(s): &quot;OCP Cluster Token for AAC&quot;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Execution environment: ee-ansible-techday
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Prompt on launch: Enabled
-Extra variables: 
- namespace: default-placeholder
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Prompt on launch: Enabled
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Extra variables: 
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a> namespace: default-placeholder
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page23_aac_job_template_ocp.jpg" />  </p>
 <p><strong>Step3:</strong> Verify (Success looks like below).<br />
 <img alt="Image" src="../../../images/module/module_2/page22_aac_job_template.jpg" />  </p>
 <p><strong>Step4:</strong> If you would like to verify this right way. bext way is to go to your Openshift web terminal and run below command.<br />
-<div class="highlight"><pre><span></span><code>oc apply -f - &lt;&lt;EOF
-apiVersion: project.openshift.io/v1
-kind: Project
-metadata:
-  name: eda-verification
-  labels:
-    type: eda
-spec: {}
-EOF
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc apply -f - &lt;&lt;EOF
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>apiVersion: project.openshift.io/v1
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>kind: Project
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>metadata:
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  name: eda-verification
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  labels:
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    type: eda
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>spec: {}
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>EOF
 </code></pre></div>
 <strong>Steps5:</strong> Go to Jobs and look for the latest run of your Job Template "OpenShift Set Resource Quota on Namespace"<br />
 Similar to the images below<br />

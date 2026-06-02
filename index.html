@@ -12,7 +12,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://github.com/niksharma20/Continuous-Delivery-Engine/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/">
       
       
       
@@ -848,14 +848,14 @@
   
 
 
-<h1 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop</h1>
-<h2 id="overview">Overview</h2>
+<h1 id="continuous-delivery-engine-hands-on-technical-workshop">Continuous Delivery Engine: Hands-On Technical Workshop<a class="headerlink" href="#continuous-delivery-engine-hands-on-technical-workshop" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>This hands-on comprehensive workshop provides technical understanding of Continuous Delivery Engine (CDE) components and their implementation.<br />
 Designed for platform engineers, DevOps practitioners, and technical leaders.<br />
 In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Event Driven Ansible (EDA) that delivers to containers, VMs, and other infrastructure components through a single self-service interface.
 Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform (AAP) serves as the cross-platform automation engine.
 You will learn how to empower developers with a unified self-service experience while maintaining total operational control.</p>
-<h2 id="architecture">Architecture</h2>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
 <p>Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and Event Driven Ansible.  </p>
 <p><img alt="Architecture Diagram" src="content/images/module/module_3/full_namespace_goverance.jpg" />  </p>
 <p>The platform operates across three layers:</p>
@@ -864,18 +864,23 @@ You will learn how to empower developers with a unified self-service experience 
 <li><strong>Event Driven Governance</strong> — EDA watches governed namespaces and AAC remediates drift automatically  </li>
 <li><strong>Operational Orchestration</strong> — Orchestrator handles approval workflows and multi-system coordination  </li>
 </ul>
-<p>!!! tip "Workshop Goal"
-    Build, Show, and Experience the integration between OCP, Ansible Automation Controller and Event Driven Ansible (EDA).
-    Users can take home this setup and explore different use cases.
-    Today we will explore a simple use case <strong>Namespace Governance</strong> to understand the integrations and patterns.
-    You'll walk away with a working, end-to-end delivery pattern you can adapt to your own environment.</p>
-<p>!!! warning "Prerequisites"
-    We will be using two CI environments from Red Hat Demo to provide the baseline infrastructure.  </p>
-<pre><code>1. [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&amp;utm_source=webapp&amp;utm_medium=share-link)  
-2. [OpenShift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&amp;utm_source=webapp&amp;utm_medium=share-link)
-</code></pre>
-<h2 id="use-case-namespace-governance"><strong>Use Case: Namespace Governance</strong></h2>
-<h3 id="workshop-structure">Workshop Structure</h3>
+<div class="admonition tip">
+<p class="admonition-title">Workshop Goal</p>
+<p>Build, Show, and Experience the integration between OCP, Ansible Automation Controller and Event Driven Ansible (EDA).
+Users can take home this setup and explore different use cases.
+Today we will explore a simple use case <strong>Namespace Governance</strong> to understand the integrations and patterns.
+You'll walk away with a working, end-to-end delivery pattern you can adapt to your own environment.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Prerequisites</p>
+<p>We will be using two CI environments from Red Hat Demo to provide the baseline infrastructure.  </p>
+<ol>
+<li><a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&amp;utm_source=webapp&amp;utm_medium=share-link">Ansible 2.6 with EDA</a>  </li>
+<li><a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&amp;utm_source=webapp&amp;utm_medium=share-link">OpenShift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator</a>  </li>
+</ol>
+</div>
+<h2 id="use-case-namespace-governance"><strong>Use Case: Namespace Governance</strong><a class="headerlink" href="#use-case-namespace-governance" title="Permanent link">&para;</a></h2>
+<h3 id="workshop-structure">Workshop Structure<a class="headerlink" href="#workshop-structure" title="Permanent link">&para;</a></h3>
 <p><strong>Module 1 - Declarative Infrastructure</strong>  </p>
 <blockquote>
 <p>Developer fills a form → Software Template provisions namespace via GitOps  </p>
@@ -888,7 +893,7 @@ You will learn how to empower developers with a unified self-service experience 
 <blockquote>
 <p>Developer fills a form for large namespace requests → Orchestrator handles approval workflows → Software Template provisions namespace via GitOps → EDA watches governed namespaces → AAC automatically remediates drift</p>
 </blockquote>
-<h3 id="workshop-component">Workshop Component</h3>
+<h3 id="workshop-component">Workshop Component<a class="headerlink" href="#workshop-component" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -927,7 +932,7 @@ You will learn how to empower developers with a unified self-service experience 
 </tr>
 </tbody>
 </table>
-<h2 id="further-reading">Further Reading</h2>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://docs.redhat.com/en/documentation/red_hat_developer_hub">Red Hat Developer Hub documentation</a></li>
 <li><a href="https://www.ansible.com/products/event-driven-ansible">Ansible EDA documentation</a></li>

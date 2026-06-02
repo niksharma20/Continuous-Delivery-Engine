@@ -12,7 +12,7 @@
         <meta name="author" content="Nikhil Sharma">
       
       
-        <link rel="canonical" href="https://github.com/niksharma20/Continuous-Delivery-Engine/content/modules/module_2/eda_infra/">
+        <link rel="canonical" href="https://niksharma20.github.io/Continuous-Delivery-Engine/content/modules/module_2/eda_infra/">
       
       
         <link rel="prev" href="../module2/">
@@ -885,10 +885,10 @@
   
 
 
-<h1 id="eda-infra-definations">EDA Infra Definations</h1>
+<h1 id="eda-infra-definations">EDA Infra Definations<a class="headerlink" href="#eda-infra-definations" title="Permanent link">&para;</a></h1>
 <p>This is moment when you define credentials needed by the decision enviroment in Event Driven Ansible(EDA) to authenticate against the Target Openshift Cluster.</p>
 <p>Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.</p>
-<h2 id="credential-type">Credential Type</h2>
+<h2 id="credential-type">Credential Type<a class="headerlink" href="#credential-type" title="Permanent link">&para;</a></h2>
 <p>The <code>custom credential type</code> definitions extend the built-in credential types available in Automation Decisions with organisation-specific schemas — allowing you to pass structured, encrypted configuration to rulebooks and playbooks in a standardised, reusable way.</p>
 <p><strong>A custom credential type in AAP has three components:</strong></p>
 <table>
@@ -914,52 +914,52 @@
 </tbody>
 </table>
 <p>Once a custom credential type is created, you can create one or more credentials from it, assign them to Job Templates or Rulebook Activations, and the values are injected at runtime without appearing in logs or playbook source.</p>
-<h3 id="creating-custom-credential">Creating Custom Credential</h3>
+<h3 id="creating-custom-credential">Creating Custom Credential<a class="headerlink" href="#creating-custom-credential" title="Permanent link">&para;</a></h3>
 <p><strong>Step1:</strong> Log in to AAP<br />
 <strong>Step2:</strong> Navigate to Credentials
-<div class="highlight"><pre><span></span><code>Automation Decisions → Credential Type → Create Credential type
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Automation Decisions → Credential Type → Create Credential type
 </code></pre></div>
 <strong>Step3:</strong> Fill in the credential form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: OpenShift Service Account Token
-Description: For mapping OpenShift Bearer tokens into rulebooks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Name: OpenShift Service Account Token
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Description: For mapping OpenShift Bearer tokens into rulebooks
 </code></pre></div></p>
 <p><strong>Input Configuration</strong><br />
-<div class="highlight"><pre><span></span><code><span class="nt">fields</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OpenShift API Server URL</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bearer Token</span>
-<span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">required</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">fields</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OpenShift API Server URL</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bearer Token</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nt">required</span><span class="p">:</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span>
 </code></pre></div>
 <strong>Injector Configuration</strong>
-<div class="highlight"><pre><span></span><code><span class="nt">file</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">template.kubeconfig</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">apiVersion: v1</span>
-<span class="w">    </span><span class="no">kind: Config</span>
-<span class="w">    </span><span class="no">clusters:</span>
-<span class="w">      </span><span class="no">- cluster:</span>
-<span class="w">          </span><span class="no">insecure-skip-tls-verify: true</span>
-<span class="w">          </span><span class="no">server: &quot;{{ host }}&quot;</span>
-<span class="w">        </span><span class="no">name: openshift-cluster</span>
-<span class="w">    </span><span class="no">contexts:</span>
-<span class="w">      </span><span class="no">- context:</span>
-<span class="w">          </span><span class="no">cluster: openshift-cluster</span>
-<span class="w">          </span><span class="no">user: eda-runner</span>
-<span class="w">        </span><span class="no">name: eda-context</span>
-<span class="w">    </span><span class="no">current-context: eda-context</span>
-<span class="w">    </span><span class="no">users:</span>
-<span class="w">      </span><span class="no">- name: eda-runner</span>
-<span class="w">        </span><span class="no">user:</span>
-<span class="w">          </span><span class="no">token: &quot;{{ token }}&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">file</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">template.kubeconfig</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="no">apiVersion: v1</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="no">kind: Config</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="no">clusters:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="no">- cluster:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">          </span><span class="no">insecure-skip-tls-verify: true</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">          </span><span class="no">server: &quot;{{ host }}&quot;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="no">name: openshift-cluster</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="no">contexts:</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="no">- context:</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">          </span><span class="no">cluster: openshift-cluster</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">          </span><span class="no">user: eda-runner</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="no">name: eda-context</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="no">current-context: eda-context</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="no">users:</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="no">- name: eda-runner</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="no">user:</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">          </span><span class="no">token: &quot;{{ token }}&quot;</span>
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page7_eda_credential_type_ocp.jpg" />
 <img alt="Image" src="../../../images/module/module_2/page6_eda_credential_type.jpg" /></p>
-<h2 id="credentials">Credentials</h2>
+<h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -984,7 +984,7 @@ Description: For mapping OpenShift Bearer tokens into rulebooks
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>These are configured separately and both assigned to the same Rulebook Activation.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>These are configured separately and both assigned to the same Rulebook Activation.
 </code></pre></div>
 <blockquote>
 <p><strong>Prerequisites</strong>
@@ -996,41 +996,41 @@ Before you start you need:<br />
 3) Red Hat Ansible Platform Host url and Credentials
 </p>
 </blockquote>
-<h3 id="openshift">Openshift</h3>
+<h3 id="openshift">Openshift<a class="headerlink" href="#openshift" title="Permanent link">&para;</a></h3>
 <p><strong>Step1:</strong> Log in to AAP<br />
 <strong>Step2:</strong> Navigate to Credentials
-<div class="highlight"><pre><span></span><code>Automation Decisions → Credentials → Create Credential
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Automation Decisions → Credentials → Create Credential
 </code></pre></div>
 <strong>Step3:</strong> Fill in the credential form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: OpenShift Cluster Token for EDA
-Organization: Default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Name: OpenShift Cluster Token for EDA
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Organization: Default
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Credential Type: Click the dropdown menu and select OpenShift Service Account Token
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Credential Type: Click the dropdown menu and select OpenShift Service Account Token
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>API Server URL: https://api.&lt;your-cluster-domain&gt;:6443 (this is part of the Prerequisites).
-Bearer Token: (this is part of the Prerequisites)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>API Server URL: https://api.&lt;your-cluster-domain&gt;:6443 (this is part of the Prerequisites).
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Bearer Token: (this is part of the Prerequisites)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Verify SSL: On
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Verify SSL: On
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page9_eda_credential_ocp.jpg" /></p>
-<h3 id="aac">AAC</h3>
+<h3 id="aac">AAC<a class="headerlink" href="#aac" title="Permanent link">&para;</a></h3>
 <p><strong>Step1:</strong> Navigate to Credentials
-<div class="highlight"><pre><span></span><code>Automation Decisions → Credentials → Create Credential
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Automation Decisions → Credentials → Create Credential
 </code></pre></div>
 <strong>Step2:</strong> Fill in the credential form and save (like below)  <br />
-<div class="highlight"><pre><span></span><code>Name: aap credentials
-Organization: Default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Name: aap credentials
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Organization: Default
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Credential Type: Red Hat Ansible Automation Platform
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Credential Type: Red Hat Ansible Automation Platform
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Red Hat Ansible Platform: https://aap-aap.apps.&lt;your-cluster-domain&gt; (this is part of the Prerequisites).
-Username: admin
-Password: (this is part of the Prerequisites)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Red Hat Ansible Platform: https://aap-aap.apps.&lt;your-cluster-domain&gt; (this is part of the Prerequisites).
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Username: admin
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Password: (this is part of the Prerequisites)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Verify SSL: On
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Verify SSL: On
 </code></pre></div>
 <img alt="Image" src="../../../images/module/module_2/page10_eda_credential_aap.jpg" /></p>
-<h2 id="decision-environment">Decision Environment</h2>
+<h2 id="decision-environment">Decision Environment<a class="headerlink" href="#decision-environment" title="Permanent link">&para;</a></h2>
 <p>Creating the Decision Environment in AAP</p>
 <blockquote>
 <p><strong>Prerequisites</strong>
@@ -1039,22 +1039,22 @@ Registry credentials if your registry requires authentication or make the image 
 </p>
 </blockquote>
 <p><strong>Step1:</strong> Navigate to Decision Environments<br />
-<div class="highlight"><pre><span></span><code>Automation Decisions → Decision Environments → Create Decision Environment
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Automation Decisions → Decision Environments → Create Decision Environment
 </code></pre></div>
 <strong>Step2:</strong> Fill in the form and save (like below)<br />
-<div class="highlight"><pre><span></span><code>Name: DE-Juniper
-Organization: Default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Name: DE-Juniper
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Organization: Default
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Image: quay.io/rhn_support_idhaoui/de-juniper:1.0 ( This public image, custom built for the workshop)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Image: quay.io/rhn_support_idhaoui/de-juniper:1.0 ( This public image, custom built for the workshop)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Pull: Always pull container before running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Pull: Always pull container before running
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Verify SSL: On
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Verify SSL: On
 </code></pre></div>
 <img alt="Image 1" src="../../../images/module/module_2/page12_eda_de_juiper.jpg" />  </p>
 <p><img alt="Image 2" src="../../../images/module/module_2/page11_eda_de.jpg" />  </p>
 <hr />
-<h3 id="important-collections-part-de-image">Important Collections part DE Image</h3>
+<h3 id="important-collections-part-de-image">Important Collections part DE Image<a class="headerlink" href="#important-collections-part-de-image" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1077,7 +1077,7 @@ Organization: Default
 </tr>
 </tbody>
 </table>
-<h3 id="python-dependencies-part-de-image">Python dependencies part DE Image</h3>
+<h3 id="python-dependencies-part-de-image">Python dependencies part DE Image<a class="headerlink" href="#python-dependencies-part-de-image" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
