@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setting-up-machine-identity" class="md-skip">
+        <a href="#setting-up-machine-identity-service-account" class="md-skip">
           Skip to content
         </a>
       
@@ -583,9 +583,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Create OpenShift Service Account for Automation Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1_1" class="md-nav__link">
     <span class="md-ellipsis">
       Step 1
@@ -593,8 +594,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-2_1" class="md-nav__link">
     <span class="md-ellipsis">
       Step 2
@@ -602,8 +603,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-3_1" class="md-nav__link">
     <span class="md-ellipsis">
       Step 3
@@ -611,8 +612,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-4_1" class="md-nav__link">
     <span class="md-ellipsis">
       Step 4
@@ -620,13 +621,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-5_1" class="md-nav__link">
     <span class="md-ellipsis">
       Step 5
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -925,7 +931,7 @@
   
 
 
-<h1 id="setting-up-machine-identity">Setting up Machine Identity<a class="headerlink" href="#setting-up-machine-identity" title="Permanent link">¶</a></h1>
+<h1 id="setting-up-machine-identity-service-account">Setting up Machine Identity - Service Account<a class="headerlink" href="#setting-up-machine-identity-service-account" title="Permanent link">¶</a></h1>
 <p>The Service Accounts created here belong to the cluster configuration layer, not the EDA layer.<br>
 But it’s a prerequisite for Module 2 — without it, EDA cannot connect to OpenShift.</p>
 <div class="admonition question">
@@ -991,24 +997,24 @@ But it’s a prerequisite for Module 2 — without it, EDA cannot connect to Ope
 </code></pre></div>
 <p><strong>Copy the output. You will need it later for creating EDA credential in the next section.</strong></p>
 <h2 id="create-openshift-service-account-for-automation-controller">Create OpenShift Service Account for Automation Controller<a class="headerlink" href="#create-openshift-service-account-for-automation-controller" title="Permanent link">¶</a></h2>
-<h2 id="step-1_1">Step 1<a class="headerlink" href="#step-1_1" title="Permanent link">¶</a></h2>
+<h3 id="step-1_1">Step 1<a class="headerlink" href="#step-1_1" title="Permanent link">¶</a></h3>
 <p><strong>Create the ClusterRole</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/01_aac-clusterrole.yaml">01_aac-clusterrole.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/01_aac-clusterrole.yaml
 </code></pre></div>
-<h2 id="step-2_1">Step 2<a class="headerlink" href="#step-2_1" title="Permanent link">¶</a></h2>
+<h3 id="step-2_1">Step 2<a class="headerlink" href="#step-2_1" title="Permanent link">¶</a></h3>
 <p><strong>Create the ServiceAccount</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/02_aac-serviceaccount.yaml">02_aac-serviceaccount.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Create the ServiceAccount</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/02_aac-serviceaccount.yaml
 </code></pre></div>
-<h2 id="step-3_1">Step 3<a class="headerlink" href="#step-3_1" title="Permanent link">¶</a></h2>
+<h3 id="step-3_1">Step 3<a class="headerlink" href="#step-3_1" title="Permanent link">¶</a></h3>
 <p><strong>Bind the ServiceAccount to the ClusterRole</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/03_aac-rolebinding.yaml">03_aac-rolebinding.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/03_aac-rolebinding.yaml
 </code></pre></div>
-<h2 id="step-4_1">Step 4<a class="headerlink" href="#step-4_1" title="Permanent link">¶</a></h2>
+<h3 id="step-4_1">Step 4<a class="headerlink" href="#step-4_1" title="Permanent link">¶</a></h3>
 <p><strong>Generate a Persistent Long-Lived Token</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/04_aac-token-secret.yaml">04_aac-token-secret.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/04_aac-token-secret.yaml
 </code></pre></div>
-<h2 id="step-5_1">Step 5<a class="headerlink" href="#step-5_1" title="Permanent link">¶</a></h2>
+<h3 id="step-5_1">Step 5<a class="headerlink" href="#step-5_1" title="Permanent link">¶</a></h3>
 <p>Extract the Token</p>
 <p>Once the Secret is created, extract and decode the token for use in AAP:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>aac-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
