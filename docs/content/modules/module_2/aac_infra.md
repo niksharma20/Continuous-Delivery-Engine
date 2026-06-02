@@ -2,19 +2,19 @@
 
 Ansible Automation Controller(AAC) needs a credential to authenticate to OpenShift so the remediation playbooks can execute kubernetes.core.k8s tasks against the cluster.
 
-> **Prerequisites**
-> 1) The OpenShift cluster API URL
+> **Prerequisites**  
+> 1) The OpenShift cluster API URL  
 >      `oc whoami --show-server`  
 > 2) The decoded bearer token from the AAC ServiceAccount  
 >       `oc get secret aac-token-secret -n aap -o jsonpath='{.data.token}' | base64 --decode`  
 
-## Creating AAC Credentials for OpenShift
+## Creating AAC Credentials for OpenShift  
 **Step1:** Log in to AAP  
-**Step2:** Navigate to Credentials
+**Step2:** Navigate to Credentials  
 ```
-Automation Controller → Infrastructure → Credentials → Create Credential
+Automation Controller → Infrastructure → Credentials → Create Credential  
 ```  
-**Step3:** Fill in the credential form and save (like below) 
+**Step3:** Fill in the credential form and save (like below)  
 ```
 Name: OCP Cluster Token for AAC
 Organization: Default
@@ -36,9 +36,9 @@ Verify SSL: On
 
 Creating the Execution Environment in AAP
 
-> **Prerequisites**
-> The custom EE image built and pushed to your registry
-> Registry credentials if your registry requires authentication or make the image public.
+> **Prerequisites**  
+> The custom EE image built and pushed to your registry  
+> Registry credentials if your registry requires authentication or make the image public.  
 > 
 
 **Step1:** Navigate to Execution Environments  
