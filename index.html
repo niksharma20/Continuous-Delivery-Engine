@@ -410,6 +410,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#use-case-namespace-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case: Namespace Governance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case: Namespace Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workshop-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workshop-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop Component
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -810,125 +852,43 @@
 <h2 id="overview">Overview</h2>
 <p>This hands-on comprehensive workshop provides technical understanding of Continuous Delivery Engine (CDE) components and their implementation.<br />
 Designed for platform engineers, DevOps practitioners, and technical leaders.<br />
-In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Ansible Automation Platform that delivers to containers, VMs, and other infrastructure components through a single, automated, policy-enforced pipeline — no environment left behind. Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform serves as the cross-platform automation engine. You will learn how to empower developers with a unified self-service experience while maintaining total operational control.  </p>
+In this workshop you will build and experience a Continuous Delivery Engine using Red Hat Developer Hub and Event Driven Ansible (EDA) that delivers to containers, VMs, and other infrastructure components through a single self-service interface.
+Red Hat Developer Hub serves as the self-service abstraction layer; Ansible Automation Platform (AAP) serves as the cross-platform automation engine.
+You will learn how to empower developers with a unified self-service experience while maintaining total operational control.</p>
 <h2 id="architecture">Architecture</h2>
 <p>Building Continuous Delivery Pattern using Developer Hub, Serverless Workflows, OpenShift and Event Driven Ansible.  </p>
-<pre class="mermaid"><code>graph LR
-    %% Color Palette Configurations
-    classDef rhdh fill:#151515,stroke:#326ce5,stroke-width:2px,color:#fff;
-    classDef aap fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
-    classDef ocp fill:#151515,stroke:#ee0000,stroke-width:2px,color:#fff;
-    classDef external fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
-    classDef workflow fill:#151515,stroke:#718096,stroke-width:2px,color:#fff;
-
-    %% --- LEFT COLUMN: REQUEST &amp; ORCHESTRATION ---
-    subgraph Portal_Layer [Internal Developer Portal]
-        RHDH["Red Hat Developer Hub&lt;br&gt;&lt;small&gt;Self-service portal&lt;br&gt;&lt;/small&gt;"]
-    end
-    class Portal_Layer,RHDH rhdh;
-
-    Orchestrator(("Orchestrator&lt;br&gt;&lt;small&gt;Serverless&lt;br&gt;workflows&lt;/small&gt;"))
-    Tracker["Approval / Issues&lt;br&gt;Tracker"]
-    class Orchestrator workflow;
-    class Tracker external;
-
-    %% --- MIDDLE COLUMN: AUTOMATION PLATFORM ---
-    subgraph AAP [Red Hat Ansible Automation Platform]
-        subgraph AAP_Core ["AAC and EDA"]
-            Controller["Job Templates &amp; Playbooks"]
-            EDA["Evaluates Rulebooks"]
-        end
-    end
-    class AAP_Core,Controller,EDA aap;
-
-    %% --- RIGHT COLUMN: INFRASTRUCTURE &amp; MANAGED ENVIRONMENT ---
-    subgraph OCP_Layer [Red Hat OpenShift]
-        subgraph Target_Clusters [Target Cluster]
-            Na["Namespace a&lt;br&gt;(type=eda)"]
-            Nb["Namespace b&lt;br&gt;(type=eda)"]
-            Nc["Namespace C..."]
-        end
-        MCM["Multi-cluster management"]
-    end
-    class OCP_Layer,Target_Clusters,Na,Nb,Nc,MCM ocp;
-
-    %% --- RELATIONSHIPS &amp; FLOW LINES ---
-    RHDH --&gt;|Provision namespace request&lt;br&gt;GitOps| Orchestrator
-    Orchestrator -.-&gt;|Human-in-the-loop / Async Check| Tracker
-    Tracker -.-&gt;|Approval Event| Orchestrator
-
-    Orchestrator --&gt;|Invoke Centralised Automation| Controller
-
-    %% Added direct orchestration to cluster line
-    Orchestrator --&gt;|Direct Provisioning / GitOps Sync| Target_Clusters
-
-    %% Event Stream Loop
-    Target_Clusters -.-&gt;|Cluster events&lt;br&gt;type=eda| EDA
-    EDA --&gt;|Automatically triggers next step| Controller
-    Controller --&gt;|Remediation playbooks| Target_Clusters</code></pre>
-<blockquote>
-<h1 id="workshop-goal"><strong>Workshop Goal</strong></h1>
-<p>Build, Show, and Experience the integration between OCP, Ansible, and EDA. Users can take home this setup and explore different use cases.<br />
- Today we will explore a simple use case "Namespace Goverance" with EDA to understand the integrations and patterns.<br />
- You'll walk away with a working, end-to-end delivery pattern you can adapt to your own heterogeneous environment.  </p>
-<h1 id="prerequisites"><strong>Prerequisites</strong></h1>
-<p>We will be using two CI from Red Hat Demo to provide us the baseline Infrastrature.<br />
-1)  <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&amp;utm_source=webapp&amp;utm_medium=share-link">Ansible 2.6 with EDA</a><br />
-2)  <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&amp;utm_source=webapp&amp;utm_medium=share-link">Openshift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator</a>  </p>
-</blockquote>
-<h2 id="use-case-namespace-goverance"><strong>Use Case: Namespace Goverance</strong></h2>
+<p><img alt="Architecture Diagram" src="content/images/module/module_3/full_namespace_goverance.jpg" />  </p>
+<p>The platform operates across three layers:</p>
+<ul>
+<li><strong>Declarative Infrastructure</strong> — developers self-serve via RHDH, GitOps provisions to OpenShift</li>
+<li><strong>Event Driven Governance</strong> — EDA watches governed namespaces and AAC remediates drift automatically  </li>
+<li><strong>Operational Orchestration</strong> — Orchestrator handles approval workflows and multi-system coordination  </li>
+</ul>
+<p>!!! tip "Workshop Goal"
+    Build, Show, and Experience the integration between OCP, Ansible Automation Controller and Event Driven Ansible (EDA).
+    Users can take home this setup and explore different use cases.
+    Today we will explore a simple use case <strong>Namespace Governance</strong> to understand the integrations and patterns.
+    You'll walk away with a working, end-to-end delivery pattern you can adapt to your own environment.</p>
+<p>!!! warning "Prerequisites"
+    We will be using two CI environments from Red Hat Demo to provide the baseline infrastructure.  </p>
+<pre><code>1. [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&amp;utm_source=webapp&amp;utm_medium=share-link)  
+2. [OpenShift 4.18+ with Gitops, Pipeline, Monitoring Stack, RHDH with Orchestrator](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&amp;utm_source=webapp&amp;utm_medium=share-link)
+</code></pre>
+<h2 id="use-case-namespace-governance"><strong>Use Case: Namespace Governance</strong></h2>
 <h3 id="workshop-structure">Workshop Structure</h3>
 <p><strong>Module 1 - Declarative Infrastructure</strong>  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Red Hat Developer Hub (RHDH)</strong></td>
-<td style="text-align: left;">Enterprise-grade developer portal providing convenient access to curated resources and promoting efficiency and collaboration</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Orchestrator</strong></td>
-<td style="text-align: left;">Serverless Workflow</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
-<td style="text-align: left;">GitOps</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Module 2 - Event Driven Ansible for Openshift</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
-<td style="text-align: left;">Target Platform</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Ansible Automation Platform</strong></td>
-<td style="text-align: left;">Automation Controller</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Event Driven Ansible</strong></td>
-<td style="text-align: left;">Automation Decisions</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<p>Developer fills a form → Software Template provisions namespace via GitOps  </p>
+</blockquote>
+<p><strong>Module 2 - Event Driven Ansible for OpenShift</strong></p>
+<blockquote>
+<p>EDA watches governed namespaces → AAC automatically remediates drift  </p>
+</blockquote>
 <p><strong>Module 3 - Enforcing Governance</strong></p>
+<blockquote>
+<p>Developer fills a form for large namespace requests → Orchestrator handles approval workflows → Software Template provisions namespace via GitOps → EDA watches governed namespaces → AAC automatically remediates drift</p>
+</blockquote>
+<h3 id="workshop-component">Workshop Component</h3>
 <table>
 <thead>
 <tr>
@@ -954,21 +914,27 @@ In this workshop you will build and experience a Continuous Delivery Engine usin
 <td style="text-align: left;">Automation Decisions</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Openshift</strong></td>
+<td style="text-align: left;"><strong>OpenShift</strong></td>
 <td style="text-align: left;">Target Platform</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Openshift Gitops</strong></td>
+<td style="text-align: left;"><strong>OpenShift GitOps</strong></td>
 <td style="text-align: left;">GitOps</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>GitHub</strong></td>
-<td style="text-align: left;">Ticket Automation (Here we are using a Git but in real env it would be Jira or Service Now)</td>
+<td style="text-align: left;">Issue tracker for approval workflows (Jira or ServiceNow in production)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references">References</h2>
-<p><a href="https://redhat-gpte-devopsautomation.github.io/showroom-demo-event-driven-ansible/modules/index.html">View the Showroom Demo Event-Driven Ansible Modules</a>  </p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_developer_hub">Red Hat Developer Hub documentation</a></li>
+<li><a href="https://www.ansible.com/products/event-driven-ansible">Ansible EDA documentation</a></li>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_gitops">OpenShift GitOps documentation</a></li>
+<li><a href="https://sonataflow.org/">SonataFlow documentation</a></li>
+<li><a href="https://github.com/Juniper/k8s.eda">juniper.eda.k8s collection</a></li>
+</ul>
 
 
 
