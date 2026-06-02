@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#credential-type" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -592,6 +592,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -620,6 +622,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -637,37 +641,70 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#credential" class="md-nav__link">
+  <a href="#credentials" class="md-nav__link">
     <span class="md-ellipsis">
-      Credential
+      Credentials
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ocp" class="md-nav__link">
-    <span class="md-ellipsis">
-      OCP
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aap" class="md-nav__link">
-    <span class="md-ellipsis">
-      AAP
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="AAP">
+    <nav class="md-nav" aria-label="Credentials">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decision-environement" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Decision Environement
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Openshift
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aac" class="md-nav__link">
+    <span class="md-ellipsis">
+      AAC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-collections-part-de-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Collections part DE Image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-dependencies-part-de-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python dependencies part DE Image
     </span>
   </a>
   
@@ -842,13 +879,162 @@
   
 
 
-<p>This is for Credentials and Credentials types
-This is for eda decision environement</p>
+<h1 id="overview">Overview</h1>
+<p>This is moment when you define credentials needed by the execution enviroment to authenticate against the Target Openshift Cluster.</p>
+<p>Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.</p>
 <h2 id="credential-type">Credential Type</h2>
-<h2 id="credential">Credential</h2>
-<h1 id="ocp">OCP</h1>
-<h1 id="aap">AAP</h1>
-<h2 id="decision-environement">Decision Environement</h2>
+<h2 id="credentials">Credentials</h2>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Why</th>
+<th>Credential Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenShift</td>
+<td>To stream cluster events via the Juniper k8s.eda plugin</td>
+<td>OpenShift Service Account Token</td>
+<td>OpenShift Service Account Token</td>
+</tr>
+<tr>
+<td>Ansible Automation Controller</td>
+<td>To fire job templates when a rulebook rule matches</td>
+<td>Red Hat Ansible Automation Platform</td>
+<td>aap credentials</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>These are configured separately and both assigned to the same Rulebook Activation.
+</code></pre></div>
+<blockquote>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before you start you need:<br />
+1) The OpenShift cluster API URL. <br />
+<code>oc whoami --show-server</code><br />
+2) The decoded bearer token from the EDA ServiceAccount.<br />
+<code>oc get secret eda-token-secret -n aap -o jsonpath='{.data.token}' | base64 --decode</code><br />
+3) Red Hat Ansible Platform Host url and Credentials
+</p>
+</blockquote>
+<h3 id="openshift">Openshift</h3>
+<p><strong>Step1:</strong> Log in to AAP<br />
+<strong>Step2:</strong> Navigate to Credentials
+<div class="highlight"><pre><span></span><code>Automation Decisions → Credentials → Create Credential
+</code></pre></div>
+<strong>Step3:</strong> Fill in the Credential Form (like below)<br />
+<div class="highlight"><pre><span></span><code>Name: OpenShift Cluster Token for EDA
+Organization: Default
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Credential Type: Click the dropdown menu and select OpenShift Service Account Token
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>API Server URL: https://api.&lt;your-cluster-domain&gt;:6443 (this is part of the Prerequisites).
+Bearer Token: (this is part of the Prerequisites)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Verify SSL: On
+</code></pre></div>
+<img alt="Image" src="../../../images/module/module_2/page9_eda_credential_ocp.jpg" /></p>
+<h3 id="aac">AAC</h3>
+<p><strong>Step1:</strong> Navigate to Credentials
+<div class="highlight"><pre><span></span><code>Automation Decisions → Credentials → Create Credential
+</code></pre></div>
+<strong>Step2:</strong> Fill in the Credential Form (like below)<br />
+<div class="highlight"><pre><span></span><code>Name: aap credentials
+Organization: Default
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Credential Type: Red Hat Ansible Automation Platform
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Red Hat Ansible Platform: https://aap-aap.apps.&lt;your-cluster-domain&gt; (this is part of the Prerequisites).
+Username: admin
+Password: (this is part of the Prerequisites)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Verify SSL: On
+</code></pre></div>
+<img alt="Image" src="../../../images/module/module_2/page10_eda_credential_aap.jpg" /></p>
+<h2 id="decision-environment">Decision Environment</h2>
+<p>Creating the Decision Environment in AAP</p>
+<blockquote>
+<p>Prerequisites
+The custom DE image built and pushed to your registry
+Registry credentials if your registry requires authentication or make the image public.
+</p>
+</blockquote>
+<p><strong>Step1:</strong> Navigate to Decision Environments<br />
+<div class="highlight"><pre><span></span><code>Automation Decisions → Decision Environments → Create Decision Environment
+</code></pre></div>
+<strong>Step2:</strong> Fill in the Form (like below)<br />
+<div class="highlight"><pre><span></span><code>Name: DE-Juniper
+Organization: Default
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Image: quay.io/rhn_support_idhaoui/de-juniper:1.0 ( This public image, custom built for the workshop)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Pull: Always pull container before running
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Verify SSL: On
+</code></pre></div>
+<img alt="Image 1" src="../../../images/module/module_2/page12_eda_de_juiper.jpg" />  </p>
+<p><img alt="Image 2" src="../../../images/module/module_2/page11_eda_de.jpg" />  </p>
+<hr />
+<h3 id="important-collections-part-de-image">Important Collections part DE Image</h3>
+<p>??? info "What's inside the DE image?"</p>
+<table>
+<thead>
+<tr>
+<th>Collection</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ansible.eda</code></td>
+<td>Core EDA event sources and filters (webhook, kafka, alertmanager, etc).</td>
+</tr>
+<tr>
+<td><code>community.general</code></td>
+<td>General-purpose Ansible modules used in rulebook actions</td>
+</tr>
+<tr>
+<td><code>juniper.eda.k8s</code></td>
+<td>Kubernetes/OpenShift event source plugin — streams <code>ADDED</code>, <code>MODIFIED</code>, <code>DELETED</code> events from the cluster API</td>
+</tr>
+</tbody>
+</table>
+<h3 id="python-dependencies-part-de-image">Python dependencies part DE Image</h3>
+<p>??? info "which dependencies are inside the DE image"</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aiokafka</code></td>
+<td>Async Kafka client — used by <code>ansible.eda</code> Kafka event source</td>
+</tr>
+<tr>
+<td><code>aiohttp</code></td>
+<td>Async HTTP client — used by webhook and HTTP-based event sources</td>
+</tr>
+<tr>
+<td><code>watchdog</code></td>
+<td>File system event monitoring</td>
+</tr>
+<tr>
+<td><code>kubernetes_asyncio</code></td>
+<td><strong>Critical</strong> — async Python client for the Kubernetes API; required by the Juniper k8s event source to open and maintain the event stream</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>kubernetes_asyncio</code> is the most critical Python dependency. Without it, the Juniper plugin cannot establish the async WebSocket connection to the OpenShift API and the rulebook will fail to start.
+</p>
+</blockquote>
+<hr />
 
 
 
