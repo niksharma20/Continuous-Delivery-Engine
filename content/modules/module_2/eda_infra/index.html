@@ -638,6 +638,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Credential Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-custom-credential" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Custom Credential
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -649,15 +664,6 @@
   
     <nav class="md-nav" aria-label="Credentials">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#openshift" class="md-nav__link">
@@ -880,9 +886,79 @@
 
 
 <h1 id="eda-infra-definations">EDA Infra Definations</h1>
-<p>This is moment when you define credentials needed by the execution enviroment to authenticate against the Target Openshift Cluster.</p>
+<p>This is moment when you define credentials needed by the decision enviroment in Event Driven Ansible(EDA) to authenticate against the Target Openshift Cluster.</p>
 <p>Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.</p>
 <h2 id="credential-type">Credential Type</h2>
+<p>The <code>custom credential type</code> definitions extend the built-in credential types available in Automation Decisions with organisation-specific schemas — allowing you to pass structured, encrypted configuration to rulebooks and playbooks in a standardised, reusable way.</p>
+<p><strong>A custom credential type in AAP has three components:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input configuration</strong></td>
+<td>Defines the fields the user fills in when creating a credential (e.g. URL, username, token)</td>
+</tr>
+<tr>
+<td><strong>Injector configuration</strong></td>
+<td>Defines how the field values are exposed to the runtime — as environment variables, extra vars, or file-based credentials</td>
+</tr>
+<tr>
+<td><strong>Credential</strong></td>
+<td>An instance of the type — the actual values stored encrypted in AAP</td>
+</tr>
+</tbody>
+</table>
+<p>Once a custom credential type is created, you can create one or more credentials from it, assign them to Job Templates or Rulebook Activations, and the values are injected at runtime without appearing in logs or playbook source.</p>
+<h3 id="creating-custom-credential">Creating Custom Credential</h3>
+<p><strong>Step1:</strong> Log in to AAP<br />
+<strong>Step2:</strong> Navigate to Credentials
+<div class="highlight"><pre><span></span><code>Automation Decisions → Credential Type → Create Credential type
+</code></pre></div>
+<strong>Step3:</strong> Fill in the credential form and save (like below)<br />
+<div class="highlight"><pre><span></span><code>Name: OpenShift Service Account Token
+Description: For mapping OpenShift Bearer tokens into rulebooks
+</code></pre></div></p>
+<p><strong>Input Configuration</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nt">fields</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OpenShift API Server URL</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bearer Token</span>
+<span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">required</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span>
+</code></pre></div>
+<strong>Injector Configuration</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">file</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">template.kubeconfig</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">apiVersion: v1</span>
+<span class="w">    </span><span class="no">kind: Config</span>
+<span class="w">    </span><span class="no">clusters:</span>
+<span class="w">      </span><span class="no">- cluster:</span>
+<span class="w">          </span><span class="no">insecure-skip-tls-verify: true</span>
+<span class="w">          </span><span class="no">server: &quot;{{ host }}&quot;</span>
+<span class="w">        </span><span class="no">name: openshift-cluster</span>
+<span class="w">    </span><span class="no">contexts:</span>
+<span class="w">      </span><span class="no">- context:</span>
+<span class="w">          </span><span class="no">cluster: openshift-cluster</span>
+<span class="w">          </span><span class="no">user: eda-runner</span>
+<span class="w">        </span><span class="no">name: eda-context</span>
+<span class="w">    </span><span class="no">current-context: eda-context</span>
+<span class="w">    </span><span class="no">users:</span>
+<span class="w">      </span><span class="no">- name: eda-runner</span>
+<span class="w">        </span><span class="no">user:</span>
+<span class="w">          </span><span class="no">token: &quot;{{ token }}&quot;</span>
+</code></pre></div>
+<img alt="Image" src="../../../images/module/module_2/page7_eda_credential_type_ocp.jpg" />
+<img alt="Image" src="../../../images/module/module_2/page6_eda_credential_type.jpg" /></p>
 <h2 id="credentials">Credentials</h2>
 <table>
 <thead>
@@ -911,8 +987,8 @@
 <div class="highlight"><pre><span></span><code>These are configured separately and both assigned to the same Rulebook Activation.
 </code></pre></div>
 <blockquote>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>Before you start you need:<br />
+<p><strong>Prerequisites</strong>
+Before you start you need:<br />
 1) The OpenShift cluster API URL. <br />
 <code>oc whoami --show-server</code><br />
 2) The decoded bearer token from the EDA ServiceAccount.<br />
@@ -957,7 +1033,7 @@ Password: (this is part of the Prerequisites)
 <h2 id="decision-environment">Decision Environment</h2>
 <p>Creating the Decision Environment in AAP</p>
 <blockquote>
-<p>Prerequisites
+<p><strong>Prerequisites</strong>
 The custom DE image built and pushed to your registry
 Registry credentials if your registry requires authentication or make the image public.
 </p>

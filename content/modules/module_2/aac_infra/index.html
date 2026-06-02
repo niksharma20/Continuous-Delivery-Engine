@@ -22,7 +22,7 @@
     
     
       
-        <title>Aac infra - Red Hat Tech Day Netherlands - Continuous Delivery Engine</title>
+        <title>AAC Infra Definations - Red Hat Tech Day Netherlands - Continuous Delivery Engine</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#credentials" class="md-skip">
+        <a href="#aac-infra-definations" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aac infra
+              AAC Infra Definations
             
           </span>
         </div>
@@ -744,12 +744,57 @@
   
 
 
-  <h1>Aac infra</h1>
-
-<p>This is for Credentials 
-This is for acc decision environement</p>
-<h2 id="credentials">Credentials</h2>
+<h1 id="aac-infra-definations">AAC Infra Definations</h1>
+<p>Ansible Automation Controller(AAC) needs a credential to authenticate to OpenShift so the remediation playbooks can execute kubernetes.core.k8s tasks against the cluster.</p>
+<blockquote>
+<p><strong>Prerequisites</strong>
+1) The OpenShift cluster API URL
+     <code>oc whoami --show-server</code><br />
+2) The decoded bearer token from the AAC ServiceAccount<br />
+<code>oc get secret aac-token-secret -n aap -o jsonpath='{.data.token}' | base64 --decode</code>  </p>
+</blockquote>
+<h2 id="creating-aac-credentials-for-openshift">Creating AAC Credentials for OpenShift</h2>
+<p><strong>Step1:</strong> Log in to AAP<br />
+<strong>Step2:</strong> Navigate to Credentials
+<div class="highlight"><pre><span></span><code>Automation Controller → Infrastructure → Credentials → Create Credential
+</code></pre></div>
+<strong>Step3:</strong> Fill in the credential form and save (like below) 
+<div class="highlight"><pre><span></span><code>Name: OCP Cluster Token for AAC
+Organization: Default
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Credential Type: OpenShift or Kubernetes API Bearer Token
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>OpenShift or Kubernetes API Endpoint: https://api.&lt;your-cluster-domain&gt;:6443 (this is part of the Prerequisites).
+Bearer Token: (this is part of the Prerequisites)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Verify SSL: On
+</code></pre></div>
+<img alt="Image" src="../../../images/module/module_2/page18_aac_credential.jpg" />  </p>
 <h2 id="execution-environement">Execution Environement</h2>
+<p>Creating the Execution Environment in AAP</p>
+<blockquote>
+<p><strong>Prerequisites</strong>
+The custom EE image built and pushed to your registry
+Registry credentials if your registry requires authentication or make the image public.
+</p>
+</blockquote>
+<p><strong>Step1:</strong> Navigate to Execution Environments<br />
+<div class="highlight"><pre><span></span><code>Automation Decisions → Infrastructure → Execution Environments → Create Execution Environment
+</code></pre></div>
+<strong>Step2:</strong> Fill in the form and save (like below)<br />
+<div class="highlight"><pre><span></span><code>Name: ee-ansible-techday
+Organization: Default
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Image: quay.io/rhn_support_idhaoui/ee-custom/ee-ansible-ssa:latest ( This public image, custom built for the workshop)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Pull: Only pull the image if not present before running
+</code></pre></div></p>
+<p><img alt="Image 1" src="../../../images/module/module_2/aac_ee_ansible_techday.jpg" />  </p>
+<p><img alt="Image 2" src="../../../images/module/module_2/page19_aac_ee.jpg" />  </p>
+<hr />
+<h3 id="important-collections-part-ee-image">Important Collections part EE Image</h3>
+<h3 id="python-dependencies-part-ee-image">Python dependencies part EE Image</h3>
+<hr />
 
 
 
