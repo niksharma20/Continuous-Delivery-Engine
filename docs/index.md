@@ -34,7 +34,7 @@ The platform operates across three layers:
     We will be using two CI environments from Red Hat Demo to provide the baseline infrastructure.
 
     1. [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&utm_source=webapp&utm_medium=share-link)
-    2. [OpenShift 4.18+ with GitOps, Pipeline, Monitoring Stack, RHDH with Orchestrator] () 
+    2. [OpenShift 4.18+ with GitOps, Pipeline, Monitoring Stack, RHDH with Orchestrator](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/pert.redhat-rhads.prod&utm_source=webapp&utm_medium=share-link) 
 
 
 ### Workshop Structure  

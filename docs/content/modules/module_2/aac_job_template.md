@@ -98,6 +98,6 @@ Similar to the images below
 ![Image](../../images/module/module_2/page27_aac_job_ocp_host_data.jpg)  
 
 
-```
-Congratulations!!!
-````
+!!! success "Congratulations!"
+    You have successfully completed this section.
+

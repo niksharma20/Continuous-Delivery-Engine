@@ -38,7 +38,30 @@ A centralised AAP instance governing multiple OpenShift clusters is exactly how 
 
 ![Image1](../images/setup/page2_rhads.jpg)  
 
+Once you have put in email id (this is just assignment purpose)
+You will see below, you will need the things in marked in red circles.
+
+![Image1](../images/setup/page5_rhads_showroom.jpg)  
+
+![Image1](../images/setup/page6_rhads_ocp.jpg)  
+
+>  Please open below in seperate brower tab 
+>  1. Showroom url, please keep it open in a separate tab
+>  2. Red Hat Developer Hub details, please keep it open in a separate tab
+>  3. GitLab details, please keep it open in a separate tab
+>  4. Red Hat OpenShift, this is your Target OpenShift Cluster
+
 
 ## Ansible Request Page
 ![Image1](../images/setup/page3_ansible.jpg)  
 
+Once you have put in email id (this is just assignment purpose)
+You will see below, you will need the things in marked in red circles.
+
+![Image1](../images/setup/page4_ansible_details.jpg)  
+
+>  Please open below in seperate brower tab 
+>  1. Automation Controller Credentials and URL, please keep it open in a separate tab
+
+!!! success "Congratulations!"
+    You have successfully completed this section.
