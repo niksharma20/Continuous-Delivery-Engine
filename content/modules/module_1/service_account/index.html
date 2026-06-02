@@ -527,45 +527,45 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-create-the-clusterrole-01_eda-clusterroleyaml" class="md-nav__link">
+  <a href="#step-1" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Create the ClusterRole 01_eda-clusterrole.yaml
+      Step 1
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-create-the-serviceaccount-02_eda-serviceaccountyaml" class="md-nav__link">
+  <a href="#step-2" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Create the ServiceAccount 02_eda-serviceaccount.yaml
+      Step 2
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_eda-rolebindingyaml" class="md-nav__link">
+  <a href="#step-3" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Bind the ServiceAccount to the ClusterRole 03_eda-rolebinding.yaml
+      Step 3
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-generate-a-persistent-long-lived-token-04_eda-token-secretyaml" class="md-nav__link">
+  <a href="#step-4" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Generate a Persistent Long-Lived Token 04_eda-token-secret.yaml
+      Step 4
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-extract-the-token" class="md-nav__link">
+  <a href="#step-5" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Extract the Token
+      Step 5
     </span>
   </a>
   
@@ -586,45 +586,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-create-the-clusterrole-01_aac-clusterroleyaml" class="md-nav__link">
+  <a href="#step-1_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Create the ClusterRole 01_aac-clusterrole.yaml
+      Step 1
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-create-the-serviceaccount-02_aac-serviceaccountyaml" class="md-nav__link">
+  <a href="#step-2_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Create the ServiceAccount 02_aac-serviceaccount.yaml
+      Step 2
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_aac-rolebindingyaml" class="md-nav__link">
+  <a href="#step-3_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Bind the ServiceAccount to the ClusterRole 03_aac-rolebinding.yaml
+      Step 3
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-generate-a-persistent-long-lived-token-04_aac-token-secretyaml" class="md-nav__link">
+  <a href="#step-4_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Generate a Persistent Long-Lived Token 04_aac-token-secret.yaml
+      Step 4
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-extract-the-token_1" class="md-nav__link">
+  <a href="#step-5_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Extract the Token
+      Step 5
     </span>
   </a>
   
@@ -943,9 +943,11 @@ But it’s a prerequisite for Module 2 — without it, EDA cannot connect to Ope
 <h2 id="clone-this-repo">Clone this Repo<a class="headerlink" href="#clone-this-repo" title="Permanent link">¶</a></h2>
 <p><strong>Let's clone this repo - we don't have to write yamls</strong>  </p>
 <p>You should already logged in into your target Openshift Cluster  </p>
-<p>1.Start a web terminal (as shown in pic)<br>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_1/page1_ocp_web_terminal.jpg" data-desc-position="bottom"><img alt="image" src="../../../images/module/module_1/page1_ocp_web_terminal.jpg"></a>  </p>
 <ol>
+<li>
+<p>Start a web terminal (as shown in pic)<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../images/module/module_1/page1_ocp_web_terminal.jpg" data-desc-position="bottom"><img alt="image" src="../../../images/module/module_1/page1_ocp_web_terminal.jpg"></a>  </p>
+</li>
 <li>
 <p>Git clone<br>
   </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bash-5.1:~$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/niksharma20/Continuous-Delivery-Engine.git
@@ -964,40 +966,50 @@ But it’s a prerequisite for Module 2 — without it, EDA cannot connect to Ope
 </li>
 </ol>
 <h2 id="create-openshift-service-account-for-eda">Create OpenShift Service Account for EDA<a class="headerlink" href="#create-openshift-service-account-for-eda" title="Permanent link">¶</a></h2>
-<h3 id="step-1-create-the-clusterrole-01_eda-clusterroleyaml">Step 1: Create the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/01_eda-clusterrole.yaml">01_eda-clusterrole.yaml</a><a class="headerlink" href="#step-1-create-the-clusterrole-01_eda-clusterroleyaml" title="Permanent link">¶</a></h3>
+<h3 id="step-1">Step 1<a class="headerlink" href="#step-1" title="Permanent link">¶</a></h3>
+<p><strong>Create the ClusterRole</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/01_eda-clusterrole.yaml">01_eda-clusterrole.yaml</a>  </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/01_eda-clusterrole.yaml
 </code></pre></div>
-<h3 id="step-2-create-the-serviceaccount-02_eda-serviceaccountyaml">Step 2: Create the ServiceAccount <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/02_eda-serviceaccount.yaml">02_eda-serviceaccount.yaml</a><a class="headerlink" href="#step-2-create-the-serviceaccount-02_eda-serviceaccountyaml" title="Permanent link">¶</a></h3>
+<h3 id="step-2">Step 2<a class="headerlink" href="#step-2" title="Permanent link">¶</a></h3>
+<p><strong>Create the ServiceAccount</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/02_eda-serviceaccount.yaml">02_eda-serviceaccount.yaml</a>  </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create the ServiceAccount</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oc<span class="w"> </span>apply<span class="w"> </span>y<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/02_eda-serviceaccount.yaml
 </code></pre></div>
-<h3 id="step-3-bind-the-serviceaccount-to-the-clusterrole-03_eda-rolebindingyaml">Step 3: Bind the ServiceAccount to the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/03_eda-rolebinding.yaml">03_eda-rolebinding.yaml</a><a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_eda-rolebindingyaml" title="Permanent link">¶</a></h3>
+<h3 id="step-3">Step 3<a class="headerlink" href="#step-3" title="Permanent link">¶</a></h3>
+<p><strong>Bind the ServiceAccount to the ClusterRole</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/03_eda-rolebinding.yaml">03_eda-rolebinding.yaml</a>  </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/03_eda-rolebinding.yaml
 </code></pre></div>
-<h3 id="step-4-generate-a-persistent-long-lived-token-04_eda-token-secretyaml">Step 4: Generate a Persistent Long-Lived Token <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/04_eda-token-secret.yaml">04_eda-token-secret.yaml</a><a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token-04_eda-token-secretyaml" title="Permanent link">¶</a></h3>
+<h3 id="step-4">Step 4<a class="headerlink" href="#step-4" title="Permanent link">¶</a></h3>
+<p><strong>Generate a Persistent Long-Lived Token</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/eda-ocp-sa/04_eda-token-secret.yaml">04_eda-token-secret.yaml</a>  </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>eda-ocp-sa/04_eda-token-secret.yaml
 </code></pre></div>
-<h3 id="step-5-extract-the-token">Step 5: Extract the Token<a class="headerlink" href="#step-5-extract-the-token" title="Permanent link">¶</a></h3>
+<h3 id="step-5">Step 5<a class="headerlink" href="#step-5" title="Permanent link">¶</a></h3>
+<p><strong>Extract the Token</strong></p>
 <p>Once the Secret is created, extract and decode the token for use in AAP:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>eda-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
 </code></pre></div>
 <p><strong>Copy the output. You will need it later for creating EDA credential in the next section.</strong></p>
 <h2 id="create-openshift-service-account-for-automation-controller">Create OpenShift Service Account for Automation Controller<a class="headerlink" href="#create-openshift-service-account-for-automation-controller" title="Permanent link">¶</a></h2>
-<h2 id="step-1-create-the-clusterrole-01_aac-clusterroleyaml">Step 1: Create the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/01_aac-clusterrole.yaml">01_aac-clusterrole.yaml</a><a class="headerlink" href="#step-1-create-the-clusterrole-01_aac-clusterroleyaml" title="Permanent link">¶</a></h2>
+<h2 id="step-1_1">Step 1<a class="headerlink" href="#step-1_1" title="Permanent link">¶</a></h2>
+<p><strong>Create the ClusterRole</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/01_aac-clusterrole.yaml">01_aac-clusterrole.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/01_aac-clusterrole.yaml
 </code></pre></div>
-<h2 id="step-2-create-the-serviceaccount-02_aac-serviceaccountyaml">Step 2: Create the ServiceAccount <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/02_aac-serviceaccount.yaml">02_aac-serviceaccount.yaml</a><a class="headerlink" href="#step-2-create-the-serviceaccount-02_aac-serviceaccountyaml" title="Permanent link">¶</a></h2>
+<h2 id="step-2_1">Step 2<a class="headerlink" href="#step-2_1" title="Permanent link">¶</a></h2>
+<p><strong>Create the ServiceAccount</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/02_aac-serviceaccount.yaml">02_aac-serviceaccount.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Create the ServiceAccount</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/02_aac-serviceaccount.yaml
 </code></pre></div>
-<h2 id="step-3-bind-the-serviceaccount-to-the-clusterrole-03_aac-rolebindingyaml">Step 3: Bind the ServiceAccount to the ClusterRole <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/03_aac-rolebinding.yaml">03_aac-rolebinding.yaml</a><a class="headerlink" href="#step-3-bind-the-serviceaccount-to-the-clusterrole-03_aac-rolebindingyaml" title="Permanent link">¶</a></h2>
+<h2 id="step-3_1">Step 3<a class="headerlink" href="#step-3_1" title="Permanent link">¶</a></h2>
+<p><strong>Bind the ServiceAccount to the ClusterRole</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/03_aac-rolebinding.yaml">03_aac-rolebinding.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/03_aac-rolebinding.yaml
 </code></pre></div>
-<h2 id="step-4-generate-a-persistent-long-lived-token-04_aac-token-secretyaml">Step 4: Generate a Persistent Long-Lived Token <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/04_aac-token-secret.yaml">04_aac-token-secret.yaml</a><a class="headerlink" href="#step-4-generate-a-persistent-long-lived-token-04_aac-token-secretyaml" title="Permanent link">¶</a></h2>
+<h2 id="step-4_1">Step 4<a class="headerlink" href="#step-4_1" title="Permanent link">¶</a></h2>
+<p><strong>Generate a Persistent Long-Lived Token</strong> <a href="https://raw.githubusercontent.com/niksharma20/Continuous-Delivery-Engine/refs/heads/main/docs/content/modules/module_1/aac-ocp-sa/04_aac-token-secret.yaml">04_aac-token-secret.yaml</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>aac-ocp-sa/04_aac-token-secret.yaml
 </code></pre></div>
-<h2 id="step-5-extract-the-token_1">Step 5: Extract the Token<a class="headerlink" href="#step-5-extract-the-token_1" title="Permanent link">¶</a></h2>
+<h2 id="step-5_1">Step 5<a class="headerlink" href="#step-5_1" title="Permanent link">¶</a></h2>
+<p>Extract the Token</p>
 <p>Once the Secret is created, extract and decode the token for use in AAP:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>aac-token-secret<span class="w"> </span>-n<span class="w"> </span>aap<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.token}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
