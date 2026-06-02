@@ -779,18 +779,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectives-completed" class="md-nav__link">
+  <a href="#take-it-further" class="md-nav__link">
     <span class="md-ellipsis">
-      Objectives: Completed
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extending-this-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extending This Platform
+      Take it Further
     </span>
   </a>
   
@@ -833,47 +824,19 @@
 
 <h1 id="conclusion-continuous-delivery-engine">Conclusion: Continuous Delivery Engine<a class="headerlink" href="#conclusion-continuous-delivery-engine" title="Permanent link">¶</a></h1>
 <h2 id="what-you-have-built">What You Have Built<a class="headerlink" href="#what-you-have-built" title="Permanent link">¶</a></h2>
-<p>By working through this workshop, you have assembled the complete <strong>event-driven governance layer</strong> for a Namespace on Openshift — this simple is very use case but the integration quite Powerful.  </p>
-<hr>
-<h2 id="objectives-completed">Objectives: Completed<a class="headerlink" href="#objectives-completed" title="Permanent link">¶</a></h2>
-<hr>
-<h2 id="extending-this-platform">Extending This Platform<a class="headerlink" href="#extending-this-platform" title="Permanent link">¶</a></h2>
-<p>The patterns in this repository are intentionally generic. Common extensions include:</p>
-<table>
-<thead>
-<tr>
-<th>Extension</th>
-<th>What to Add</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Watch additional resource types</td>
-<td>Add new <code>kinds:</code> entries to the rulebook source block</td>
-</tr>
-<tr>
-<td>Add a new governance rule</td>
-<td>Add a new <code>rules:</code> entry in the rulebook + a new Job Template + a new playbook</td>
-</tr>
-<tr>
-<td>Support multiple clusters</td>
-<td>Create one Rulebook Activation per cluster, each with its own OpenShift credential</td>
-</tr>
-<tr>
-<td>Add TTL enforcement</td>
-<td>Add a rule matching namespace TTL annotations + a playbook that opens a Git PR</td>
-</tr>
-<tr>
-<td>Integrate with ITSM</td>
-<td>Extend remediation playbooks to create ServiceNow / Jira tickets via their APIs</td>
-</tr>
-<tr>
-<td>Add quota breach alerting</td>
-<td>Source from Alertmanager in addition to <code>k8s.eda</code> — combine event sources in one rulebook</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<p>By working through this workshop, you built a <strong>Continuous Delivery Engine</strong> with a simiplied End User Experinece. platform that provisions, governs, and remediates namespaces automatically.  </p>
+<h2 id="take-it-further">Take it Further<a class="headerlink" href="#take-it-further" title="Permanent link">¶</a></h2>
+<ul>
+<li>Add more EDA rules for additional governance scenarios</li>
+<li>Connect Alertmanager as a second event source for metric-based remediation</li>
+<li>Extend the Orchestrator workflow to integrate with Jira, ServiceNow, Ansible Automation Controller (XaaS). <strong>Think of Platform Automation</strong></li>
+<li>Apply NIS2 / CIS compliance annotations to every remediation. <strong>Think of Security Automation</strong></li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>You have completed the Continuous Delivery Engine workshop.
+You now have a working, end-to-end governance platform you can adapt to your own environment.  </p>
+</div>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://www.ansible.com/products/event-driven-ansible">Event-Driven Ansible documentation</a></li>
