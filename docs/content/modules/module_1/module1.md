@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to module 1, this is also the simplest and easiet out three.  
+**Welcome to module 1**, this is also the simplest and easiet out of the three.  
 This is divided in two parts:  
 1. You provision a namespace using software templates in Developer Hub.  
 2. You will be a creating a Cluster Roles, Service Accounts and Role Bindings as prepartion for the Module 2 of this workshop.
@@ -15,15 +15,15 @@ This has two parts:
 !!! note "Part 1"
 
     For this part of the module you will have to use user guide avaible in the showroom link (as shown in the pic).
+
     Module 12 in the showroom link is the Part 1 of this module.
 
 ![Image1](../../images/module/module_1/naas.jpg)  
 
-**we working to have towards creating an integrate experience and adding Trusted Software Supply chain to this worskhop**
 
 !!! note "Part 2"
 
-    this is basically prepartion for module 2 in the workshop. you will be using the same OpenShift Cluster.
+    ** Service Account section, this is basically prepartion for module 2 in the workshop. you will be using the same OpenShift Cluster.**
     
 
 **we working to have towards creating an integrate experience and adding Trusted Software Supply chain to this worskhop**
@@ -39,9 +39,9 @@ This has two parts:
 
 !!! tip "Use Case to explore - Not part of the workshop"
 
-    VM as a Service
+    1. VM as a Service
 
-    DB as a Service (Data Grid)
+    2. DB as a Service (Data Grid)
 
 
 ## Further Reading
