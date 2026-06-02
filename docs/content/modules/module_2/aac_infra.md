@@ -61,11 +61,7 @@ Pull: Only pull the image if not present before running
 
 ![Image 2](../../images/module/module_2/page19_aac_ee.jpg)  
 
------  
-
-### Important Collections part EE Image  
 
 
-### Python dependencies part EE Image  
-
------  
+## References  
+[ansible-builder configuration for building Ansible Execution Environments](https://gitlab.com/ansible-ssa/ee-ansible-ssa)  
