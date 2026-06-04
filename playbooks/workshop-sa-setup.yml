@@ -1,0 +1,104 @@
+---
+- name: Workshop Setup — Service Accounts + AAP Credentials
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    aap_url: "https://{{ lookup('env', 'AAP_URL') }}"
+    aap_username: "{{ lookup('env', 'AAP_USERNAME') }}"
+    aap_password: "{{ lookup('env', 'AAP_PASSWORD') }}"
+    ocp_api_url: "{{ lookup('pipe', 'oc whoami --show-server') }}"
+
+  tasks:
+
+    # ── Step 1: Create namespace ──────────────────────────────
+    - name: Create aap namespace
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Namespace
+          metadata:
+            name: aap
+
+    # ── Step 2: Apply EDA manifests ───────────────────────────
+    - name: Apply EDA Service Account manifests
+      kubernetes.core.k8s:
+        state: present
+        src: "{{ item }}"
+      loop:
+        - eda-ocp-sa/01_eda-clusterrole.yaml
+        - eda-ocp-sa/02_eda-serviceaccount.yaml
+        - eda-ocp-sa/03_eda-rolebinding.yaml
+        - eda-ocp-sa/04_eda-token-secret.yaml
+
+    # ── Step 3: Apply AAC manifests ───────────────────────────
+    - name: Apply AAC Service Account manifests
+      kubernetes.core.k8s:
+        state: present
+        src: "{{ item }}"
+      loop:
+        - aac-ocp-sa/01_aac-clusterrole.yaml
+        - aac-ocp-sa/02_aac-serviceaccount.yaml
+        - aac-ocp-sa/03_aac-rolebinding.yaml
+        - aac-ocp-sa/04_aac-token-secret.yaml
+
+    # ── Step 4: Extract tokens ────────────────────────────────
+    - name: Extract EDA token
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: Secret
+        name: eda-token-secret
+        namespace: aap
+      register: eda_secret
+
+    - name: Extract AAC token
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: Secret
+        name: aac-token-secret
+        namespace: aap
+      register: aac_secret
+
+    - name: Set token facts
+      set_fact:
+        eda_token: "{{ eda_secret.resources[0].data.token | b64decode }}"
+        aac_token: "{{ aac_secret.resources[0].data.token | b64decode }}"
+
+    # ── Step 5: Create EDA credential in AAP ─────────────────
+    - name: Create OpenShift credential for EDA
+      ansible.controller.credential:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "OpenShift Cluster Token for EDA"
+        organization: Default
+        credential_type: "OpenShift or Kubernetes API Bearer Token"
+        inputs:
+          host: "{{ ocp_api_url }}"
+          bearer_token: "{{ eda_token }}"
+          verify_ssl: false
+
+    # ── Step 6: Create AAC credential in AAP ─────────────────
+    - name: Create OpenShift credential for AAC
+      ansible.controller.credential:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "OCP Cluster Token for AAC"
+        organization: Default
+        credential_type: "OpenShift or Kubernetes API Bearer Token"
+        inputs:
+          host: "{{ ocp_api_url }}"
+          bearer_token: "{{ aac_token }}"
+          verify_ssl: false
+
+    # ── Step 7: Confirm ───────────────────────────────────────
+    - name: Done
+      debug:
+        msg:
+          - "EDA credential created in AAP"
+          - "AAC credential created in AAP"
+          - "OCP API: {{ ocp_api_url }}"
