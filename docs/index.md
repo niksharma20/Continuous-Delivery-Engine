@@ -61,6 +61,10 @@ The platform operates across three layers:
 | **GitHub** | Issue tracker for approval workflows (Jira or ServiceNow in production) |  
 
 
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    [Next: Setup →](./content/setup/setup.md){ .md-button .md-button--primary }
+
 ## Further Reading
 
 - [Red Hat Developer Hub documentation](https://docs.redhat.com/en/documentation/red_hat_developer_hub)
