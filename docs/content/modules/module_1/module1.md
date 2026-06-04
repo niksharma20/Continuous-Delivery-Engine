@@ -1,6 +1,6 @@
 # Declarative Infrastructure  
 
-## Overview
+## Module 1
 
 **Welcome to module 1**, this is also the simplest and easiet out of the three.  
 This is divided in two parts:  
@@ -46,7 +46,7 @@ This has two parts:
 
 !!! success "Congratulations!"
     You have successfully completed this section.
-    [Next: Service Accounts →](../module_1/service_account.md){ .md-button .md-button--primary }
+    [Next: Service Accounts →](../module_1/service_account.md)
 
 
 ## Further Reading
