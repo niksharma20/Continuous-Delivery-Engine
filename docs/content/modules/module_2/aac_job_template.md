@@ -1,4 +1,4 @@
-# AE Project and Rulebooks Definations  
+# Automation Execution Project and Job Templates Definations  
 
 A Project in Automation Controller(AC) is a connection to a Git repository that contains your playbooks. AC syncs the repo and makes the playbooks available for Job Templates.  
 

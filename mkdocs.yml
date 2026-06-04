@@ -47,15 +47,15 @@ nav:
   - Home: index.md
   - Setup: content/setup/setup.md
   - Module 1:
-    - Overview: content/modules/module_1/module1.md
+    - Module 1: content/modules/module_1/module1.md
     - Service Account: content/modules/module_1/service_account.md
   - Module 2:
-    - Overview: content/modules/module_2/module2.md
+    - Module 2: content/modules/module_2/module2.md
     - EDA Infra: content/modules/module_2/eda_infra.md
     - EDA Rulebook: content/modules/module_2/eda_rulebook.md
     - AAC Infra: content/modules/module_2/aac_infra.md
     - AAC Job Templates: content/modules/module_2/aac_job_template.md
   - Module 3:
-    - Overview: content/modules/module_3/module3.md
+    - Module 3: content/modules/module_3/module3.md
     - Namespace Governance: content/modules/module_3/naas_governance.md
   - Conclusion: content/conclusion/conclusion.md
