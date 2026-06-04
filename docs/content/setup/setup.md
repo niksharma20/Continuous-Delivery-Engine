@@ -66,4 +66,4 @@ You will see below, you will need the things in marked in red circles.
 
 !!! success "Congratulations!"
     You have successfully completed this section.
-    [Next: Module 1 →](../modules/module_1/module1.md)
+    Continue to the next page using the **Next** button below.

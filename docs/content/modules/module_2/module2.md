@@ -30,6 +30,9 @@ This module is also divided in two parts:
 | **Event Driven Ansible** | Automation Decisions |  
 
 
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    Continue to the next page using the **Next** button below.
 
 ## References
 [Event Driven Ansible for Openshift](https://github.com/redhat-ads-tech/rhads-enablement-l3-st-self-service)  

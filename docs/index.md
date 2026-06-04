@@ -63,7 +63,7 @@ The platform operates across three layers:
 
 !!! success "Congratulations!"
     You have successfully completed this section.
-    [Next: Setup →](./content/setup/setup.md){ .md-button .md-button--primary }
+    Continue to the next page using the **Next** button below.
 
 ## Further Reading
 

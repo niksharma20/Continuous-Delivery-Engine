@@ -189,3 +189,7 @@ Verify SSL: On
 > `kubernetes_asyncio` is the most critical Python dependency. Without it, the Juniper plugin cannot establish the async WebSocket connection to the OpenShift API and the rulebook will fail to start.
 > 
 -----
+
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    Continue to the next page using the **Next** button below.

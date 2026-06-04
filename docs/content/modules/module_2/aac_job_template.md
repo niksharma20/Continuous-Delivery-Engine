@@ -101,3 +101,6 @@ Similar to the images below
 !!! success "Congratulations!"
     You have successfully completed this module.
 
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    Continue to the next page using the **Next** button below.

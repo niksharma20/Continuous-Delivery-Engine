@@ -50,6 +50,10 @@ This is divided in three parts:
 | **GitHub** | Issue tracker for approval workflows (Jira or ServiceNow in production)|  
 
 
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    Continue to the next page using the **Next** button below.
+
 ## References
 [Event Driven Ansible for OpenShift](https://github.com/redhat-ads-tech/rhads-enablement-l3-st-self-service)  
 [RHDH Advanced Workflows](https://github.com/redhat-ads-tech/rhads-enablement-l3/tree/main/content/modules/ROOT/pages/rhdh-orchestrator)

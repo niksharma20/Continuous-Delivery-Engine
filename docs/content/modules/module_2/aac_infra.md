@@ -65,3 +65,7 @@ Pull: Only pull the image if not present before running
 
 ## References  
 [ansible-builder configuration for building Ansible Execution Environments](https://gitlab.com/ansible-ssa/ee-ansible-ssa)  
+
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    Continue to the next page using the **Next** button below.

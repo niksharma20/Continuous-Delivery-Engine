@@ -79,3 +79,6 @@ Automation Decisions → Rulebook Activations → OpenShift Namespace Governance
 ```
 ![Image](../../images/module/module_2/eda_rulebook_logs.jpg)  
 
+!!! success "Congratulations!"
+    You have successfully completed this section.
+    Continue to the next page using the **Next** button below.

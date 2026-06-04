@@ -114,4 +114,4 @@ This label acts as a signal to the Event Driven Ansible. The `juniper.eda.k8s` c
 
 !!! success "Congratulations!"
     You have successfully completed this section.
-    Let's check Conclusion
+    Continue to the next page using the **Next** button below.

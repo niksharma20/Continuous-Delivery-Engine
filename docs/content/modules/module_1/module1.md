@@ -46,7 +46,7 @@ This has two parts:
 
 !!! success "Congratulations!"
     You have successfully completed this section.
-    [Next: Service Accounts →](../module_1/service_account.md)
+    Continue to the next page using the **Next** button below.
 
 
 ## Further Reading

@@ -140,4 +140,4 @@ oc get secret aac-token-secret -n aap \
     
 !!! success "Congratulations!"
     You have successfully completed this section.
-    [Next: Service Accounts →](../module_2/module2.md)
+    Continue to the next page using the **Next** button below.
